@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>Webdesigner, Drupal themer, webudvikler - nyt site kommer snart!</title>
-  <link rel="shortcut icon" href="/gfx/favicon.ico" />
+  <link rel="shortcut icon" href="favicon.ico" />
   <link type="text/css" rel="stylesheet" media="screen" href="reset.css" />
   <link type="text/css" rel="stylesheet" media="screen" href="styles.css" />
   <link type="text/css" rel="stylesheet" media="screen" href="/chivo/stylesheet.css" />
