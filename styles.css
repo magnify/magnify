@@ -44,5 +44,6 @@ p {
 
 .social li {
   display: table-cell;
+  *float: left;
   width: 50px;
 }
