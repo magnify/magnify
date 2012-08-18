@@ -1,0 +1,48 @@
+body {
+  background: url('pattern.jpg');
+  color: #464646;
+  font-family: 'ChivoRegular', arial, sans-serif;
+  font-size: 13px;
+  height: 100%;
+  text-align: center;
+  width: 100%;
+}
+
+p {
+  margin: 1em 0;
+  font-style: italic;
+}
+
+.content-wrapper {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.content-wrapper:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  margin-right: -0.25em; /* Adjusts for spacing */
+  text-align: center;
+  vertical-align: middle;
+}
+
+.content {
+  display: inline-block;
+  vertical-align: middle;
+  width: 300px;
+}
+
+.social {
+  margin: 1.5em auto;
+  text-align: center;
+  width: 150px;
+}
+
+.social li {
+  display: table-cell;
+  width: 50px;
+}
