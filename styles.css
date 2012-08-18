@@ -32,6 +32,7 @@ p {
 
 .content {
   display: inline-block;
+  *margin-top: 150px; /* IE 7 */
   vertical-align: middle;
   width: 300px;
 }
@@ -44,6 +45,6 @@ p {
 
 .social li {
   display: table-cell;
-  *float: left;
+  *float: left; /* IE 7 */
   width: 50px;
 }
