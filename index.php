@@ -11,7 +11,7 @@
 <body>
   <div class="content-wrapper">
     <div class="content">
-      <a href="/" title="Webdesigner, Drupal themer, webudvikler  "><img src="logo.png" width="205" height="55" /></a>
+      <h1><a href="/" title="Webdesigner, Drupal themer, webudvikler  ">magnify.dk - Webdesigner, Drupal themer, webudvikler</a></h1>
       <p><i>Kommer snart... Ssshh!</i></p>
       <p class="mail"><a href="mailto:hallo@magnify.dk">hallo@magnify.dk</a></p>
       <ul class="social">

@@ -33,6 +33,18 @@ a {
   }
 }
 
+h1 {
+  text-align: center;
+  a {
+    background: url("../logo.png") no-repeat;
+    display: block;
+    height: 55px;
+    margin: 0 auto;
+    text-indent: -10000px;
+    width: 205px;
+  }
+}
+
 p {
   margin: 1em 0;
   &.mail {

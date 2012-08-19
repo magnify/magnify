@@ -96,21 +96,35 @@ a:focus {
 }
 
 /* line 36, ../sass/styles.scss */
+h1 {
+  text-align: center;
+}
+/* line 38, ../sass/styles.scss */
+h1 a {
+  background: url("../logo.png") no-repeat;
+  display: block;
+  height: 55px;
+  margin: 0 auto;
+  text-indent: -10000px;
+  width: 205px;
+}
+
+/* line 48, ../sass/styles.scss */
 p {
   margin: 1em 0;
 }
-/* line 38, ../sass/styles.scss */
+/* line 50, ../sass/styles.scss */
 p.mail {
   font-size: 150%;
   font-style: normal;
 }
 
-/* line 44, ../sass/styles.scss */
+/* line 56, ../sass/styles.scss */
 i {
   font-style: italic;
 }
 
-/* line 48, ../sass/styles.scss */
+/* line 60, ../sass/styles.scss */
 .content-wrapper {
   bottom: 0;
   left: 0;
@@ -118,7 +132,7 @@ i {
   right: 0;
   top: 0;
 }
-/* line 54, ../sass/styles.scss */
+/* line 66, ../sass/styles.scss */
 .content-wrapper:before {
   content: '';
   display: inline-block;
@@ -128,7 +142,7 @@ i {
   text-align: center;
   vertical-align: middle;
 }
-/* line 62, ../sass/styles.scss */
+/* line 74, ../sass/styles.scss */
 .content-wrapper .content {
   display: inline-block;
   *margin-top: 150px;
@@ -137,19 +151,19 @@ i {
   width: 300px;
 }
 
-/* line 70, ../sass/styles.scss */
+/* line 82, ../sass/styles.scss */
 .social {
   margin: 1.5em auto;
   text-align: center;
   width: 150px;
 }
-/* line 74, ../sass/styles.scss */
+/* line 86, ../sass/styles.scss */
 .social li {
   display: inline;
   float: left;
   margin: 0 10px;
 }
-/* line 78, ../sass/styles.scss */
+/* line 90, ../sass/styles.scss */
 .social li a {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=25);
   opacity: 0.25;
@@ -159,19 +173,19 @@ i {
   text-indent: -10000px;
   width: 24px;
 }
-/* line 86, ../sass/styles.scss */
+/* line 98, ../sass/styles.scss */
 .social li a.twitter {
   width: 32px;
 }
-/* line 89, ../sass/styles.scss */
+/* line 101, ../sass/styles.scss */
 .social li a.facebook {
   background-position: -32px 0;
 }
-/* line 92, ../sass/styles.scss */
+/* line 104, ../sass/styles.scss */
 .social li a.linkedin {
   background-position: -56px 0;
 }
-/* line 95, ../sass/styles.scss */
+/* line 107, ../sass/styles.scss */
 .social li a:hover {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
   opacity: 0.5;
