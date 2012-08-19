@@ -1,0 +1,178 @@
+/* line 17, ../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* line 20, ../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+body {
+  line-height: 1;
+}
+
+/* line 22, ../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 24, ../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 26, ../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 28, ../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 101, ../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 30, ../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 114, ../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/*
+  Variables
+*/
+/* line 10, ../sass/styles.scss */
+body {
+  background: url("../pattern.jpg");
+  color: #464646;
+  font-family: 'ChivoRegular', arial, sans-serif;
+  font-size: 13px;
+  height: 100%;
+  text-align: center;
+  width: 100%;
+}
+
+/* line 21, ../sass/styles.scss */
+a:link {
+  color: #464646;
+  text-decoration: none;
+}
+/* line 25, ../sass/styles.scss */
+a:visited {
+  color: #202020;
+}
+/* line 28, ../sass/styles.scss */
+a:hover {
+  color: #131313;
+}
+/* line 31, ../sass/styles.scss */
+a:focus {
+  color: #131313;
+}
+
+/* line 36, ../sass/styles.scss */
+p {
+  margin: 1em 0;
+}
+/* line 38, ../sass/styles.scss */
+p.mail {
+  font-size: 150%;
+  font-style: normal;
+}
+
+/* line 44, ../sass/styles.scss */
+i {
+  font-style: italic;
+}
+
+/* line 48, ../sass/styles.scss */
+.content-wrapper {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+/* line 54, ../sass/styles.scss */
+.content-wrapper:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  margin-right: -0.25em;
+  /* Adjusts for spacing */
+  text-align: center;
+  vertical-align: middle;
+}
+/* line 62, ../sass/styles.scss */
+.content-wrapper .content {
+  display: inline-block;
+  *margin-top: 150px;
+  /* IE 7 */
+  vertical-align: middle;
+  width: 300px;
+}
+
+/* line 70, ../sass/styles.scss */
+.social {
+  margin: 1.5em auto;
+  text-align: center;
+  width: 150px;
+}
+/* line 74, ../sass/styles.scss */
+.social li {
+  display: inline;
+  float: left;
+  margin: 0 10px;
+}
+/* line 78, ../sass/styles.scss */
+.social li a {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=25);
+  opacity: 0.25;
+  background: url("../social.png") no-repeat;
+  display: block;
+  height: 24px;
+  text-indent: -10000px;
+  width: 24px;
+}
+/* line 86, ../sass/styles.scss */
+.social li a.twitter {
+  width: 32px;
+}
+/* line 89, ../sass/styles.scss */
+.social li a.facebook {
+  background-position: -32px 0;
+}
+/* line 92, ../sass/styles.scss */
+.social li a.linkedin {
+  background-position: -56px 0;
+}
+/* line 95, ../sass/styles.scss */
+.social li a:hover {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  opacity: 0.5;
+}
