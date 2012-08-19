@@ -1,18 +1,21 @@
-<!doctype html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Webdesigner, Drupal themer, webudvikler - nyt site kommer snart!</title>
-  <link rel="icon" type="image/png" href="favicon.ico">
-  <link type="text/css" rel="stylesheet" media="screen" href="/css/styles.css" />
-  <link type="text/css" rel="stylesheet" media="screen" href="/chivo/stylesheet.css" />
-</head>
-<body>
-  <div class="content-wrapper">
-    <div class="content">
-      <h1><a href="/" title="Webdesigner, Drupal themer, webudvikler  ">magnify.dk - Webdesigner, Drupal themer, webudvikler</a></h1>
-    </div>
-  </div>
-</body>
-</html>
+<?php
+
+/**
+ * @file
+ * The PHP page that serves all page requests on a Drupal installation.
+ *
+ * The routines here dispatch control to the appropriate handler, which then
+ * prints the appropriate page.
+ *
+ * All Drupal code is released under the GNU General Public License.
+ * See COPYRIGHT.txt and LICENSE.txt.
+ */
+
+/**
+ * Root directory of Drupal installation.
+ */
+define('DRUPAL_ROOT', getcwd());
+
+require_once DRUPAL_ROOT . '/includes/bootstrap.inc';
+drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL);
+menu_execute_active_handler();
