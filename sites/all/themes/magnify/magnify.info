@@ -1,0 +1,6 @@
+;----------// Theme Information
+  name        = magnify
+  description = Theme for magnify.dk.
+  core        = 7.x
+  release     = 7.x-1.x
+  screenshot  = screenshot.png
