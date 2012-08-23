@@ -1,0 +1,99 @@
+/* ==========================================================================
+   Imports
+   ========================================================================== */
+
+@import "compass/css3";
+
+/* ==========================================================================
+   Font import
+   ========================================================================== */
+@include font-face("Chivo Regular", font-files("chivo/Chivo-Regular-webfont.woff",
+   "chivo/Chivo-Regular-webfont.ttf", "chivo/Chivo-Regular-webfont.svg"),
+   "chivo/Chivo-Regular-webfont.eot", 'normal', 'normal');
+
+@include font-face("Chivo Black", font-files("chivo/Chivo-Black-webfont.woff",
+   "chivo/Chivo-Black-webfont.ttf", "chivo/Chivo-Black-webfont.svg"),
+   "chivo/Chivo-Black-webfont.eot", 'normal', 'normal');
+
+
+/* ==========================================================================
+   Variables
+   ========================================================================== */
+
+$text-color-primary: #464646;
+$text-font-family:    arial, sans-serif;
+$text-primary-font:   'Chivo Regular', $text-font-family;
+$text-secondary-font: 'Chivo Black', $text-font-family;
+
+$link-color:        #3cbcd3;
+$link-color-hover:  darken($link-color, 25%);
+
+body {
+  background: url('../images/ pattern.jpg');
+  color: $text-color-primary;
+  font-family: $text-primary-font;
+  font-size: 13px;
+  height: 100%;
+  text-align: center;
+  width: 100%;
+}
+
+a {
+  &:link {
+    color: $link-color;
+    text-decoration: none;
+  }
+  &:visited {
+    color: darken($link-color, 15%);
+  }
+  &:hover {
+    color: darken($link-color, 20%);
+  }
+  &:focus {
+    color: darken($link-color, 20%);
+  }
+}
+
+h1 {
+  text-align: center;
+  a {
+    background: url("../logo.png") no-repeat;
+    display: block;
+    height: 55px;
+    margin: 0 auto;
+    text-indent: -10000px;
+    width: 205px;
+  }
+}
+
+.social {
+  margin: 1.5em auto;
+  text-align: center;
+  width: 150px;
+  li {
+    display: inline;
+    float: left;
+    margin: 0 10px;
+    a {
+      @include opacity(.25);
+
+      background: url("../images/social.png") no-repeat;
+      display: block;
+      height: 24px;
+      text-indent: -10000px;
+      width: 24px;
+      &.twitter {
+        width: 32px;
+      }
+      &.facebook {
+        background-position: -32px 0;
+      }
+      &.linkedin {
+        background-position: -56px 0;
+      }
+      &:hover {
+        @include opacity(.5);
+      }
+    }
+  }
+}

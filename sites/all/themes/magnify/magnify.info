@@ -4,3 +4,8 @@
   core        = 7.x
   release     = 7.x-1.x
   screenshot  = screenshot.png
+
+; Import stylesheets.
+  stylesheets[all][] = css/magnify.reset.css
+  stylesheets[all][] = css/magnify.styles.css
+
