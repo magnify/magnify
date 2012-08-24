@@ -6,6 +6,5 @@
   screenshot  = screenshot.png
 
 ; Import stylesheets.
-  stylesheets[all][] = css/magnify.reset.css
   stylesheets[all][] = css/magnify.styles.css
 

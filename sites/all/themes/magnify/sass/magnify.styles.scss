@@ -5,25 +5,25 @@
 @import "compass/css3";
 
 /* ==========================================================================
-   Font import
+   Fonts
    ========================================================================== */
-@include font-face("Chivo Regular", font-files("chivo/Chivo-Regular-webfont.woff",
+@include font-face("ChivoRegular", font-files("chivo/Chivo-Regular-webfont.woff",
    "chivo/Chivo-Regular-webfont.ttf", "chivo/Chivo-Regular-webfont.svg"),
    "chivo/Chivo-Regular-webfont.eot", 'normal', 'normal');
 
-@include font-face("Chivo Black", font-files("chivo/Chivo-Black-webfont.woff",
+@include font-face("ChivoBlack", font-files("chivo/Chivo-Black-webfont.woff",
    "chivo/Chivo-Black-webfont.ttf", "chivo/Chivo-Black-webfont.svg"),
-   "chivo/Chivo-Black-webfont.eot", 'normal', 'normal');
+   "chivo/Chivo-Black-webfont.eot", 'Black', 'normal');
 
 
 /* ==========================================================================
    Variables
    ========================================================================== */
 
-$text-color-primary: #464646;
+$text-color-primary:  #464646;
 $text-font-family:    arial, sans-serif;
-$text-primary-font:   'Chivo Regular', $text-font-family;
-$text-secondary-font: 'Chivo Black', $text-font-family;
+$text-primary-font:   'ChivoRegular', $text-font-family;
+$text-secondary-font: 'ChivoBlack', $text-font-family;
 
 $link-color:        #3cbcd3;
 $link-color-hover:  darken($link-color, 25%);

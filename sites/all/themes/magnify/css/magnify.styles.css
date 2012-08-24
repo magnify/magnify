@@ -2,21 +2,21 @@
    Imports
    ========================================================================== */
 /* ==========================================================================
-   Font import
+   Fonts
    ========================================================================== */
 @font-face {
-  font-family: "Chivo Regular";
-  src: url('/css/fonts/chivo/Chivo-Regular-webfont.eot');
-  src: url('/css/fonts/chivo/Chivo-Regular-webfont.eot?#iefix') format('eot'), url('/css/fonts/chivo/Chivo-Regular-webfont.woff') format('woff'), url('/css/fonts/chivo/Chivo-Regular-webfont.ttf') format('truetype'), url('/css/fonts/chivo/Chivo-Regular-webfont.svg') format('svg');
+  font-family: "ChivoRegular";
+  src: url('fonts/chivo/Chivo-Regular-webfont.eot');
+  src: url('fonts/chivo/Chivo-Regular-webfont.eot?#iefix') format('eot'), url('fonts/chivo/Chivo-Regular-webfont.woff') format('woff'), url('fonts/chivo/Chivo-Regular-webfont.ttf') format('truetype'), url('fonts/chivo/Chivo-Regular-webfont.svg') format('svg');
   font-weight: "normal";
   font-style: "normal";
 }
 
 @font-face {
-  font-family: "Chivo Black";
-  src: url('/css/fonts/chivo/Chivo-Black-webfont.eot');
-  src: url('/css/fonts/chivo/Chivo-Black-webfont.eot?#iefix') format('eot'), url('/css/fonts/chivo/Chivo-Black-webfont.woff') format('woff'), url('/css/fonts/chivo/Chivo-Black-webfont.ttf') format('truetype'), url('/css/fonts/chivo/Chivo-Black-webfont.svg') format('svg');
-  font-weight: "normal";
+  font-family: "ChivoBlack";
+  src: url('fonts/chivo/Chivo-Black-webfont.eot');
+  src: url('fonts/chivo/Chivo-Black-webfont.eot?#iefix') format('eot'), url('fonts/chivo/Chivo-Black-webfont.woff') format('woff'), url('fonts/chivo/Chivo-Black-webfont.ttf') format('truetype'), url('fonts/chivo/Chivo-Black-webfont.svg') format('svg');
+  font-weight: "Black";
   font-style: "normal";
 }
 
@@ -27,7 +27,7 @@
 body {
   background: url("../images/pattern.jpg");
   color: #464646;
-  font-family: "Chivo Regular", arial, sans-serif;
+  font-family: "ChivoRegular", arial, sans-serif;
   font-size: 13px;
   height: 100%;
   text-align: center;
