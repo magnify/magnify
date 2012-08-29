@@ -30,41 +30,40 @@ body {
   font-family: "ChivoRegular", arial, sans-serif;
   font-size: 13px;
   height: 100%;
-  text-align: center;
   width: 100%;
 }
 
-/* line 42, ../sass/magnify.styles.scss */
+/* line 41, ../sass/magnify.styles.scss */
 a:link {
   color: #3cbcd3;
   text-decoration: none;
 }
-/* line 46, ../sass/magnify.styles.scss */
+/* line 45, ../sass/magnify.styles.scss */
 a:visited {
   color: #248c9f;
 }
-/* line 49, ../sass/magnify.styles.scss */
+/* line 48, ../sass/magnify.styles.scss */
 a:hover {
   color: #1f7a8a;
 }
-/* line 52, ../sass/magnify.styles.scss */
+/* line 51, ../sass/magnify.styles.scss */
 a:focus {
   color: #1f7a8a;
 }
 
-/* line 57, ../sass/magnify.styles.scss */
+/* line 56, ../sass/magnify.styles.scss */
 .social {
   margin: 1.5em auto;
   text-align: center;
   width: 150px;
 }
-/* line 61, ../sass/magnify.styles.scss */
+/* line 60, ../sass/magnify.styles.scss */
 .social li {
   display: inline;
   float: left;
   margin: 0 10px;
 }
-/* line 65, ../sass/magnify.styles.scss */
+/* line 64, ../sass/magnify.styles.scss */
 .social li a {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=25);
   opacity: 0.25;
@@ -74,19 +73,19 @@ a:focus {
   text-indent: -10000px;
   width: 24px;
 }
-/* line 73, ../sass/magnify.styles.scss */
+/* line 72, ../sass/magnify.styles.scss */
 .social li a.twitter {
   width: 32px;
 }
-/* line 76, ../sass/magnify.styles.scss */
+/* line 75, ../sass/magnify.styles.scss */
 .social li a.facebook {
   background-position: -32px 0;
 }
-/* line 79, ../sass/magnify.styles.scss */
+/* line 78, ../sass/magnify.styles.scss */
 .social li a.linkedin {
   background-position: -56px 0;
 }
-/* line 82, ../sass/magnify.styles.scss */
+/* line 81, ../sass/magnify.styles.scss */
 .social li a:hover {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
   opacity: 0.5;
