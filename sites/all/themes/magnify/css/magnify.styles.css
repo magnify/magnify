@@ -33,37 +33,65 @@ body {
   width: 100%;
 }
 
-/* line 41, ../sass/magnify.styles.scss */
+/* ==========================================================================
+   Logo and slogan
+   ========================================================================== */
+/* line 45, ../sass/magnify.styles.scss */
+h1 a {
+  background: url("../logo.png") no-repeat;
+  display: block;
+  height: 55px;
+  margin: 0 auto;
+  text-indent: -10000px;
+  width: 205px;
+}
+
+/* ==========================================================================
+   Default links
+   ========================================================================== */
+/* line 61, ../sass/magnify.styles.scss */
 a:link {
   color: #3cbcd3;
   text-decoration: none;
 }
-/* line 45, ../sass/magnify.styles.scss */
+/* line 65, ../sass/magnify.styles.scss */
 a:visited {
   color: #248c9f;
 }
-/* line 48, ../sass/magnify.styles.scss */
+/* line 68, ../sass/magnify.styles.scss */
 a:hover {
   color: #1f7a8a;
 }
-/* line 51, ../sass/magnify.styles.scss */
+/* line 71, ../sass/magnify.styles.scss */
 a:focus {
   color: #1f7a8a;
 }
 
-/* line 56, ../sass/magnify.styles.scss */
+/* ==========================================================================
+   Grid styling
+   ========================================================================== */
+/* line 81, ../sass/magnify.styles.scss */
+.grid-full {
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+/* ==========================================================================
+   List of social links
+   ========================================================================== */
+/* line 91, ../sass/magnify.styles.scss */
 .social {
   margin: 1.5em auto;
   text-align: center;
   width: 150px;
 }
-/* line 60, ../sass/magnify.styles.scss */
+/* line 95, ../sass/magnify.styles.scss */
 .social li {
   display: inline;
   float: left;
   margin: 0 10px;
 }
-/* line 64, ../sass/magnify.styles.scss */
+/* line 99, ../sass/magnify.styles.scss */
 .social li a {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=25);
   opacity: 0.25;
@@ -73,19 +101,19 @@ a:focus {
   text-indent: -10000px;
   width: 24px;
 }
-/* line 72, ../sass/magnify.styles.scss */
+/* line 107, ../sass/magnify.styles.scss */
 .social li a.twitter {
   width: 32px;
 }
-/* line 75, ../sass/magnify.styles.scss */
+/* line 110, ../sass/magnify.styles.scss */
 .social li a.facebook {
   background-position: -32px 0;
 }
-/* line 78, ../sass/magnify.styles.scss */
+/* line 113, ../sass/magnify.styles.scss */
 .social li a.linkedin {
   background-position: -56px 0;
 }
-/* line 81, ../sass/magnify.styles.scss */
+/* line 116, ../sass/magnify.styles.scss */
 .social li a:hover {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
   opacity: 0.5;
