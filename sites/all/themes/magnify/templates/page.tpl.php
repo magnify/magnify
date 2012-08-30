@@ -69,24 +69,22 @@
 
 <div id="page">
     
-  <?php if (!empty($page['header'])): ?>
-    <header class="grid-full">
+  <header class="grid-full">
 
-      <?php if ($logo): ?>
-        <a href="<?php print $front_page; ?>" title="" rel="home" id="logo">
-          <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-        </a>
-      <?php endif; ?>  
+    <?php if ($logo): ?>
+      <a href="<?php print $front_page; ?>" title="" rel="home" id="logo">
+        <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+      </a>
+    <?php endif; ?>  
 
-      <h1 class="logo"><a href="<?php print $front_page; ?>" title="<?php print $site_name; ?> - <?php print $site_slogan; ?>"><?php print $site_name; ?></a></h1>
-      <h2 class="slogan"><a href="<?php print $front_page; ?>" title="<?php print $site_name; ?> - <?php print $site_slogan; ?>"><?php print $site_slogan; ?></a></h2>
+    <h1 class="logo"><a href="<?php print $front_page; ?>" title="<?php print $site_name; ?> - <?php print $site_slogan; ?>"><?php print $site_name; ?></a></h1>
+    <h2 class="slogan"><a href="<?php print $front_page; ?>" title="<?php print $site_name; ?> - <?php print $site_slogan; ?>"><?php print $site_slogan; ?></a></h2>
 
-      <?php print render($main_menu); ?>        
+    <?php print render($main_menu); ?>        
 
-      <?php print render($page['header']); ?>
+    <?php print render($page['header']); ?>
 
-    </header>
-  <?php endif; ?>
+  </header>
 
   <article class="grid-full">
     <?php print render($page['content']); ?>
