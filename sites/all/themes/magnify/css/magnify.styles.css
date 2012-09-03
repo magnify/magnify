@@ -20,23 +20,30 @@
   font-style: "normal";
 }
 
+@font-face {
+  font-family: "PTSans";
+  src: url('fonts/pt-sans/PTS55F-webfont.eot');
+  src: url('fonts/pt-sans/PTS55F-webfont.eot?#iefix') format('eot'), url('fonts/pt-sans/PT575F-webfont.woff') format('woff'), url('fonts/pt-sans/PTS55F-webfont.ttf') format('truetype'), url('fonts/pt-sans/PTS55F-webfont.svg') format('svg');
+  font-weight: "normal";
+  font-style: "normal";
+}
+
 /* ==========================================================================
    Variables
    ========================================================================== */
-/* line 31, ../sass/magnify.styles.scss */
+/* line 37, ../sass/magnify.styles.scss */
 body {
   background: url("../images/pattern.jpg");
   color: #464646;
   font-family: "ChivoRegular", arial, sans-serif;
   font-size: 13px;
   height: 100%;
-  width: 100%;
 }
 
 /* ==========================================================================
    Logo and slogan
    ========================================================================== */
-/* line 45, ../sass/magnify.styles.scss */
+/* line 50, ../sass/magnify.styles.scss */
 h1 a {
   background: url("../logo.png") no-repeat;
   display: block;
@@ -47,30 +54,60 @@ h1 a {
 }
 
 /* ==========================================================================
-   Default links
+   Headlines
    ========================================================================== */
-/* line 61, ../sass/magnify.styles.scss */
+/* line 66, ../sass/magnify.styles.scss */
+h1,
+h2,
+h3 {
+  font-family: "PTSans", arial, sans-serif;
+}
+
+/* line 70, ../sass/magnify.styles.scss */
+h2 {
+  font-size: 35.1px;
+}
+
+/* line 74, ../sass/magnify.styles.scss */
+h3 {
+  font-size: 28.6px;
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+/* line 84, ../sass/magnify.styles.scss */
 a:link {
   color: #3cbcd3;
   text-decoration: none;
 }
-/* line 65, ../sass/magnify.styles.scss */
+/* line 88, ../sass/magnify.styles.scss */
 a:visited {
   color: #248c9f;
 }
-/* line 68, ../sass/magnify.styles.scss */
+/* line 91, ../sass/magnify.styles.scss */
 a:hover {
   color: #1f7a8a;
 }
-/* line 71, ../sass/magnify.styles.scss */
+/* line 94, ../sass/magnify.styles.scss */
 a:focus {
   color: #1f7a8a;
 }
 
+/* line 100, ../sass/magnify.styles.scss */
+p a {
+  border-bottom: 1px dashed;
+  font-weight: bold;
+}
+/* line 103, ../sass/magnify.styles.scss */
+p a:hover {
+  border-bottom: 0;
+}
+
 /* ==========================================================================
-   Grid styling
+   Grid
    ========================================================================== */
-/* line 81, ../sass/magnify.styles.scss */
+/* line 114, ../sass/magnify.styles.scss */
 .grid-full {
   margin: 0 auto;
   max-width: 700px;
@@ -79,19 +116,19 @@ a:focus {
 /* ==========================================================================
    List of social links
    ========================================================================== */
-/* line 91, ../sass/magnify.styles.scss */
+/* line 124, ../sass/magnify.styles.scss */
 .social {
   margin: 1.5em auto;
   text-align: center;
   width: 150px;
 }
-/* line 95, ../sass/magnify.styles.scss */
+/* line 128, ../sass/magnify.styles.scss */
 .social li {
   display: inline;
   float: left;
   margin: 0 10px;
 }
-/* line 99, ../sass/magnify.styles.scss */
+/* line 132, ../sass/magnify.styles.scss */
 .social li a {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=25);
   opacity: 0.25;
@@ -101,19 +138,19 @@ a:focus {
   text-indent: -10000px;
   width: 24px;
 }
-/* line 107, ../sass/magnify.styles.scss */
+/* line 140, ../sass/magnify.styles.scss */
 .social li a.twitter {
   width: 32px;
 }
-/* line 110, ../sass/magnify.styles.scss */
+/* line 143, ../sass/magnify.styles.scss */
 .social li a.facebook {
   background-position: -32px 0;
 }
-/* line 113, ../sass/magnify.styles.scss */
+/* line 146, ../sass/magnify.styles.scss */
 .social li a.linkedin {
   background-position: -56px 0;
 }
-/* line 116, ../sass/magnify.styles.scss */
+/* line 149, ../sass/magnify.styles.scss */
 .social li a:hover {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
   opacity: 0.5;

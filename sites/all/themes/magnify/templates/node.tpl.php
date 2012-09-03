@@ -79,7 +79,7 @@
  */
 ?>
 
-<h3 class="page-title"><?php print $title; ?></a></h3>
+<h3 class="title"><?php print $title; ?></a></h3>
 
 <div class="content">
   <?php

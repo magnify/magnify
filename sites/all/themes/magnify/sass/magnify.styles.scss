@@ -7,6 +7,7 @@
 /* ==========================================================================
    Fonts
    ========================================================================== */
+
 @include font-face("ChivoRegular", font-files("chivo/Chivo-Regular-webfont.woff",
    "chivo/Chivo-Regular-webfont.ttf", "chivo/Chivo-Regular-webfont.svg"),
    "chivo/Chivo-Regular-webfont.eot", 'normal', 'normal');
@@ -15,15 +16,20 @@
    "chivo/Chivo-Black-webfont.ttf", "chivo/Chivo-Black-webfont.svg"),
    "chivo/Chivo-Black-webfont.eot", 'Black', 'normal');
 
+@include font-face("PTSans", font-files("pt-sans/PT575F-webfont.woff",
+   "pt-sans/PTS55F-webfont.ttf", "pt-sans/PTS55F-webfont.svg"),
+   "pt-sans/PTS55F-webfont.eot", 'normal', 'normal');
 
 /* ==========================================================================
    Variables
    ========================================================================== */
 
-$text-color-primary:  #464646;
-$text-font-family:    arial, sans-serif;
-$text-primary-font:   'ChivoRegular', $text-font-family;
-$text-secondary-font: 'ChivoBlack', $text-font-family;
+$text-size:             13px;
+$text-color-primary:    #464646;
+$text-font-family:      arial, sans-serif;
+$text-primary-font:     'ChivoRegular', $text-font-family;
+$text-strong-font:      'ChivoBlack', $text-font-family;
+$text-secondary-font:   'PTSans', $text-font-family;
 
 $link-color:        #3cbcd3;
 $link-color-hover:  darken($link-color, 25%);
@@ -34,7 +40,6 @@ body {
   font-family: $text-primary-font;
   font-size: 13px;
   height: 100%;
-  width: 100%;
 }
 
 /* ==========================================================================
@@ -52,9 +57,27 @@ h1 {
   }
 }
 
+/* ==========================================================================
+   Headlines
+   ========================================================================== */
+
+h1,
+h2,
+h3 {
+  font-family: $text-secondary-font;
+}
+
+h2 {
+  font-size: $text-size * 2.7;
+}
+
+h3 {
+  font-size: $text-size * 2.2;
+}
+
 
 /* ==========================================================================
-   Default links
+   Links
    ========================================================================== */
 
 a {
@@ -73,9 +96,19 @@ a {
   }
 }
 
+p {
+  a {
+    border-bottom: 1px dashed;
+    font-weight: bold;
+    &:hover {
+      border-bottom: 0;
+    }
+  }
+}
+
 
 /* ==========================================================================
-   Grid styling
+   Grid
    ========================================================================== */
 
 .grid-full {
