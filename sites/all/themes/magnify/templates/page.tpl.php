@@ -80,12 +80,17 @@
     <h1 class="logo"><a href="<?php print $front_page; ?>" title="<?php print $site_name; ?> - <?php print $site_slogan; ?>"><?php print $site_name; ?></a></h1>
     <h2 class="slogan"><a href="<?php print $front_page; ?>" title="<?php print $site_name; ?> - <?php print $site_slogan; ?>"><?php print $site_slogan; ?></a></h2>
 
-    <?php print render($main_menu); ?>        
-
+    <?php print render($main_menu); ?>
     <?php print render($page['header']); ?>
 
   </header>
 
+  <nav>
+    <a href="/">Home</a>
+    <a href="/work">Arbejd’</a>
+    <a href="/kontakt">Kontakt</a>
+  </nav>  
+  
   <article class="grid-full">
     <h2>What up!</h2>
     <p><strong>Velkommen forbi, jeg hedder Brian, bor i Aarhus og arbejder som webdesigner og laver til daglig hjemmesider i Drupal.</strong></p>

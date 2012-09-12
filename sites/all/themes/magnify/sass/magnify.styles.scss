@@ -34,26 +34,62 @@ $text-secondary-font:   'PTSans', $text-font-family;
 $link-color:        #3cbcd3;
 $link-color-hover:  darken($link-color, 25%);
 
+$spacing: 20px;
+
+html {
+  background: url("../images/pattern.jpg");
+  height: 100%;
+}
+
 body {
-  background: url('../images/pattern.jpg');
+  background: url("../images/lizard.png") no-repeat;
+  background-position: fixed;
   color: $text-color-primary;
   font-family: $text-primary-font;
   font-size: 13px;
-  height: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
 }
+
+/* ==========================================================================
+   Layout elements
+   ========================================================================== */
+
+header {
+  padding-top: $spacing * 1.5;
+}
+
+nav {
+  background: url("../images/nav-hz-bg.png") repeat-x;
+  min-height: $spacing * 3;
+}
+
 
 /* ==========================================================================
    Logo and slogan
    ========================================================================== */
 
-h1 {
+.logo {
+  display: inline;
   a {
     background: url("../logo.png") no-repeat;
     display: block;
-    height: 55px;
-    margin: 0 auto;
     text-indent: -10000px;
     width: 205px;
+  }
+}
+
+.slogan {
+  color: lighten($text-color-primary, 25%);
+  font-size: $text-size * 1.5;
+  a {
+    &:link,
+    &:visited,
+    &:hover,
+    &:focus {
+      @extend .slogan;
+    }
   }
 }
 
@@ -65,6 +101,7 @@ h1,
 h2,
 h3 {
   font-family: $text-secondary-font;
+  margin: 0;
 }
 
 h2 {
