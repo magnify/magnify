@@ -86,7 +86,7 @@
   </header>
 
   <nav>
-    <a href="/">Home</a>
+    <a href="/" class="active">Home</a>
     <a href="/work">Arbejd’</a>
     <a href="/kontakt">Kontakt</a>
   </nav>  

@@ -61,8 +61,14 @@ header {
 }
 
 nav {
-  background: url("../images/nav-hz-bg.png") repeat-x;
-  min-height: $spacing * 3;
+  background: url("../images/nav-hz-bg.png") repeat-x left top;
+  a {
+    display: inline-block;
+    min-height: $spacing * 3;
+    &.active {
+      background: url("../images/nav-hz-bg.png") repeat-x left bottom;
+    }
+  }
 }
 
 
