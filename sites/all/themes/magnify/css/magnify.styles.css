@@ -31,13 +31,13 @@
 /* ==========================================================================
    Variables
    ========================================================================== */
-/* line 39, ../sass/magnify.styles.scss */
+/* line 44, ../sass/magnify.styles.scss */
 html {
   background: url("../images/pattern.jpg");
   height: 100%;
 }
 
-/* line 44, ../sass/magnify.styles.scss */
+/* line 49, ../sass/magnify.styles.scss */
 body {
   background: url("../images/lizard.png") no-repeat;
   background-position: fixed;
@@ -52,33 +52,48 @@ body {
 /* ==========================================================================
    Layout elements
    ========================================================================== */
-/* line 59, ../sass/magnify.styles.scss */
+/* line 64, ../sass/magnify.styles.scss */
 header {
   padding-top: 30px;
 }
 
-/* line 63, ../sass/magnify.styles.scss */
-nav {
-  background: url("../images/nav-hz-bg.png") repeat-x left top;
-}
-/* line 65, ../sass/magnify.styles.scss */
-nav a {
-  display: inline-block;
-  min-height: 60px;
-}
 /* line 68, ../sass/magnify.styles.scss */
-nav a.active {
-  background: url("../images/nav-hz-bg.png") repeat-x left bottom;
+.nav-wrapper {
+  background: url("../images/nav-hz-bg.png") repeat-x left 35px;
+}
+/* line 71, ../sass/magnify.styles.scss */
+.nav-wrapper nav {
+  background: url("../images/nav-sep.png") right center no-repeat;
+  margin: auto;
+  max-width: 700px;
+}
+/* line 76, ../sass/magnify.styles.scss */
+.nav-wrapper nav .nav-item {
+  display: inline-block;
+  margin-left: -4px;
+}
+/* line 79, ../sass/magnify.styles.scss */
+.nav-wrapper nav .nav-item a {
+  color: white;
+  font-size: 14.3px;
+  font-weight: bold;
+  line-height: 85px;
+  display: inline-block;
+  padding-top: 20px;
+  min-height: 105px;
+  min-width: 233.33333px;
+  background: url("../images/nav-sep.png") left center no-repeat;
+  text-align: center;
 }
 
 /* ==========================================================================
    Logo and slogan
    ========================================================================== */
-/* line 79, ../sass/magnify.styles.scss */
+/* line 106, ../sass/magnify.styles.scss */
 .logo {
   display: inline;
 }
-/* line 81, ../sass/magnify.styles.scss */
+/* line 108, ../sass/magnify.styles.scss */
 .logo a {
   background: url("../logo.png") no-repeat;
   display: block;
@@ -86,7 +101,7 @@ nav a.active {
   width: 205px;
 }
 
-/* line 89, ../sass/magnify.styles.scss */
+/* line 116, ../sass/magnify.styles.scss */
 .slogan, .slogan a:link, .slogan a:visited, .slogan a:hover, .slogan a:focus {
   color: #868686;
   font-size: 19.5px;
@@ -95,7 +110,7 @@ nav a.active {
 /* ==========================================================================
    Headlines
    ========================================================================== */
-/* line 108, ../sass/magnify.styles.scss */
+/* line 135, ../sass/magnify.styles.scss */
 h1,
 h2,
 h3 {
@@ -103,12 +118,12 @@ h3 {
   margin: 0;
 }
 
-/* line 113, ../sass/magnify.styles.scss */
+/* line 140, ../sass/magnify.styles.scss */
 h2 {
   font-size: 35.1px;
 }
 
-/* line 117, ../sass/magnify.styles.scss */
+/* line 144, ../sass/magnify.styles.scss */
 h3 {
   font-size: 28.6px;
 }
@@ -116,30 +131,30 @@ h3 {
 /* ==========================================================================
    Links
    ========================================================================== */
-/* line 127, ../sass/magnify.styles.scss */
+/* line 154, ../sass/magnify.styles.scss */
 a:link {
   color: #3cbcd3;
   text-decoration: none;
 }
-/* line 131, ../sass/magnify.styles.scss */
+/* line 158, ../sass/magnify.styles.scss */
 a:visited {
   color: #248c9f;
 }
-/* line 134, ../sass/magnify.styles.scss */
+/* line 161, ../sass/magnify.styles.scss */
 a:hover {
   color: #1f7a8a;
 }
-/* line 137, ../sass/magnify.styles.scss */
+/* line 164, ../sass/magnify.styles.scss */
 a:focus {
   color: #1f7a8a;
 }
 
-/* line 143, ../sass/magnify.styles.scss */
+/* line 170, ../sass/magnify.styles.scss */
 p a {
   border-bottom: 1px dashed;
   font-weight: bold;
 }
-/* line 146, ../sass/magnify.styles.scss */
+/* line 173, ../sass/magnify.styles.scss */
 p a:hover {
   border-bottom: 0;
 }
@@ -147,7 +162,7 @@ p a:hover {
 /* ==========================================================================
    Grid
    ========================================================================== */
-/* line 157, ../sass/magnify.styles.scss */
+/* line 184, ../sass/magnify.styles.scss */
 .grid-full {
   margin: 0 auto;
   max-width: 700px;
@@ -156,19 +171,19 @@ p a:hover {
 /* ==========================================================================
    List of social links
    ========================================================================== */
-/* line 167, ../sass/magnify.styles.scss */
+/* line 194, ../sass/magnify.styles.scss */
 .social {
   margin: 1.5em auto;
   text-align: center;
   width: 150px;
 }
-/* line 171, ../sass/magnify.styles.scss */
+/* line 198, ../sass/magnify.styles.scss */
 .social li {
   display: inline;
   float: left;
   margin: 0 10px;
 }
-/* line 175, ../sass/magnify.styles.scss */
+/* line 202, ../sass/magnify.styles.scss */
 .social li a {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=25);
   opacity: 0.25;
@@ -178,19 +193,19 @@ p a:hover {
   text-indent: -10000px;
   width: 24px;
 }
-/* line 183, ../sass/magnify.styles.scss */
+/* line 210, ../sass/magnify.styles.scss */
 .social li a.twitter {
   width: 32px;
 }
-/* line 186, ../sass/magnify.styles.scss */
+/* line 213, ../sass/magnify.styles.scss */
 .social li a.facebook {
   background-position: -32px 0;
 }
-/* line 189, ../sass/magnify.styles.scss */
+/* line 216, ../sass/magnify.styles.scss */
 .social li a.linkedin {
   background-position: -56px 0;
 }
-/* line 192, ../sass/magnify.styles.scss */
+/* line 219, ../sass/magnify.styles.scss */
 .social li a:hover {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
   opacity: 0.5;

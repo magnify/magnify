@@ -85,11 +85,13 @@
 
   </header>
 
-  <nav>
-    <a href="/" class="active">Home</a>
-    <a href="/work">Arbejd’</a>
-    <a href="/kontakt">Kontakt</a>
-  </nav>  
+  <div class="nav-wrapper">
+    <nav>
+      <span class="nav-item"><a href="/" class="active">Home</a></span>
+      <span class="nav-item"><a href="/work">Arbejd’</a></span>
+      <span class="nav-item"><a href="/kontakt">Kontakt</a></span>
+    </nav>  
+  </div>
   
   <article class="grid-full">
     <h2>What up!</h2>

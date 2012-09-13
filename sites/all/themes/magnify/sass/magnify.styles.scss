@@ -35,6 +35,11 @@ $link-color:        #3cbcd3;
 $link-color-hover:  darken($link-color, 25%);
 
 $spacing: 20px;
+$max-width: 700px;
+
+$nav-color: #fff;
+$nav-height: 105px;
+
 
 html {
   background: url("../images/pattern.jpg");
@@ -60,15 +65,37 @@ header {
   padding-top: $spacing * 1.5;
 }
 
-nav {
-  background: url("../images/nav-hz-bg.png") repeat-x left top;
-  a {
-    display: inline-block;
-    min-height: $spacing * 3;
-    &.active {
-      background: url("../images/nav-hz-bg.png") repeat-x left bottom;
+.nav-wrapper {
+  background: url("../images/nav-hz-bg.png") repeat-x left 35px;
+  
+  nav {
+    background: url("../images/nav-sep.png") right center no-repeat;
+    margin: auto;
+    max-width: $max-width;
+    
+    .nav-item {
+      display: inline-block;
+      margin-left: -4px;
+      a {
+        color: $nav-color;
+        font-size: $text-size * 1.1;
+        font-weight: bold;
+        line-height: $nav-height - $spacing;
+
+        display: inline-block;
+        padding-top: $spacing;
+        min-height: $nav-height;
+        min-width: ($max-width / 3); // Fix the extra spacing provided by inline-block
+        
+        background: url("../images/nav-sep.png") left center no-repeat;
+        text-align: center;
+
+        &.active {
+        }
+      }
     }
   }
+  
 }
 
 
@@ -156,7 +183,7 @@ p {
 
 .grid-full {
   margin: 0 auto;
-  max-width: 700px;    
+  max-width: $max-width;    
 }
 
 
