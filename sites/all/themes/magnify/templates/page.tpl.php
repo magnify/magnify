@@ -69,29 +69,30 @@
 
 <div id="page">
     
-  <header class="grid-full">
+  <header>
 
     <?php if ($logo): ?>
       <a href="<?php print $front_page; ?>" title="" rel="home" id="logo">
         <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
       </a>
-    <?php endif; ?>  
+    <?php endif; ?>
+    <div class="header-inner grid-full">
+      <h1 class="logo"><a href="<?php print $front_page; ?>" title="<?php print $site_name; ?> - <?php print $site_slogan; ?>"><?php print $site_name; ?></a></h1>
+      <h2 class="slogan"><a href="<?php print $front_page; ?>" title="<?php print $site_name; ?> - <?php print $site_slogan; ?>"><?php print $site_slogan; ?></a></h2>      
+    </div>
 
-    <h1 class="logo"><a href="<?php print $front_page; ?>" title="<?php print $site_name; ?> - <?php print $site_slogan; ?>"><?php print $site_name; ?></a></h1>
-    <h2 class="slogan"><a href="<?php print $front_page; ?>" title="<?php print $site_name; ?> - <?php print $site_slogan; ?>"><?php print $site_slogan; ?></a></h2>
+    <div class="nav-wrapper">
+      <nav>
+        <span class="nav-item active"><a href="/">Home</a></span>
+        <span class="nav-item"><a href="/work">Arbejd’</a></span>
+        <span class="nav-item last"><a href="/kontakt">Kontakt</a></span>
+      </nav>  
+    </div>    
 
     <?php print render($main_menu); ?>
     <?php print render($page['header']); ?>
 
   </header>
-
-  <div class="nav-wrapper">
-    <nav>
-      <span class="nav-item"><a href="/" class="active">Home</a></span>
-      <span class="nav-item"><a href="/work">Arbejd’</a></span>
-      <span class="nav-item"><a href="/kontakt">Kontakt</a></span>
-    </nav>  
-  </div>
   
   <article class="grid-full">
     <h2>What up!</h2>

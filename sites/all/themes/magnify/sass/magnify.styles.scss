@@ -38,7 +38,7 @@ $spacing: 20px;
 $max-width: 700px;
 
 $nav-color: #fff;
-$nav-height: 105px;
+$nav-height: 110px;
 
 
 html {
@@ -62,36 +62,48 @@ body {
    ========================================================================== */
 
 header {
+  
+  margin-bottom: $spacing * 1.5;
   padding-top: $spacing * 1.5;
 }
 
 .nav-wrapper {
-  background: url("../images/nav-hz-bg.png") repeat-x left 35px;
-  
-  nav {
-    background: url("../images/nav-sep.png") right center no-repeat;
-    margin: auto;
+  background: url("../images/nav-bg.png") repeat-x 0 20px;
+    
+  nav {       
+    background: url("../images/nav-sep.png") no-repeat;
+    
+    margin-left: auto;
+    margin-right: auto;
     max-width: $max-width;
     
     .nav-item {
       display: inline-block;
-      margin-left: -4px;
+      margin-left: 1px;
+      margin-right: -4px;
+      min-width: 33%;
+      
+      &.active,
+      &:hover {
+        background: url("../images/nav-bg-active.png") repeat-x 0 20px;        
+      }
+      
       a {
+        background: url("../images/nav-sep.png") no-repeat right 0;
         color: $nav-color;
-        font-size: $text-size * 1.1;
-        font-weight: bold;
-        line-height: $nav-height - $spacing;
-
-        display: inline-block;
-        padding-top: $spacing;
-        min-height: $nav-height;
-        min-width: ($max-width / 3); // Fix the extra spacing provided by inline-block
+        display: block;
+        line-height: 100px;
+        margin-left: -4px;
         
-        background: url("../images/nav-sep.png") left center no-repeat;
         text-align: center;
-
-        &.active {
+        
+        &.active,
+        &:hover {
         }
+    
+        &.last {
+        }
+
       }
     }
   }
@@ -183,7 +195,7 @@ p {
 
 .grid-full {
   margin: 0 auto;
-  max-width: $max-width;    
+  max-width: $max-width; 
 }
 
 
