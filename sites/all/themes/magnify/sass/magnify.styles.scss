@@ -16,20 +16,25 @@
    "chivo/Chivo-Black-webfont.ttf", "chivo/Chivo-Black-webfont.svg"),
    "chivo/Chivo-Black-webfont.eot", 'Black', 'normal');
 
-@include font-face("PTSans", font-files("pt-sans/PT575F-webfont.woff",
+@include font-face("PTSans", font-files("pt-sans/PTS55F-webfont.woff",
    "pt-sans/PTS55F-webfont.ttf", "pt-sans/PTS55F-webfont.svg"),
    "pt-sans/PTS55F-webfont.eot", 'normal', 'normal');
+
+@include font-face("PTSansBold", font-files("pt-sans/PTS75F-webfont.woff",
+   "pt-sans/PTS75F-webfont.ttf", "pt-sans/PTS75F-webfont.svg"),
+   "pt-sans/PTS75F-webfont.eot", 'bold', 'normal');
 
 /* ==========================================================================
    Variables
    ========================================================================== */
 
 $text-size:             13px;
+$text-line-height:      16px;
 $text-color-primary:    #464646;
 $text-font-family:      arial, sans-serif;
 $text-primary-font:     'ChivoRegular', $text-font-family;
 $text-strong-font:      'ChivoBlack', $text-font-family;
-$text-secondary-font:   'PTSans', $text-font-family;
+$text-secondary-font:   'PTSansBold', $text-font-family;
 
 $link-color:        #3cbcd3;
 $link-color-hover:  darken($link-color, 25%);
@@ -38,7 +43,7 @@ $spacing: 20px;
 $max-width: 700px;
 
 $nav-color: #fff;
-$nav-height: 110px;
+$nav-height: 105px;
 
 
 html {
@@ -55,6 +60,10 @@ body {
   min-height: 100%;
   margin: 0;
   padding: 0;
+}
+
+p {
+  line-height: $text-line-height;
 }
 
 /* ==========================================================================
@@ -92,7 +101,9 @@ header {
         background: url("../images/nav-sep.png") no-repeat right 0;
         color: $nav-color;
         display: block;
-        line-height: 100px;
+        font-family: $text-secondary-font;
+        font-size: $text-size * 1.25;
+        line-height: $nav-height;
         margin-left: -4px;
         
         text-align: center;

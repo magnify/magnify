@@ -23,21 +23,29 @@
 @font-face {
   font-family: "PTSans";
   src: url('fonts/pt-sans/PTS55F-webfont.eot');
-  src: url('fonts/pt-sans/PTS55F-webfont.eot?#iefix') format('eot'), url('fonts/pt-sans/PT575F-webfont.woff') format('woff'), url('fonts/pt-sans/PTS55F-webfont.ttf') format('truetype'), url('fonts/pt-sans/PTS55F-webfont.svg') format('svg');
+  src: url('fonts/pt-sans/PTS55F-webfont.eot?#iefix') format('eot'), url('fonts/pt-sans/PTS55F-webfont.woff') format('woff'), url('fonts/pt-sans/PTS55F-webfont.ttf') format('truetype'), url('fonts/pt-sans/PTS55F-webfont.svg') format('svg');
   font-weight: "normal";
+  font-style: "normal";
+}
+
+@font-face {
+  font-family: "PTSansBold";
+  src: url('fonts/pt-sans/PTS75F-webfont.eot');
+  src: url('fonts/pt-sans/PTS75F-webfont.eot?#iefix') format('eot'), url('fonts/pt-sans/PTS75F-webfont.woff') format('woff'), url('fonts/pt-sans/PTS75F-webfont.ttf') format('truetype'), url('fonts/pt-sans/PTS75F-webfont.svg') format('svg');
+  font-weight: "bold";
   font-style: "normal";
 }
 
 /* ==========================================================================
    Variables
    ========================================================================== */
-/* line 44, ../sass/magnify.styles.scss */
+/* line 49, ../sass/magnify.styles.scss */
 html {
   background: url("../images/pattern.jpg");
   height: 100%;
 }
 
-/* line 49, ../sass/magnify.styles.scss */
+/* line 54, ../sass/magnify.styles.scss */
 body {
   background: url("../images/lizard.png") no-repeat;
   background-position: fixed;
@@ -49,43 +57,50 @@ body {
   padding: 0;
 }
 
+/* line 65, ../sass/magnify.styles.scss */
+p {
+  line-height: 16px;
+}
+
 /* ==========================================================================
    Layout elements
    ========================================================================== */
-/* line 64, ../sass/magnify.styles.scss */
+/* line 73, ../sass/magnify.styles.scss */
 header {
   margin-bottom: 30px;
   padding-top: 30px;
 }
 
-/* line 70, ../sass/magnify.styles.scss */
+/* line 79, ../sass/magnify.styles.scss */
 .nav-wrapper {
   background: url("../images/nav-bg.png") repeat-x 0 20px;
 }
-/* line 73, ../sass/magnify.styles.scss */
+/* line 82, ../sass/magnify.styles.scss */
 .nav-wrapper nav {
   background: url("../images/nav-sep.png") no-repeat;
   margin-left: auto;
   margin-right: auto;
   max-width: 700px;
 }
-/* line 80, ../sass/magnify.styles.scss */
+/* line 89, ../sass/magnify.styles.scss */
 .nav-wrapper nav .nav-item {
   display: inline-block;
   margin-left: 1px;
   margin-right: -4px;
   min-width: 33%;
 }
-/* line 87, ../sass/magnify.styles.scss */
+/* line 96, ../sass/magnify.styles.scss */
 .nav-wrapper nav .nav-item.active, .nav-wrapper nav .nav-item:hover {
   background: url("../images/nav-bg-active.png") repeat-x 0 20px;
 }
-/* line 91, ../sass/magnify.styles.scss */
+/* line 100, ../sass/magnify.styles.scss */
 .nav-wrapper nav .nav-item a {
   background: url("../images/nav-sep.png") no-repeat right 0;
   color: white;
   display: block;
-  line-height: 100px;
+  font-family: "PTSansBold", arial, sans-serif;
+  font-size: 16.25px;
+  line-height: 105px;
   margin-left: -4px;
   text-align: center;
 }
@@ -93,11 +108,11 @@ header {
 /* ==========================================================================
    Logo and slogan
    ========================================================================== */
-/* line 118, ../sass/magnify.styles.scss */
+/* line 129, ../sass/magnify.styles.scss */
 .logo {
   display: inline;
 }
-/* line 120, ../sass/magnify.styles.scss */
+/* line 131, ../sass/magnify.styles.scss */
 .logo a {
   background: url("../logo.png") no-repeat;
   display: block;
@@ -105,7 +120,7 @@ header {
   width: 205px;
 }
 
-/* line 128, ../sass/magnify.styles.scss */
+/* line 139, ../sass/magnify.styles.scss */
 .slogan, .slogan a:link, .slogan a:visited, .slogan a:hover, .slogan a:focus {
   color: #868686;
   font-size: 19.5px;
@@ -114,20 +129,20 @@ header {
 /* ==========================================================================
    Headlines
    ========================================================================== */
-/* line 147, ../sass/magnify.styles.scss */
+/* line 158, ../sass/magnify.styles.scss */
 h1,
 h2,
 h3 {
-  font-family: "PTSans", arial, sans-serif;
+  font-family: "PTSansBold", arial, sans-serif;
   margin: 0;
 }
 
-/* line 152, ../sass/magnify.styles.scss */
+/* line 163, ../sass/magnify.styles.scss */
 h2 {
   font-size: 35.1px;
 }
 
-/* line 156, ../sass/magnify.styles.scss */
+/* line 167, ../sass/magnify.styles.scss */
 h3 {
   font-size: 28.6px;
 }
@@ -135,30 +150,30 @@ h3 {
 /* ==========================================================================
    Links
    ========================================================================== */
-/* line 166, ../sass/magnify.styles.scss */
+/* line 177, ../sass/magnify.styles.scss */
 a:link {
   color: #3cbcd3;
   text-decoration: none;
 }
-/* line 170, ../sass/magnify.styles.scss */
+/* line 181, ../sass/magnify.styles.scss */
 a:visited {
   color: #248c9f;
 }
-/* line 173, ../sass/magnify.styles.scss */
+/* line 184, ../sass/magnify.styles.scss */
 a:hover {
   color: #1f7a8a;
 }
-/* line 176, ../sass/magnify.styles.scss */
+/* line 187, ../sass/magnify.styles.scss */
 a:focus {
   color: #1f7a8a;
 }
 
-/* line 182, ../sass/magnify.styles.scss */
+/* line 193, ../sass/magnify.styles.scss */
 p a {
   border-bottom: 1px dashed;
   font-weight: bold;
 }
-/* line 185, ../sass/magnify.styles.scss */
+/* line 196, ../sass/magnify.styles.scss */
 p a:hover {
   border-bottom: 0;
 }
@@ -166,7 +181,7 @@ p a:hover {
 /* ==========================================================================
    Grid
    ========================================================================== */
-/* line 196, ../sass/magnify.styles.scss */
+/* line 207, ../sass/magnify.styles.scss */
 .grid-full {
   margin: 0 auto;
   max-width: 700px;
@@ -175,19 +190,19 @@ p a:hover {
 /* ==========================================================================
    List of social links
    ========================================================================== */
-/* line 206, ../sass/magnify.styles.scss */
+/* line 217, ../sass/magnify.styles.scss */
 .social {
   margin: 1.5em auto;
   text-align: center;
   width: 150px;
 }
-/* line 210, ../sass/magnify.styles.scss */
+/* line 221, ../sass/magnify.styles.scss */
 .social li {
   display: inline;
   float: left;
   margin: 0 10px;
 }
-/* line 214, ../sass/magnify.styles.scss */
+/* line 225, ../sass/magnify.styles.scss */
 .social li a {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=25);
   opacity: 0.25;
@@ -197,19 +212,19 @@ p a:hover {
   text-indent: -10000px;
   width: 24px;
 }
-/* line 222, ../sass/magnify.styles.scss */
+/* line 233, ../sass/magnify.styles.scss */
 .social li a.twitter {
   width: 32px;
 }
-/* line 225, ../sass/magnify.styles.scss */
+/* line 236, ../sass/magnify.styles.scss */
 .social li a.facebook {
   background-position: -32px 0;
 }
-/* line 228, ../sass/magnify.styles.scss */
+/* line 239, ../sass/magnify.styles.scss */
 .social li a.linkedin {
   background-position: -56px 0;
 }
-/* line 231, ../sass/magnify.styles.scss */
+/* line 242, ../sass/magnify.styles.scss */
 .social li a:hover {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
   opacity: 0.5;
