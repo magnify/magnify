@@ -28,6 +28,9 @@
    Variables
    ========================================================================== */
 
+$primary-color:   #464646;
+$secondary-color: #bebebe;
+
 $text-size:             13px;
 $text-line-height:      16px;
 $text-color-primary:    #464646;
@@ -70,8 +73,7 @@ p {
    Layout elements
    ========================================================================== */
 
-header {
-  
+header {  
   margin-bottom: $spacing * 1.5;
   padding-top: $spacing * 1.5;
 }
@@ -117,8 +119,11 @@ header {
 
       }
     }
-  }
-  
+  } 
+}
+
+section {
+  margin-bottom: $spacing * 2;
 }
 
 
@@ -156,6 +161,7 @@ header {
 h1,
 h2,
 h3 {
+  border-bottom: 1px dashed $secondary-color;
   font-family: $text-secondary-font;
   margin: 0;
 }

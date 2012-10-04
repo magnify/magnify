@@ -95,12 +95,16 @@
   </header>
   
   <article class="grid-full">
-    <h2>What up!</h2>
-    <p><strong>Velkommen forbi, jeg hedder Brian, bor i Aarhus og arbejder som webdesigner og laver til daglig hjemmesider i Drupal.</strong></p>
-    <p>Udover at lave websites, så spiller jeg basketball, er øgleentusiast og bor sammen med min fantastisk dejlige kæreste Janni. </p>
-    <p><strong>For tiden</strong> roder jeg en del med <a href="http://git-scm.com/">Git</a>, <a href="http://sass-lang.com/">SASS</a>, <a href="http://compass-style.org/">Compass</a>, <a href="http://styletil.es/">Styletiles</a>, <a href="http://zengrids.com/">Zen Grids</a> og prøver at følge med i alt det andet der sker online...</p>
-    <h3>Arbejd’</h3>
-    <p>Her er et par eksempler på sites jeg har lavet. Jeg har stået for design, projektledelse og frontendudvikling.</p>
+    <section>
+      <h2>What up!</h2>
+      <p><strong>Velkommen forbi, jeg hedder Brian, bor i Aarhus og arbejder som webdesigner og laver til daglig hjemmesider i Drupal.</strong></p>
+      <p>Udover at lave websites, så spiller jeg basketball, er øgleentusiast og bor sammen med min fantastisk dejlige kæreste Janni. </p>
+      <p><strong>For tiden</strong> roder jeg en del med <a href="http://git-scm.com/">Git</a>, <a href="http://sass-lang.com/">SASS</a>, <a href="http://compass-style.org/">Compass</a>, <a href="http://styletil.es/">Styletiles</a>, <a href="http://zengrids.com/">Zen Grids</a> og prøver at følge med i alt det andet der sker online...</p>
+    </section>
+    <section>
+      <h3>Arbejd’</h3>
+      <p>Her er et par eksempler på sites jeg har lavet. Jeg har stået for design, projektledelse og frontendudvikling.</p>
+    </section>
     <?php // print render($page['content']); ?>
   </article>
 
