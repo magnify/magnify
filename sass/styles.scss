@@ -4,14 +4,9 @@
  *
  */
 
-
-/* Compass */
 @import "compass/css3";
-
-
-// Include vars
+@import "base/_grid";
 @import "base/_vars";
-
-// Include base
 @import "base/_normalize";
 @import "base/_base";
+@import "layout/_layout";

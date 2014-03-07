@@ -1,0 +1,13 @@
+.header {
+  height: 65em;
+
+  background: url('/images/header-background.jpg') no-repeat;
+
+  @include background-size(100%);
+}
+
+.nav {
+  height: 4em;
+
+  background-color: transparentize($black, .75);
+}
