@@ -1,12 +1,29 @@
 .header {
-  background: url('/images/header-background.jpg') no-repeat center;
+  @extend %grid--center;
+
+  background: url('/images/header-background.jpg') no-repeat left;
   color: $white;
 
   &--inner {
-padding: 2em;
-}
+    @extend %grid__item;
+    @extend %lap--seven-eighths;
+    @extend %desk--three-quarters;
 
-  @include background-size(auto 100%);
+    padding: 2em;
+
+    @include box-sizing(border-box);
+
+    @include breakpoint($breakpoint-lap) {
+      padding-top: 3em;
+      padding-bottom: 4.5em;
+    }
+  }
+
+  @include background-size(cover);
+
+  @include breakpoint($breakpoint-lap) {
+    background-position: center;
+  }
 }
 
 .nav {
@@ -17,8 +34,8 @@ padding: 2em;
   text-align: center;
 
   &--link {
-margin-right: 1.5em;
-}
+    margin-right: 1.5em;
+  }
 
   a {
     &:link {
@@ -27,59 +44,97 @@ margin-right: 1.5em;
       text-decoration: none;
     }
 
-&:visited {
-  color: darken($white, 5%);
+    &:visited {
+      color: darken($white, 5%);
+    }
+
+    &:hover,
+    &:focus {
+      color: $link-color;
+      text-decoration: none;
+    }
+  }
+
+  @include breakpoint($breakpoint-lap) {
+    text-align: right;
+  }
 }
 
-&:hover,
-&:focus {
-  color: $link-color;
-  text-decoration: none;
-}
-  }
-  }
-
-.big-heading {
+.header-big {
   font-size: 2em;
   font-weight: 600;
 
   @include text-shadow(2px 2px 0 transparentize($black, .75));
+
+  @include grid-media-query(lap) {
+    font-size: 3em;
+  }
+
+  @include grid-media-query(desk) {
+    font-size: 4.5em;
+
+    @include text-shadow(4px 4px 0 transparentize($black, .75));
+  }
 }
 
-.sub-heading {
+.header-sub {
   margin-bottom: 2em;
 
   font-weight: 300;
 
   @include text-shadow(1px 1px 0 transparentize($black, .75));
+
+  @include grid-media-query(lap) {
+    font-size: 1.25em;
+  }
+
+  @include grid-media-query(desk) {
+    font-size: 1.75em;
+  }
 }
 
-.big-header-button {
-  border: 3px solid $white;
-  display: block;
-  padding-top: .75em;
-  padding-bottom: 1em;
-  width: 100%;
 
-  background-color: transparentize($black, .65);
-  color: $white;
-  font-size: 1.1em;
-  font-weight: 600;
-  text-align: center;
-  text-decoration: none;
+.header-button {
+  &--wrapper {
+    text-align: center;
+  }
 
-  &:link,
-  &:visited,
-  &:hover,
-  &:active {
-    color: #fff;
+  &--link {
+    border: 3px solid $white;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: .5em;
+    padding-bottom: .75em;
+
+    background-color: transparentize($black, .65);
+    color: $white;
+    font-size: 1.5em;
+    font-weight: 600;
+    text-align: center;
     text-decoration: none;
-  }
 
-  &:hover {
-    background-color: transparentize($black, .35);
-  }
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
+      color: #fff;
+      text-decoration: none;
+    }
 
-  @include border-radius(10px);
-  @include box-sizing(border-box);
+    &:hover {
+      background-color: transparentize($black, .35);
+    }
+
+    @include breakpoint($breakpoint-lap) {
+      width: 50%;
+    }
+
+    @include breakpoint($breakpoint-desk) {
+      width: 25%;
+    }
+
+    @include border-radius(10px);
+    @include box-sizing(border-box);
+  }
 }

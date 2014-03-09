@@ -122,9 +122,9 @@ $use-markup-fix:        true!default;
  */
 $breakpoints: (
     'palm' '(max-width: 480px)',
-    'lap' '(min-width: 481px) and (max-width: 1023px)',
+    'lap' '(min-width: ' + $breakpoint-lap + ') and (max-width: 1023px)',
     'portable' '(max-width: 1023px)',
-    'desk' '(min-width: 1024px)'
+    'desk' '(min-width: ' + $breakpoint-desk + ')'
 )!default;
 
 
@@ -147,10 +147,10 @@ $breakpoint-has-pull:   ('palm', 'lap', 'portable', 'desk')!default;
  * You do not need to edit anything from this line onward; csswizardry-grids is
  * good to go. Happy griddin’!
  */
-$class-type:            unquote(".");
+$class-type:            unquote(".")!global;
 
 @if $use-silent-classes == true{
-  $class-type:        unquote("%");
+  $class-type:        unquote("%")!global;
 }
 
 

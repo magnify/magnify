@@ -4,6 +4,23 @@
  * Stylesheet import
  *
  */
+/**
+ * Variables
+ *
+ * @author magnify
+ */
+/* Layout
+   ================================================================================================================== */
+/* Breakpoints
+   ================================================================================================================== */
+/* Colors
+   ================================================================================================================== */
+/* Typograhy
+   ================================================================================================================== */
+/* Link colors
+   ================================================================================================================== */
+/* Spacing
+   ================================================================================================================== */
 /*------------------------------------*\
     $CSSWIZARDRY-GRIDS
 \*------------------------------------*/
@@ -139,6 +156,24 @@
  * 4. Full-width unless told to behave otherwise.
  * 5. Required to combine fluid widths and fixed gutters.
  */
+/* line 239, ../sass/base/_grid.scss */
+.header--inner {
+  display: inline-block;
+  /* [1] */
+  padding-left: 24px;
+  /* [2] */
+  vertical-align: top;
+  /* [3] */
+  width: 100%;
+  /* [4] */
+  -webkit-box-sizing: border-box;
+  /* [5] */
+  -moz-box-sizing: border-box;
+  /* [5] */
+  box-sizing: border-box;
+  /* [5] */
+}
+
 /**
  * Reversed grids allow you to structure your source in the opposite order to
  * how your rendered layout will appear. Extends `.grid`.
@@ -154,6 +189,15 @@
  * Centered grids align grid items centrally without needing to use push or pull
  * classes. Extends `.grid`.
  */
+/* line 300, ../sass/base/_grid.scss */
+.header {
+  text-align: center;
+}
+/* line 303, ../sass/base/_grid.scss */
+.header > .header--inner {
+  text-align: left;
+}
+
 /**
  * Align grid cells vertically (`.grid--middle` or `.grid--bottom`). Extends
  * `.grid`.
@@ -254,6 +298,11 @@
   /**
    * Eighths
    */
+  /* line 419, ../sass/base/_grid.scss */
+  .header--inner {
+    width: 87.5%;
+  }
+
   /**
    * Tenths
    */
@@ -303,6 +352,11 @@
   /**
    * Quarters
    */
+  /* line 388, ../sass/base/_grid.scss */
+  .header--inner {
+    width: 75%;
+  }
+
   /**
    * Fifths
    */
@@ -332,20 +386,10 @@
  * Pull classes, to move grid items back to the left by certain amounts.
  */
 /**
- * Variables
  *
- * @author magnify
+ * Mixins
+ *
  */
-/* Layout
-   ================================================================================================================== */
-/* Colors
-   ================================================================================================================== */
-/* Typograhy
-   ================================================================================================================== */
-/* Link colors
-   ================================================================================================================== */
-/* Spacing
-   ================================================================================================================== */
 /**
  * Normalize
  *
@@ -758,69 +802,121 @@ img {
 
 /* line 1, ../sass/layout/_layout.scss */
 .header {
-  background: url("/images/header-background.jpg") no-repeat center;
+  background: url("/images/header-background.jpg") no-repeat left;
   color: white;
-  -moz-background-size: auto 100%;
-  -o-background-size: auto 100%;
-  -webkit-background-size: auto 100%;
-  background-size: auto 100%;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
 }
-/* line 5, ../sass/layout/_layout.scss */
+/* line 7, ../sass/layout/_layout.scss */
 .header--inner {
   padding: 2em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+@media only screen and (min-width: 481px) {
+  /* line 7, ../sass/layout/_layout.scss */
+  .header--inner {
+    padding-top: 3em;
+    padding-bottom: 4.5em;
+  }
+}
+@media only screen and (min-width: 481px) {
+  /* line 1, ../sass/layout/_layout.scss */
+  .header {
+    background-position: center;
+  }
 }
 
-/* line 12, ../sass/layout/_layout.scss */
+/* line 29, ../sass/layout/_layout.scss */
 .nav {
   height: 4em;
   background-color: rgba(0, 0, 0, 0.25);
   line-height: 3.5em;
   text-align: center;
 }
-/* line 19, ../sass/layout/_layout.scss */
+/* line 36, ../sass/layout/_layout.scss */
 .nav--link {
   margin-right: 1.5em;
 }
-/* line 24, ../sass/layout/_layout.scss */
+/* line 41, ../sass/layout/_layout.scss */
 .nav a:link {
   color: white;
   font-weight: 600;
   text-decoration: none;
 }
-/* line 30, ../sass/layout/_layout.scss */
+/* line 47, ../sass/layout/_layout.scss */
 .nav a:visited {
   color: #f2f2f2;
 }
-/* line 34, ../sass/layout/_layout.scss */
+/* line 51, ../sass/layout/_layout.scss */
 .nav a:hover, .nav a:focus {
   color: #f0f1d2;
   text-decoration: none;
 }
+@media only screen and (min-width: 481px) {
+  /* line 29, ../sass/layout/_layout.scss */
+  .nav {
+    text-align: right;
+  }
+}
 
-/* line 42, ../sass/layout/_layout.scss */
-.big-heading {
+/* line 63, ../sass/layout/_layout.scss */
+.header-big {
   font-size: 2em;
   font-weight: 600;
   text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.25);
 }
+@media only screen and (min-width: 481px) and (max-width: 1023px) {
+  /* line 63, ../sass/layout/_layout.scss */
+  .header-big {
+    font-size: 3em;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  /* line 63, ../sass/layout/_layout.scss */
+  .header-big {
+    font-size: 4.5em;
+    text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.25);
+  }
+}
 
-/* line 49, ../sass/layout/_layout.scss */
-.sub-heading {
+/* line 80, ../sass/layout/_layout.scss */
+.header-sub {
   margin-bottom: 2em;
   font-weight: 300;
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25);
 }
+@media only screen and (min-width: 481px) and (max-width: 1023px) {
+  /* line 80, ../sass/layout/_layout.scss */
+  .header-sub {
+    font-size: 1.25em;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  /* line 80, ../sass/layout/_layout.scss */
+  .header-sub {
+    font-size: 1.75em;
+  }
+}
 
-/* line 57, ../sass/layout/_layout.scss */
-.big-header-button {
+/* line 98, ../sass/layout/_layout.scss */
+.header-button--wrapper {
+  text-align: center;
+}
+/* line 102, ../sass/layout/_layout.scss */
+.header-button--link {
   border: 3px solid white;
   display: block;
-  padding-top: .75em;
-  padding-bottom: 1em;
-  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: .5em;
+  padding-bottom: .75em;
   background-color: rgba(0, 0, 0, 0.35);
   color: white;
-  font-size: 1.1em;
+  font-size: 1.5em;
   font-weight: 600;
   text-align: center;
   text-decoration: none;
@@ -831,12 +927,24 @@ img {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 71, ../sass/layout/_layout.scss */
-.big-header-button:link, .big-header-button:visited, .big-header-button:hover, .big-header-button:active {
+/* line 117, ../sass/layout/_layout.scss */
+.header-button--link:link, .header-button--link:visited, .header-button--link:hover, .header-button--link:active {
   color: #fff;
   text-decoration: none;
 }
-/* line 79, ../sass/layout/_layout.scss */
-.big-header-button:hover {
+/* line 125, ../sass/layout/_layout.scss */
+.header-button--link:hover {
   background-color: rgba(0, 0, 0, 0.65);
+}
+@media only screen and (min-width: 481px) {
+  /* line 102, ../sass/layout/_layout.scss */
+  .header-button--link {
+    width: 50%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  /* line 102, ../sass/layout/_layout.scss */
+  .header-button--link {
+    width: 25%;
+  }
 }

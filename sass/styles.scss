@@ -5,8 +5,9 @@
  */
 
 @import "compass/css3";
-@import "base/_grid";
 @import "base/_vars";
+@import "base/_grid";
+@import "base/_mixins";
 @import "base/_normalize";
 @import "base/_base";
 @import "layout/_layout";
