@@ -1,13 +1,85 @@
 .header {
-  height: 65em;
+  background: url('/images/header-background.jpg') no-repeat center;
+  color: $white;
 
-  background: url('/images/header-background.jpg') no-repeat;
+  &--inner {
+padding: 2em;
+}
 
-  @include background-size(100%);
+  @include background-size(auto 100%);
 }
 
 .nav {
   height: 4em;
 
   background-color: transparentize($black, .75);
+  line-height: 3.5em;
+  text-align: center;
+
+  &--link {
+margin-right: 1.5em;
+}
+
+  a {
+    &:link {
+      color: $white;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+&:visited {
+  color: darken($white, 5%);
+}
+
+&:hover,
+&:focus {
+  color: $link-color;
+  text-decoration: none;
+}
+  }
+  }
+
+.big-heading {
+  font-size: 2em;
+  font-weight: 600;
+
+  @include text-shadow(2px 2px 0 transparentize($black, .75));
+}
+
+.sub-heading {
+  margin-bottom: 2em;
+
+  font-weight: 300;
+
+  @include text-shadow(1px 1px 0 transparentize($black, .75));
+}
+
+.big-header-button {
+  border: 3px solid $white;
+  display: block;
+  padding-top: .75em;
+  padding-bottom: 1em;
+  width: 100%;
+
+  background-color: transparentize($black, .65);
+  color: $white;
+  font-size: 1.1em;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  &:hover {
+    background-color: transparentize($black, .35);
+  }
+
+  @include border-radius(10px);
+  @include box-sizing(border-box);
 }

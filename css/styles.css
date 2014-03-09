@@ -354,7 +354,7 @@
 /* HTML5 display definitions
    ================================================================================================================== */
 /* Correct `block` display not defined in IE 8/9. */
-/* line 25, ../sass/base/_normalize.scss */
+/* line 14, ../sass/base/_normalize.scss */
 article,
 aside,
 details,
@@ -371,7 +371,7 @@ summary {
 }
 
 /* Correct `inline-block` display not defined in IE 8/9. */
-/* line 34, ../sass/base/_normalize.scss */
+/* line 32, ../sass/base/_normalize.scss */
 audio,
 canvas,
 video {
@@ -421,7 +421,7 @@ a:focus {
 }
 
 /* Improve readability when focused and also mouse hovered in all browsers. */
-/* line 86, ../sass/base/_normalize.scss */
+/* line 85, ../sass/base/_normalize.scss */
 a:active,
 a:hover {
   outline: 0;
@@ -444,7 +444,7 @@ abbr[title] {
 }
 
 /* Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome. */
-/* line 110, ../sass/base/_normalize.scss */
+/* line 109, ../sass/base/_normalize.scss */
 b,
 strong {
   font-weight: bold;
@@ -472,7 +472,7 @@ mark {
 }
 
 /* Correct fontello family set oddly in Safari 5 and Chrome. */
-/* line 140, ../sass/base/_normalize.scss */
+/* line 137, ../sass/base/_normalize.scss */
 code,
 kbd,
 pre,
@@ -500,7 +500,7 @@ small {
 }
 
 /* Prevent `sub` and `sup` affecting `line-height` in all browsers. */
-/* line 166, ../sass/base/_normalize.scss */
+/* line 165, ../sass/base/_normalize.scss */
 sub,
 sup {
   font-size: 75%;
@@ -564,7 +564,7 @@ legend {
 /* 1. Correct fontello family not being inherited in all browsers. */
 /* 2. Correct fontello size not being inherited in all browsers. */
 /* 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome. */
-/* line 234, ../sass/base/_normalize.scss */
+/* line 231, ../sass/base/_normalize.scss */
 button,
 input,
 select,
@@ -579,7 +579,7 @@ textarea {
 
 /* Address Firefox 4+ setting `line-height` on `input` using `!important` in */
 /* the UA stylesheet. */
-/* line 244, ../sass/base/_normalize.scss */
+/* line 243, ../sass/base/_normalize.scss */
 button,
 input {
   line-height: normal;
@@ -589,7 +589,7 @@ input {
 /* All other form control elements do not inherit `text-transform` values. */
 /* Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+. */
 /* Correct `select` style inheritance in Firefox 4+ and Opera. */
-/* line 254, ../sass/base/_normalize.scss */
+/* line 253, ../sass/base/_normalize.scss */
 button,
 select {
   text-transform: none;
@@ -598,7 +598,7 @@ select {
 /* 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio` and `video` controls. */
 /* 2. Correct inability to style clickable `input` types in iOS. */
 /* 3. Improve usability and consistency of cursor style between image-type `input` and others. */
-/* line 265, ../sass/base/_normalize.scss */
+/* line 262, ../sass/base/_normalize.scss */
 button,
 html input[type="button"],
 input[type="reset"],
@@ -610,7 +610,7 @@ input[type="submit"] {
 }
 
 /* Re-set default cursor for disabled elements. */
-/* line 273, ../sass/base/_normalize.scss */
+/* line 272, ../sass/base/_normalize.scss */
 button[disabled],
 html input[disabled] {
   cursor: default;
@@ -618,7 +618,7 @@ html input[disabled] {
 
 /* 1. Address box sizing set to `content-box` in IE 8/9. */
 /* 2. Remove excess padding in IE 8/9. */
-/* line 281, ../sass/base/_normalize.scss */
+/* line 280, ../sass/base/_normalize.scss */
 input[type="checkbox"],
 input[type="radio"] {
   box-sizing: border-box;
@@ -640,14 +640,14 @@ input[type="search"] {
 }
 
 /* Remove inner padding and search cancel button in Safari 5 and Chrome on OS X. */
-/* line 299, ../sass/base/_normalize.scss */
+/* line 298, ../sass/base/_normalize.scss */
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
 /* Remove inner padding and border in Firefox 4+. */
-/* line 306, ../sass/base/_normalize.scss */
+/* line 305, ../sass/base/_normalize.scss */
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
@@ -686,7 +686,7 @@ body {
   font: 1em/1.5 "Exo 2", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* line 21, ../sass/base/_base.scss */
+/* line 16, ../sass/base/_base.scss */
 h1,
 h2,
 h3,
@@ -721,21 +721,21 @@ em strong {
    ================================================================================================================== */
 /* line 55, ../sass/base/_base.scss */
 a:link {
-  color: blue;
+  color: #f0f1d2;
   text-decoration: underline;
 }
 /* line 60, ../sass/base/_base.scss */
 a:visited {
-  color: #0000e6;
+  color: #eaebbf;
 }
 /* line 64, ../sass/base/_base.scss */
 a:hover {
-  color: #0000cc;
+  color: #e3e5ab;
   text-decoration: none;
 }
 /* line 69, ../sass/base/_base.scss */
 a:focus {
-  color: #0000cc;
+  color: #e3e5ab;
 }
 
 /* Paragraph
@@ -743,11 +743,12 @@ a:focus {
 /* line 78, ../sass/base/_base.scss */
 p {
   margin-top: 0;
+  margin-bottom: 0;
 }
 
 /* Image
    ================================================================================================================== */
-/* line 86, ../sass/base/_base.scss */
+/* line 87, ../sass/base/_base.scss */
 img {
   display: inline;
   height: auto;
@@ -757,16 +758,85 @@ img {
 
 /* line 1, ../sass/layout/_layout.scss */
 .header {
-  height: 65em;
-  background: url("/images/header-background.jpg") no-repeat;
-  -webkit-background-size: 100%;
-  -moz-background-size: 100%;
-  -o-background-size: 100%;
-  background-size: 100%;
+  background: url("/images/header-background.jpg") no-repeat center;
+  color: white;
+  -moz-background-size: auto 100%;
+  -o-background-size: auto 100%;
+  -webkit-background-size: auto 100%;
+  background-size: auto 100%;
+}
+/* line 5, ../sass/layout/_layout.scss */
+.header--inner {
+  padding: 2em;
 }
 
-/* line 9, ../sass/layout/_layout.scss */
+/* line 12, ../sass/layout/_layout.scss */
 .nav {
   height: 4em;
   background-color: rgba(0, 0, 0, 0.25);
+  line-height: 3.5em;
+  text-align: center;
+}
+/* line 19, ../sass/layout/_layout.scss */
+.nav--link {
+  margin-right: 1.5em;
+}
+/* line 24, ../sass/layout/_layout.scss */
+.nav a:link {
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+}
+/* line 30, ../sass/layout/_layout.scss */
+.nav a:visited {
+  color: #f2f2f2;
+}
+/* line 34, ../sass/layout/_layout.scss */
+.nav a:hover, .nav a:focus {
+  color: #f0f1d2;
+  text-decoration: none;
+}
+
+/* line 42, ../sass/layout/_layout.scss */
+.big-heading {
+  font-size: 2em;
+  font-weight: 600;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.25);
+}
+
+/* line 49, ../sass/layout/_layout.scss */
+.sub-heading {
+  margin-bottom: 2em;
+  font-weight: 300;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25);
+}
+
+/* line 57, ../sass/layout/_layout.scss */
+.big-header-button {
+  border: 3px solid white;
+  display: block;
+  padding-top: .75em;
+  padding-bottom: 1em;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.35);
+  color: white;
+  font-size: 1.1em;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 71, ../sass/layout/_layout.scss */
+.big-header-button:link, .big-header-button:visited, .big-header-button:hover, .big-header-button:active {
+  color: #fff;
+  text-decoration: none;
+}
+/* line 79, ../sass/layout/_layout.scss */
+.big-header-button:hover {
+  background-color: rgba(0, 0, 0, 0.65);
 }
