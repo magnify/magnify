@@ -1,140 +1,192 @@
+/* Header
+   ================================================================================================================== */
+
 .header {
   @extend %grid--center;
 
+  position: absolute;
+
+  min-height: 100%;
+
   background: url('/images/header-background.jpg') no-repeat left;
   color: $white;
-
-  &--inner {
-    @extend %grid__item;
-    @extend %lap--seven-eighths;
-    @extend %desk--three-quarters;
-
-    padding: 2em;
-
-    @include box-sizing(border-box);
-
-    @include breakpoint($breakpoint-lap) {
-      padding-top: 3em;
-      padding-bottom: 4.5em;
-    }
-  }
 
   @include background-size(cover);
 
   @include breakpoint($breakpoint-lap) {
     background-position: center;
   }
-}
 
-.nav {
-  height: 4em;
+  // Header inner
+  &--inner {
+    @extend %grid__item;
+    @extend %lap--seven-eighths;
+    @extend %desk--three-quarters;
 
-  background-color: transparentize($black, .75);
-  line-height: 3.5em;
-  text-align: center;
+    margin-bottom: 1em;
+    padding: 4em 2em 3em;
 
-  &--link {
-    margin-right: 1.5em;
-  }
+    @include box-sizing(border-box);
 
-  a {
-    &:link {
-      color: $white;
-      font-weight: 600;
-      text-decoration: none;
-    }
-
-    &:visited {
-      color: darken($white, 5%);
-    }
-
-    &:hover,
-    &:focus {
-      color: $link-color;
-      text-decoration: none;
+    @include breakpoint($breakpoint-lap) {
+      padding-top: 3.5em;
+      padding-bottom: 4.5em;
     }
   }
 
-  @include breakpoint($breakpoint-lap) {
-    text-align: right;
-  }
-}
+  // Nav
+  &--nav {
+    height: 4em;
 
-.header-big {
-  font-size: 2em;
-  font-weight: 600;
-
-  @include text-shadow(2px 2px 0 transparentize($black, .75));
-
-  @include grid-media-query(lap) {
-    font-size: 3em;
-  }
-
-  @include grid-media-query(desk) {
-    font-size: 4.5em;
-
-    @include text-shadow(4px 4px 0 transparentize($black, .75));
-  }
-}
-
-.header-sub {
-  margin-bottom: 2em;
-
-  font-weight: 300;
-
-  @include text-shadow(1px 1px 0 transparentize($black, .75));
-
-  @include grid-media-query(lap) {
-    font-size: 1.25em;
-  }
-
-  @include grid-media-query(desk) {
-    font-size: 1.75em;
-  }
-}
-
-
-.header-button {
-  &--wrapper {
+    background-color: transparentize($black, .25);
+    line-height: 3.5em;
     text-align: center;
-  }
 
-  &--link {
-    border: 3px solid $white;
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-    padding-top: .5em;
-    padding-bottom: .75em;
-
-    background-color: transparentize($black, .65);
-    color: $white;
-    font-size: 1.5em;
-    font-weight: 600;
-    text-align: center;
-    text-decoration: none;
-
-    &:link,
-    &:visited,
-    &:hover,
-    &:active {
-      color: #fff;
-      text-decoration: none;
+    &-link {
+      margin-right: 1.5em;
     }
 
-    &:hover {
-      background-color: transparentize($black, .35);
+    a {
+      &:link {
+        color: $white;
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      &:visited {
+        color: darken($white, 5%);
+      }
+
+      &:hover,
+      &:focus {
+        color: $link-color;
+        text-decoration: none;
+      }
     }
 
     @include breakpoint($breakpoint-lap) {
-      width: 50%;
+      text-align: right;
+    }
+  }
+  // Big header
+  &--big {
+    font-size: 2em;
+    font-weight: 600;
+
+    @include text-shadow(2px 2px 0 transparentize($black, .75));
+
+    @include grid-media-query(lap) {
+      font-size: 3em;
     }
 
-    @include breakpoint($breakpoint-desk) {
-      width: 25%;
+    @include grid-media-query(desk) {
+      font-size: 4.5em;
+
+      @include text-shadow(4px 4px 0 transparentize($black, .75));
+    }
+  }
+
+  // Sub header
+  &--sub {
+    margin-bottom: 2em;
+
+    font-weight: 300;
+
+    @include text-shadow(1px 1px 0 transparentize($black, .75));
+
+    @include grid-media-query(lap) {
+      font-size: 1.25em;
     }
 
-    @include border-radius(10px);
-    @include box-sizing(border-box);
+    @include grid-media-query(desk) {
+      font-size: 1.75em;
+    }
+  }
+
+  // Link button
+  &--button {
+    &-wrapper {
+      text-align: center;
+    }
+
+    &-link {
+      border: 2px solid $white;
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+      padding-top: .5em;
+      padding-bottom: .75em;
+
+      background-color: transparentize($black, .65);
+      color: $white;
+      font-size: 1.5em;
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+
+      &:link,
+      &:visited,
+      &:hover,
+      &:active {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      &:hover {
+        background-color: transparentize($black, .35);
+      }
+
+      @include breakpoint($breakpoint-lap) {
+        width: 50%;
+      }
+
+      @include breakpoint($breakpoint-desk) {
+        width: 25%;
+      }
+
+      @include border-radius(10px);
+      @include box-sizing(border-box);
+    }
+  }
+}
+
+
+/* My work
+   ================================================================================================================== */
+
+.my-work {
+  @extend %grid--full;
+  @extend %grid--center;
+
+  position: absolute;
+  top: 100%;
+
+  overflow-x: scroll;
+  width: 100%;
+
+  &--inner {
+    @extend %grid__item;
+    @extend %lap--seven-eighths;
+    @extend %desk--three-quarters;
+
+    background-color: transparentize($white, .5);
+
+    margin-top: -1em;
+    padding-top: 3em;
+  }
+
+  &--header {
+    color: #535353;
+    font-size: 2em;
+    font-weight: 100;
+    text-align: center;
+  }
+
+  &--project {
+    @extend %grid__item;
+    @extend %desk--one-third;
+
+    &-image {
+    }
   }
 }

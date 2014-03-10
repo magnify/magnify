@@ -28,6 +28,16 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/images\/work-infostander.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 123194,
+		"inputAbbreviatedPath": "\/images\/work-infostander.png",
+		"outputAbbreviatedPath": "\/images\/work-infostander.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/index.html": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -149,8 +159,8 @@
 	},
 "projectAttributes": {
 	"bowerAbbreviatedPath": "",
-	"displayValue": "htdocs",
-	"displayValueWasSetByUser": 0,
+	"displayValue": "magnify.dk v2",
+	"displayValueWasSetByUser": 1,
 	"iconImageName": "pencil_orange"
 	},
 "projectSettings": {
