@@ -5,8 +5,13 @@
  *
  */
 
+html {
+  height: 100%;
+}
 
 body {
+  height: 100%;
+
   background-color: $white;
   color: $black;
   font: $font;

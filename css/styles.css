@@ -147,7 +147,7 @@
  * 4. Full-width unless told to behave otherwise.
  * 5. Required to combine fluid widths and fixed gutters.
  */
-/* line 239, ../sass/base/_grid.scss */
+/* line 240, ../sass/base/_grid.scss */
 .header--inner, .my-work--inner, .my-work--project {
   display: inline-block;
   /* [1] */
@@ -173,11 +173,11 @@
  * Gutterless grids have all the properties of regular grids, minus any spacing.
  * Extends `.grid`.
  */
-/* line 275, ../sass/base/_grid.scss */
+/* line 276, ../sass/base/_grid.scss */
 .my-work {
   margin-left: 0;
 }
-/* line 278, ../sass/base/_grid.scss */
+/* line 279, ../sass/base/_grid.scss */
 .my-work > .header--inner, .my-work > .my-work--inner, .my-work > .my-work--project {
   padding-left: 0;
 }
@@ -189,11 +189,11 @@
  * Centered grids align grid items centrally without needing to use push or pull
  * classes. Extends `.grid`.
  */
-/* line 300, ../sass/base/_grid.scss */
+/* line 301, ../sass/base/_grid.scss */
 .header, .my-work {
   text-align: center;
 }
-/* line 303, ../sass/base/_grid.scss */
+/* line 304, ../sass/base/_grid.scss */
 .header > .header--inner, .my-work > .header--inner, .header > .my-work--inner, .my-work > .my-work--inner, .header > .my-work--project, .my-work > .my-work--project {
   text-align: left;
 }
@@ -298,7 +298,7 @@
   /**
    * Eighths
    */
-  /* line 419, ../sass/base/_grid.scss */
+  /* line 420, ../sass/base/_grid.scss */
   .header--inner, .my-work--inner {
     width: 87.5%;
   }
@@ -349,7 +349,7 @@
   /**
    * Thirds
    */
-  /* line 379, ../sass/base/_grid.scss */
+  /* line 380, ../sass/base/_grid.scss */
   .my-work--project {
     width: 33.333%;
   }
@@ -357,7 +357,7 @@
   /**
    * Quarters
    */
-  /* line 388, ../sass/base/_grid.scss */
+  /* line 389, ../sass/base/_grid.scss */
   .header--inner, .my-work--inner {
     width: 75%;
   }
@@ -365,6 +365,40 @@
   /**
    * Fifths
    */
+  /**
+   * Sixths
+   */
+  /**
+   * Eighths
+   */
+  /**
+   * Tenths
+   */
+  /**
+   * Twelfths
+   */
+}
+@media only screen and (min-width: 1700px) {
+  /**
+   * Whole
+   */
+  /**
+   * Halves
+   */
+  /**
+   * Thirds
+   */
+  /**
+   * Quarters
+   */
+  /**
+   * Fifths
+   */
+  /* line 397, ../sass/base/_grid.scss */
+  .header--inner {
+    width: 60%;
+  }
+
   /**
    * Sixths
    */
@@ -387,7 +421,7 @@
 /**
  * Not a particularly great selector, but the DRYest way to do things.
  */
-/* line 580, ../sass/base/_grid.scss */
+/* line 581, ../sass/base/_grid.scss */
 [class*="push--"] {
   position: relative;
 }
@@ -507,6 +541,35 @@
    */
 }
 @media only screen and (min-width: 1024px) {
+  /**
+   * Whole
+   */
+  /**
+   * Halves
+   */
+  /**
+   * Thirds
+   */
+  /**
+   * Quarters
+   */
+  /**
+   * Fifths
+   */
+  /**
+   * Sixths
+   */
+  /**
+   * Eighths
+   */
+  /**
+   * Tenths
+   */
+  /**
+   * Twelfths
+   */
+}
+@media only screen and (min-width: 1700px) {
   /**
    * Whole
    */
@@ -879,14 +942,20 @@ table {
  * Contains styling and reset of basic elements
  *
  */
-/* line 9, ../sass/base/_base.scss */
+/* line 8, ../sass/base/_base.scss */
+html {
+  height: 100%;
+}
+
+/* line 12, ../sass/base/_base.scss */
 body {
+  height: 100%;
   background-color: white;
   color: black;
   font: 1em/1.5 "Exo 2", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* line 16, ../sass/base/_base.scss */
+/* line 21, ../sass/base/_base.scss */
 h1,
 h2,
 h3,
@@ -903,44 +972,44 @@ h6 {
   text-rendering: optimizeLegibility;
 }
 
-/* line 36, ../sass/base/_base.scss */
+/* line 41, ../sass/base/_base.scss */
 strong {
   font-weight: bold;
 }
 
-/* line 41, ../sass/base/_base.scss */
+/* line 46, ../sass/base/_base.scss */
 em {
   font-style: italic;
 }
-/* line 44, ../sass/base/_base.scss */
+/* line 49, ../sass/base/_base.scss */
 em strong {
   font-weight: bold;
 }
 
 /* Links
    ================================================================================================================== */
-/* line 55, ../sass/base/_base.scss */
+/* line 60, ../sass/base/_base.scss */
 a:link {
   color: #f0f1d2;
   text-decoration: underline;
 }
-/* line 60, ../sass/base/_base.scss */
+/* line 65, ../sass/base/_base.scss */
 a:visited {
   color: #eaebbf;
 }
-/* line 64, ../sass/base/_base.scss */
+/* line 69, ../sass/base/_base.scss */
 a:hover {
   color: #e3e5ab;
   text-decoration: none;
 }
-/* line 69, ../sass/base/_base.scss */
+/* line 74, ../sass/base/_base.scss */
 a:focus {
   color: #e3e5ab;
 }
 
 /* Paragraph
    ================================================================================================================== */
-/* line 78, ../sass/base/_base.scss */
+/* line 83, ../sass/base/_base.scss */
 p {
   margin-top: 0;
   margin-bottom: 0;
@@ -948,7 +1017,7 @@ p {
 
 /* Image
    ================================================================================================================== */
-/* line 87, ../sass/base/_base.scss */
+/* line 92, ../sass/base/_base.scss */
 img {
   display: inline;
   height: auto;
@@ -960,8 +1029,9 @@ img {
    ================================================================================================================== */
 /* line 4, ../sass/layout/_layout.scss */
 .header {
-  position: absolute;
-  min-height: 100%;
+  position: relative;
+  height: 100%;
+  width: 100%;
   background: url("/images/header-background.jpg") no-repeat left;
   color: white;
   -moz-background-size: cover;
@@ -975,95 +1045,103 @@ img {
     background-position: center;
   }
 }
-/* line 21, ../sass/layout/_layout.scss */
+/* line 22, ../sass/layout/_layout.scss */
 .header--inner {
-  margin-bottom: 1em;
-  padding: 4em 2em 3em;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+  position: relative;
+  top: 50%;
+  padding: 1.5em;
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
-@media only screen and (min-width: 481px) {
-  /* line 21, ../sass/layout/_layout.scss */
-  .header--inner {
-    padding-top: 3.5em;
-    padding-bottom: 4.5em;
-  }
-}
-/* line 38, ../sass/layout/_layout.scss */
+/* line 37, ../sass/layout/_layout.scss */
 .header--nav {
+  position: absolute;
+  top: 0;
   height: 4em;
+  width: 100%;
   background-color: rgba(0, 0, 0, 0.75);
   line-height: 3.5em;
   text-align: center;
 }
-/* line 45, ../sass/layout/_layout.scss */
+/* line 48, ../sass/layout/_layout.scss */
 .header--nav-link {
   margin-right: 1.5em;
 }
-/* line 50, ../sass/layout/_layout.scss */
+/* line 51, ../sass/layout/_layout.scss */
+.header--nav-link:last-child {
+  margin-right: 0;
+}
+/* line 58, ../sass/layout/_layout.scss */
 .header--nav a:link {
   color: white;
   font-weight: 600;
   text-decoration: none;
 }
-/* line 56, ../sass/layout/_layout.scss */
+/* line 64, ../sass/layout/_layout.scss */
 .header--nav a:visited {
   color: #f2f2f2;
 }
-/* line 60, ../sass/layout/_layout.scss */
+/* line 68, ../sass/layout/_layout.scss */
 .header--nav a:hover, .header--nav a:focus {
   color: #f0f1d2;
   text-decoration: none;
 }
 @media only screen and (min-width: 481px) {
-  /* line 38, ../sass/layout/_layout.scss */
+  /* line 37, ../sass/layout/_layout.scss */
   .header--nav {
+    padding-right: 1.5em;
+    padding-left: 1.5em;
     text-align: right;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
   }
 }
-/* line 72, ../sass/layout/_layout.scss */
+/* line 85, ../sass/layout/_layout.scss */
 .header--big {
   font-size: 2em;
   font-weight: 600;
   text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.25);
 }
 @media only screen and (min-width: 481px) and (max-width: 1023px) {
-  /* line 72, ../sass/layout/_layout.scss */
+  /* line 85, ../sass/layout/_layout.scss */
   .header--big {
     font-size: 3em;
   }
 }
 @media only screen and (min-width: 1024px) {
-  /* line 72, ../sass/layout/_layout.scss */
+  /* line 85, ../sass/layout/_layout.scss */
   .header--big {
     font-size: 4.5em;
     text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.25);
   }
 }
-/* line 90, ../sass/layout/_layout.scss */
+/* line 103, ../sass/layout/_layout.scss */
 .header--sub {
   margin-bottom: 2em;
   font-weight: 300;
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25);
 }
 @media only screen and (min-width: 481px) and (max-width: 1023px) {
-  /* line 90, ../sass/layout/_layout.scss */
+  /* line 103, ../sass/layout/_layout.scss */
   .header--sub {
     font-size: 1.25em;
   }
 }
 @media only screen and (min-width: 1024px) {
-  /* line 90, ../sass/layout/_layout.scss */
+  /* line 103, ../sass/layout/_layout.scss */
   .header--sub {
     font-size: 1.75em;
   }
 }
-/* line 108, ../sass/layout/_layout.scss */
+/* line 121, ../sass/layout/_layout.scss */
 .header--button-wrapper {
   text-align: center;
 }
-/* line 112, ../sass/layout/_layout.scss */
+/* line 125, ../sass/layout/_layout.scss */
 .header--button-link {
   border: 2px solid white;
   display: block;
@@ -1084,23 +1162,23 @@ img {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 127, ../sass/layout/_layout.scss */
+/* line 140, ../sass/layout/_layout.scss */
 .header--button-link:link, .header--button-link:visited, .header--button-link:hover, .header--button-link:active {
   color: #fff;
   text-decoration: none;
 }
-/* line 135, ../sass/layout/_layout.scss */
+/* line 148, ../sass/layout/_layout.scss */
 .header--button-link:hover {
   background-color: rgba(0, 0, 0, 0.65);
 }
 @media only screen and (min-width: 481px) {
-  /* line 112, ../sass/layout/_layout.scss */
+  /* line 125, ../sass/layout/_layout.scss */
   .header--button-link {
     width: 50%;
   }
 }
 @media only screen and (min-width: 1024px) {
-  /* line 112, ../sass/layout/_layout.scss */
+  /* line 125, ../sass/layout/_layout.scss */
   .header--button-link {
     width: 25%;
   }
@@ -1108,20 +1186,18 @@ img {
 
 /* My work
    ================================================================================================================== */
-/* line 157, ../sass/layout/_layout.scss */
+/* line 170, ../sass/layout/_layout.scss */
 .my-work {
-  position: absolute;
-  top: 100%;
   overflow-x: scroll;
   width: 100%;
 }
-/* line 167, ../sass/layout/_layout.scss */
+/* line 177, ../sass/layout/_layout.scss */
 .my-work--inner {
   background-color: rgba(255, 255, 255, 0.5);
   margin-top: -1em;
   padding-top: 3em;
 }
-/* line 178, ../sass/layout/_layout.scss */
+/* line 188, ../sass/layout/_layout.scss */
 .my-work--header {
   color: #535353;
   font-size: 2em;
