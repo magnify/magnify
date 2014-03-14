@@ -4,20 +4,20 @@
   <title>Webdesigner and frontender - Brian Stefan Jensen</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href='http://fonts.googleapis.com/css?family=Exo+2:100,300,600' rel='stylesheet' type='text/css'>
   <link href='/css/styles.css' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <header class="header" role="banner">
   <nav class="header--nav">
-    <a href="#work" class="header--nav-link">My work</a>
-    <a href="#work" class="header--nav-link">Contact me</a>
+    <a href="#my-work" class="header--nav-link" data-scroll>My work</a>
+    <a href="#contact" class="header--nav-link" data-scroll>Contact me</a>
   </nav>
   <div class="header--inner">
     <h1 class="header--big">Hello, my name is Brian, I make websites</h1>
     <p class="header--sub">I am a webdesigner and frontend developer based in Aarhus, Denmark. I specialize in making usable responsive websites.</p>
-    <div class="header--button-wrapper"><a href="#my-work" class="header--button-link">See my work</a></div>
+    <div class="header--button-wrapper"><a href="#my-work" class="header--button-link" data-scroll>See my work</a></div>
   </div>
 </header>
 <section class="my-work" id="my-work">
@@ -25,18 +25,18 @@
     <h2 class="my-work--header">My work</h2>
     <aside class="my-work--project">
       <img src="/images/work-infostander.png" class="my-work--project-image">
-      <p class="work--header">Title</p>
-      <p class="work--description">Text</p>
+      <p class="my-work--project-header">Infostander Aarhus</p>
+      <p class="my-work--project-description">Responsive one-pager website.<br>Design and frontend.</p>
     </aside>
     <aside class="my-work--project">
       <img src="/images/work-infostander.png" class="my-work--project-image">
-      <p class="work--header">Title</p>
-      <p class="work--description">Text</p>
+      <p class="my-work--project-header">Title</p>
+      <p class="my-work--project-description">Text</p>
     </aside>
     <aside class="my-work--project">
       <img src="/images/work-infostander.png" class="my-work--project-image">
-      <p class="work--header">Title</p>
-      <p class="work--description">Text</p>
+      <p class="my-work--project-header">Title</p>
+      <p class="my-work--project-description">Text</p>
     </aside>
   </div>
 </section>
@@ -47,5 +47,7 @@
   <h3 class="footer--heading">hallo@magnify.dk</h3>
   <h4 class="footer--sub-heading">Don’t be shy!</h4>
 </footer>
+<script src="scripts/smooth-scroll-min.js"></script>
+<script src="scripts/common-min.js"></script>
 </body>
 </html>

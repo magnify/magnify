@@ -28,7 +28,7 @@
     position: relative;
     top: 50%;
 
-    padding: 1.5em;
+    padding: 4.5em 1.5em 1.5em;
 
     @include translateY(-50%);
   }
@@ -88,14 +88,19 @@
 
     @include text-shadow(2px 2px 0 transparentize($black, .75));
 
-    @include grid-media-query(lap) {
+    @include breakpoint($breakpoint-lap) {
       font-size: 3em;
     }
 
-    @include grid-media-query(desk) {
-      font-size: 4.5em;
+    @include breakpoint($breakpoint-desk) {
+      font-size: 3.5em;
 
       @include text-shadow(4px 4px 0 transparentize($black, .75));
+    }
+
+    // Tweaking for mobile device landscape (HTC One so far)
+    @media screen and (orientation:landscape) and (max-height: 287px) {
+      font-size: 1.5em;
     }
   }
 
@@ -107,12 +112,17 @@
 
     @include text-shadow(1px 1px 0 transparentize($black, .75));
 
-    @include grid-media-query(lap) {
+    @include breakpoint($breakpoint-lap) {
       font-size: 1.25em;
     }
 
-    @include grid-media-query(desk) {
+    @include breakpoint($breakpoint-desk) {
       font-size: 1.75em;
+    }
+
+    // Tweaking for mobile device landscape (HTC One so far)
+    @media screen and (orientation:landscape) and (max-height: 287px) {
+      font-size: 1em;
     }
   }
 
@@ -149,16 +159,23 @@
         background-color: transparentize($black, .35);
       }
 
+      @include border-radius(10px);
+      @include box-sizing(border-box);
+
       @include breakpoint($breakpoint-lap) {
         width: 50%;
       }
 
       @include breakpoint($breakpoint-desk) {
-        width: 25%;
+        width: 40%;
       }
 
-      @include border-radius(10px);
-      @include box-sizing(border-box);
+      // Tweaking for mobile device landscape (HTC One so far)
+      @media screen and (orientation:landscape) and (max-height: 287px) {
+        width: 30%;
+
+        font-size: 1em;
+      }
     }
   }
 }
@@ -168,21 +185,17 @@
    ================================================================================================================== */
 
 .my-work {
-  @extend %grid--full;
-  @extend %grid--center;
-
   overflow-x: scroll;
+  padding: 4em 2em 2em;
   width: 100%;
 
+  @include box-sizing(border-box);
+
   &--inner {
-    @extend %grid__item;
-    @extend %lap--seven-eighths;
-    @extend %desk--three-quarters;
+    @extend %grid--full;
+    @extend %grid--center;
 
     background-color: transparentize($white, .5);
-
-    margin-top: -1em;
-    padding-top: 3em;
   }
 
   &--header {
@@ -194,9 +207,28 @@
 
   &--project {
     @extend %grid__item;
-    @extend %desk--one-third;
+    @extend %desk--one-quarter;
+
+    margin-right: 3em;
+    margin-bottom: 3em;
+    margin-left: -4px; /* Display inline block fix */
+
+    &:last-child {
+      margin-right: 0;
+    }
 
     &-image {
+      margin-bottom: 1em;
+    }
+
+    &-header {
+      font-size: 1.5em;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    &-description {
+      text-align: center;
     }
   }
 }

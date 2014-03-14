@@ -148,10 +148,10 @@
  * 5. Required to combine fluid widths and fixed gutters.
  */
 /* line 240, ../sass/base/_grid.scss */
-.header--inner, .my-work--inner, .my-work--project {
+.header--inner, .my-work--project {
   display: inline-block;
   /* [1] */
-  padding-left: 24px;
+  padding-left: 2em;
   /* [2] */
   vertical-align: top;
   /* [3] */
@@ -174,11 +174,11 @@
  * Extends `.grid`.
  */
 /* line 276, ../sass/base/_grid.scss */
-.my-work {
+.my-work--inner {
   margin-left: 0;
 }
 /* line 279, ../sass/base/_grid.scss */
-.my-work > .header--inner, .my-work > .my-work--inner, .my-work > .my-work--project {
+.my-work--inner > .header--inner, .my-work--inner > .my-work--project {
   padding-left: 0;
 }
 
@@ -190,11 +190,11 @@
  * classes. Extends `.grid`.
  */
 /* line 301, ../sass/base/_grid.scss */
-.header, .my-work {
+.header, .my-work--inner {
   text-align: center;
 }
 /* line 304, ../sass/base/_grid.scss */
-.header > .header--inner, .my-work > .header--inner, .header > .my-work--inner, .my-work > .my-work--inner, .header > .my-work--project, .my-work > .my-work--project {
+.header > .header--inner, .my-work--inner > .header--inner, .header > .my-work--project, .my-work--inner > .my-work--project {
   text-align: left;
 }
 
@@ -299,7 +299,7 @@
    * Eighths
    */
   /* line 420, ../sass/base/_grid.scss */
-  .header--inner, .my-work--inner {
+  .header--inner {
     width: 87.5%;
   }
 
@@ -349,16 +349,16 @@
   /**
    * Thirds
    */
-  /* line 380, ../sass/base/_grid.scss */
-  .my-work--project {
-    width: 33.333%;
-  }
-
   /**
    * Quarters
    */
+  /* line 387, ../sass/base/_grid.scss */
+  .my-work--project {
+    width: 25%;
+  }
+
   /* line 389, ../sass/base/_grid.scss */
-  .header--inner, .my-work--inner {
+  .header--inner {
     width: 75%;
   }
 
@@ -949,13 +949,14 @@ html {
 
 /* line 12, ../sass/base/_base.scss */
 body {
+  overflow-y: scroll;
   height: 100%;
   background-color: white;
   color: black;
   font: 1em/1.5 "Exo 2", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* line 21, ../sass/base/_base.scss */
+/* line 23, ../sass/base/_base.scss */
 h1,
 h2,
 h3,
@@ -972,44 +973,44 @@ h6 {
   text-rendering: optimizeLegibility;
 }
 
-/* line 41, ../sass/base/_base.scss */
+/* line 43, ../sass/base/_base.scss */
 strong {
   font-weight: bold;
 }
 
-/* line 46, ../sass/base/_base.scss */
+/* line 48, ../sass/base/_base.scss */
 em {
   font-style: italic;
 }
-/* line 49, ../sass/base/_base.scss */
+/* line 51, ../sass/base/_base.scss */
 em strong {
   font-weight: bold;
 }
 
 /* Links
    ================================================================================================================== */
-/* line 60, ../sass/base/_base.scss */
+/* line 62, ../sass/base/_base.scss */
 a:link {
   color: #f0f1d2;
   text-decoration: underline;
 }
-/* line 65, ../sass/base/_base.scss */
+/* line 67, ../sass/base/_base.scss */
 a:visited {
   color: #eaebbf;
 }
-/* line 69, ../sass/base/_base.scss */
+/* line 71, ../sass/base/_base.scss */
 a:hover {
   color: #e3e5ab;
   text-decoration: none;
 }
-/* line 74, ../sass/base/_base.scss */
+/* line 76, ../sass/base/_base.scss */
 a:focus {
   color: #e3e5ab;
 }
 
 /* Paragraph
    ================================================================================================================== */
-/* line 83, ../sass/base/_base.scss */
+/* line 85, ../sass/base/_base.scss */
 p {
   margin-top: 0;
   margin-bottom: 0;
@@ -1017,7 +1018,7 @@ p {
 
 /* Image
    ================================================================================================================== */
-/* line 92, ../sass/base/_base.scss */
+/* line 94, ../sass/base/_base.scss */
 img {
   display: inline;
   height: auto;
@@ -1049,7 +1050,7 @@ img {
 .header--inner {
   position: relative;
   top: 50%;
-  padding: 1.5em;
+  padding: 4.5em 1.5em 1.5em;
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   -o-transform: translateY(-50%);
@@ -1106,7 +1107,7 @@ img {
   font-weight: 600;
   text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.25);
 }
-@media only screen and (min-width: 481px) and (max-width: 1023px) {
+@media only screen and (min-width: 481px) {
   /* line 85, ../sass/layout/_layout.scss */
   .header--big {
     font-size: 3em;
@@ -1115,33 +1116,45 @@ img {
 @media only screen and (min-width: 1024px) {
   /* line 85, ../sass/layout/_layout.scss */
   .header--big {
-    font-size: 4.5em;
+    font-size: 3.5em;
     text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.25);
   }
 }
-/* line 103, ../sass/layout/_layout.scss */
+@media screen and (orientation: landscape) and (max-height: 287px) {
+  /* line 85, ../sass/layout/_layout.scss */
+  .header--big {
+    font-size: 1.5em;
+  }
+}
+/* line 108, ../sass/layout/_layout.scss */
 .header--sub {
   margin-bottom: 2em;
   font-weight: 300;
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25);
 }
-@media only screen and (min-width: 481px) and (max-width: 1023px) {
-  /* line 103, ../sass/layout/_layout.scss */
+@media only screen and (min-width: 481px) {
+  /* line 108, ../sass/layout/_layout.scss */
   .header--sub {
     font-size: 1.25em;
   }
 }
 @media only screen and (min-width: 1024px) {
-  /* line 103, ../sass/layout/_layout.scss */
+  /* line 108, ../sass/layout/_layout.scss */
   .header--sub {
     font-size: 1.75em;
   }
 }
-/* line 121, ../sass/layout/_layout.scss */
+@media screen and (orientation: landscape) and (max-height: 287px) {
+  /* line 108, ../sass/layout/_layout.scss */
+  .header--sub {
+    font-size: 1em;
+  }
+}
+/* line 131, ../sass/layout/_layout.scss */
 .header--button-wrapper {
   text-align: center;
 }
-/* line 125, ../sass/layout/_layout.scss */
+/* line 135, ../sass/layout/_layout.scss */
 .header--button-link {
   border: 2px solid white;
   display: block;
@@ -1162,45 +1175,79 @@ img {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 140, ../sass/layout/_layout.scss */
+/* line 150, ../sass/layout/_layout.scss */
 .header--button-link:link, .header--button-link:visited, .header--button-link:hover, .header--button-link:active {
   color: #fff;
   text-decoration: none;
 }
-/* line 148, ../sass/layout/_layout.scss */
+/* line 158, ../sass/layout/_layout.scss */
 .header--button-link:hover {
   background-color: rgba(0, 0, 0, 0.65);
 }
 @media only screen and (min-width: 481px) {
-  /* line 125, ../sass/layout/_layout.scss */
+  /* line 135, ../sass/layout/_layout.scss */
   .header--button-link {
     width: 50%;
   }
 }
 @media only screen and (min-width: 1024px) {
-  /* line 125, ../sass/layout/_layout.scss */
+  /* line 135, ../sass/layout/_layout.scss */
   .header--button-link {
-    width: 25%;
+    width: 40%;
+  }
+}
+@media screen and (orientation: landscape) and (max-height: 287px) {
+  /* line 135, ../sass/layout/_layout.scss */
+  .header--button-link {
+    width: 30%;
+    font-size: 1em;
   }
 }
 
 /* My work
    ================================================================================================================== */
-/* line 170, ../sass/layout/_layout.scss */
+/* line 187, ../sass/layout/_layout.scss */
 .my-work {
   overflow-x: scroll;
+  padding: 4em 2em 2em;
   width: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
-/* line 177, ../sass/layout/_layout.scss */
+/* line 194, ../sass/layout/_layout.scss */
 .my-work--inner {
   background-color: rgba(255, 255, 255, 0.5);
-  margin-top: -1em;
-  padding-top: 3em;
 }
-/* line 188, ../sass/layout/_layout.scss */
+/* line 201, ../sass/layout/_layout.scss */
 .my-work--header {
   color: #535353;
   font-size: 2em;
   font-weight: 100;
+  text-align: center;
+}
+/* line 208, ../sass/layout/_layout.scss */
+.my-work--project {
+  margin-right: 3em;
+  margin-bottom: 3em;
+  margin-left: -4px;
+  /* Display inline block fix */
+}
+/* line 216, ../sass/layout/_layout.scss */
+.my-work--project:last-child {
+  margin-right: 0;
+}
+/* line 220, ../sass/layout/_layout.scss */
+.my-work--project-image {
+  margin-bottom: 1em;
+}
+/* line 224, ../sass/layout/_layout.scss */
+.my-work--project-header {
+  font-size: 1.5em;
+  font-weight: 600;
+  text-align: center;
+}
+/* line 230, ../sass/layout/_layout.scss */
+.my-work--project-description {
   text-align: center;
 }

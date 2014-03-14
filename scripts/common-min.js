@@ -1,0 +1,1 @@
+smoothScroll.init({speed:350,easing:"easeInOutQuart",updateURL:!0});
