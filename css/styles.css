@@ -140,6 +140,18 @@
  * 2. Remove any margins and paddings that might affect the grid system.
  * 3. Apply a negative `margin-left` to negate the columns’ gutters.
  */
+/* line 214, ../sass/base/_grid.scss */
+.my-work--inner {
+  list-style: none;
+  /* [1] */
+  margin: 0;
+  /* [2] */
+  padding: 0;
+  /* [2] */
+  margin-left: -2em;
+  /* [3] */
+}
+
 /**
  * 1. Cause columns to stack side-by-side.
  * 2. Space columns apart.
@@ -173,15 +185,6 @@
  * Gutterless grids have all the properties of regular grids, minus any spacing.
  * Extends `.grid`.
  */
-/* line 276, ../sass/base/_grid.scss */
-.my-work--inner {
-  margin-left: 0;
-}
-/* line 279, ../sass/base/_grid.scss */
-.my-work--inner > .header--inner, .my-work--inner > .my-work--project {
-  padding-left: 0;
-}
-
 /**
  * Align the entire grid to the right. Extends `.grid`.
  */
@@ -251,6 +254,11 @@
   /**
    * Whole
    */
+  /* line 368, ../sass/base/_grid.scss */
+  .my-work--project {
+    width: 100%;
+  }
+
   /**
    * Halves
    */
@@ -349,14 +357,14 @@
   /**
    * Thirds
    */
+  /* line 380, ../sass/base/_grid.scss */
+  .my-work--project {
+    width: 33.333%;
+  }
+
   /**
    * Quarters
    */
-  /* line 387, ../sass/base/_grid.scss */
-  .my-work--project {
-    width: 25%;
-  }
-
   /* line 389, ../sass/base/_grid.scss */
   .header--inner {
     width: 75%;
@@ -1060,31 +1068,32 @@ img {
 .header--nav {
   position: absolute;
   top: 0;
+  z-index: 99;
   height: 4em;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.75);
   line-height: 3.5em;
   text-align: center;
 }
-/* line 48, ../sass/layout/_layout.scss */
+/* line 49, ../sass/layout/_layout.scss */
 .header--nav-link {
   margin-right: 1.5em;
 }
-/* line 51, ../sass/layout/_layout.scss */
+/* line 52, ../sass/layout/_layout.scss */
 .header--nav-link:last-child {
   margin-right: 0;
 }
-/* line 58, ../sass/layout/_layout.scss */
+/* line 59, ../sass/layout/_layout.scss */
 .header--nav a:link {
   color: white;
   font-weight: 600;
   text-decoration: none;
 }
-/* line 64, ../sass/layout/_layout.scss */
+/* line 65, ../sass/layout/_layout.scss */
 .header--nav a:visited {
   color: #f2f2f2;
 }
-/* line 68, ../sass/layout/_layout.scss */
+/* line 69, ../sass/layout/_layout.scss */
 .header--nav a:hover, .header--nav a:focus {
   color: #f0f1d2;
   text-decoration: none;
@@ -1100,60 +1109,60 @@ img {
     box-sizing: border-box;
   }
 }
-/* line 85, ../sass/layout/_layout.scss */
+/* line 87, ../sass/layout/_layout.scss */
 .header--big {
   font-size: 2em;
   font-weight: 600;
   text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.25);
 }
 @media only screen and (min-width: 481px) {
-  /* line 85, ../sass/layout/_layout.scss */
+  /* line 87, ../sass/layout/_layout.scss */
   .header--big {
     font-size: 3em;
   }
 }
 @media only screen and (min-width: 1024px) {
-  /* line 85, ../sass/layout/_layout.scss */
+  /* line 87, ../sass/layout/_layout.scss */
   .header--big {
     font-size: 3.5em;
     text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.25);
   }
 }
 @media screen and (orientation: landscape) and (max-height: 287px) {
-  /* line 85, ../sass/layout/_layout.scss */
+  /* line 87, ../sass/layout/_layout.scss */
   .header--big {
     font-size: 1.5em;
   }
 }
-/* line 108, ../sass/layout/_layout.scss */
+/* line 110, ../sass/layout/_layout.scss */
 .header--sub {
   margin-bottom: 2em;
   font-weight: 300;
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25);
 }
 @media only screen and (min-width: 481px) {
-  /* line 108, ../sass/layout/_layout.scss */
+  /* line 110, ../sass/layout/_layout.scss */
   .header--sub {
     font-size: 1.25em;
   }
 }
 @media only screen and (min-width: 1024px) {
-  /* line 108, ../sass/layout/_layout.scss */
+  /* line 110, ../sass/layout/_layout.scss */
   .header--sub {
     font-size: 1.75em;
   }
 }
 @media screen and (orientation: landscape) and (max-height: 287px) {
-  /* line 108, ../sass/layout/_layout.scss */
+  /* line 110, ../sass/layout/_layout.scss */
   .header--sub {
     font-size: 1em;
   }
 }
-/* line 131, ../sass/layout/_layout.scss */
+/* line 133, ../sass/layout/_layout.scss */
 .header--button-wrapper {
   text-align: center;
 }
-/* line 135, ../sass/layout/_layout.scss */
+/* line 137, ../sass/layout/_layout.scss */
 .header--button-link {
   border: 2px solid white;
   display: block;
@@ -1174,29 +1183,29 @@ img {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 150, ../sass/layout/_layout.scss */
+/* line 152, ../sass/layout/_layout.scss */
 .header--button-link:link, .header--button-link:visited, .header--button-link:hover, .header--button-link:active {
   color: #fff;
   text-decoration: none;
 }
-/* line 158, ../sass/layout/_layout.scss */
+/* line 160, ../sass/layout/_layout.scss */
 .header--button-link:hover {
   background-color: rgba(0, 0, 0, 0.65);
 }
 @media only screen and (min-width: 481px) {
-  /* line 135, ../sass/layout/_layout.scss */
+  /* line 137, ../sass/layout/_layout.scss */
   .header--button-link {
     width: 50%;
   }
 }
 @media only screen and (min-width: 1024px) {
-  /* line 135, ../sass/layout/_layout.scss */
+  /* line 137, ../sass/layout/_layout.scss */
   .header--button-link {
     width: 40%;
   }
 }
 @media screen and (orientation: landscape) and (max-height: 287px) {
-  /* line 135, ../sass/layout/_layout.scss */
+  /* line 137, ../sass/layout/_layout.scss */
   .header--button-link {
     width: 30%;
     font-size: 1em;
@@ -1205,48 +1214,54 @@ img {
 
 /* My work
    ================================================================================================================== */
-/* line 187, ../sass/layout/_layout.scss */
+/* line 189, ../sass/layout/_layout.scss */
 .my-work {
   overflow-x: scroll;
-  padding: 4em 2em 2em;
+  padding: 2em;
   width: 100%;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 194, ../sass/layout/_layout.scss */
+@media only screen and (min-width: 1024px) {
+  /* line 189, ../sass/layout/_layout.scss */
+  .my-work {
+    padding: 5em 8em 2em;
+  }
+}
+/* line 200, ../sass/layout/_layout.scss */
 .my-work--inner {
   background-color: rgba(255, 255, 255, 0.5);
 }
-/* line 201, ../sass/layout/_layout.scss */
+/* line 207, ../sass/layout/_layout.scss */
 .my-work--header {
+  margin-bottom: 1.5em;
   color: #535353;
   font-size: 2em;
   font-weight: 100;
   text-align: center;
 }
-/* line 208, ../sass/layout/_layout.scss */
+/* line 216, ../sass/layout/_layout.scss */
 .my-work--project {
-  margin-right: 3em;
   margin-bottom: 3em;
   margin-left: -4px;
   /* Display inline block fix */
 }
-/* line 216, ../sass/layout/_layout.scss */
+/* line 224, ../sass/layout/_layout.scss */
 .my-work--project:last-child {
   margin-right: 0;
 }
-/* line 220, ../sass/layout/_layout.scss */
+/* line 228, ../sass/layout/_layout.scss */
 .my-work--project-image {
   margin-bottom: 1em;
 }
-/* line 224, ../sass/layout/_layout.scss */
+/* line 232, ../sass/layout/_layout.scss */
 .my-work--project-header {
   font-size: 1.5em;
   font-weight: 600;
   text-align: center;
 }
-/* line 230, ../sass/layout/_layout.scss */
+/* line 238, ../sass/layout/_layout.scss */
 .my-work--project-description {
   text-align: center;
 }

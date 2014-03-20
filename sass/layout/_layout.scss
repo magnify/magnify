@@ -37,6 +37,7 @@
   &--nav {
     position: absolute;
     top: 0;
+    z-index: 99;
 
     height: 4em;
     width: 100%;
@@ -81,6 +82,7 @@
       @include box-sizing(border-box);
     }
   }
+
   // Big header
   &--big {
     font-size: 2em;
@@ -186,19 +188,25 @@
 
 .my-work {
   overflow-x: scroll;
-  padding: 4em 2em 2em;
+  padding: 2em;
   width: 100%;
 
   @include box-sizing(border-box);
 
+  @include breakpoint($breakpoint-desk) {
+    padding: 5em 8em 2em;
+  }
+
   &--inner {
-    @extend %grid--full;
+    @extend %grid;
     @extend %grid--center;
 
     background-color: transparentize($white, .5);
   }
 
   &--header {
+    margin-bottom: 1.5em;
+
     color: #535353;
     font-size: 2em;
     font-weight: 100;
@@ -207,9 +215,9 @@
 
   &--project {
     @extend %grid__item;
-    @extend %desk--one-quarter;
+    @extend %palm--one-whole;
+    @extend %desk--one-third;
 
-    margin-right: 3em;
     margin-bottom: 3em;
     margin-left: -4px; /* Display inline block fix */
 
