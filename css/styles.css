@@ -148,7 +148,7 @@
  * 5. Required to combine fluid widths and fixed gutters.
  */
 /* line 240, ../sass/base/_grid.scss */
-.header--inner, .my-work--project {
+.header--inner {
   display: inline-block;
   /* [1] */
   padding-left: 2em;
@@ -173,15 +173,6 @@
  * Gutterless grids have all the properties of regular grids, minus any spacing.
  * Extends `.grid`.
  */
-/* line 276, ../sass/base/_grid.scss */
-.my-work--inner {
-  margin-left: 0;
-}
-/* line 279, ../sass/base/_grid.scss */
-.my-work--inner > .header--inner, .my-work--inner > .my-work--project {
-  padding-left: 0;
-}
-
 /**
  * Align the entire grid to the right. Extends `.grid`.
  */
@@ -190,11 +181,11 @@
  * classes. Extends `.grid`.
  */
 /* line 301, ../sass/base/_grid.scss */
-.header, .my-work--inner {
+.header {
   text-align: center;
 }
 /* line 304, ../sass/base/_grid.scss */
-.header > .header--inner, .my-work--inner > .header--inner, .header > .my-work--project, .my-work--inner > .my-work--project {
+.header > .header--inner {
   text-align: left;
 }
 
@@ -352,11 +343,6 @@
   /**
    * Quarters
    */
-  /* line 387, ../sass/base/_grid.scss */
-  .my-work--project {
-    width: 25%;
-  }
-
   /* line 389, ../sass/base/_grid.scss */
   .header--inner {
     width: 75%;
@@ -1057,196 +1043,28 @@ img {
   transform: translateY(-50%);
 }
 /* line 37, ../sass/layout/_layout.scss */
-.header--nav {
-  position: absolute;
-  top: 0;
-  height: 4em;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.75);
-  line-height: 3.5em;
-  text-align: center;
-}
-/* line 48, ../sass/layout/_layout.scss */
-.header--nav-link {
-  margin-right: 1.5em;
-}
-/* line 51, ../sass/layout/_layout.scss */
-.header--nav-link:last-child {
-  margin-right: 0;
-}
-/* line 58, ../sass/layout/_layout.scss */
-.header--nav a:link {
-  color: white;
-  font-weight: 600;
-  text-decoration: none;
-}
-/* line 64, ../sass/layout/_layout.scss */
-.header--nav a:visited {
-  color: #f2f2f2;
-}
-/* line 68, ../sass/layout/_layout.scss */
-.header--nav a:hover, .header--nav a:focus {
-  color: #f0f1d2;
-  text-decoration: none;
-}
-@media only screen and (min-width: 481px) {
-  /* line 37, ../sass/layout/_layout.scss */
-  .header--nav {
-    padding-right: 1.5em;
-    padding-left: 1.5em;
-    text-align: right;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-}
-/* line 85, ../sass/layout/_layout.scss */
 .header--big {
   font-size: 2em;
   font-weight: 600;
+  text-align: center;
   text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.25);
 }
 @media only screen and (min-width: 481px) {
-  /* line 85, ../sass/layout/_layout.scss */
+  /* line 37, ../sass/layout/_layout.scss */
   .header--big {
     font-size: 3em;
   }
 }
 @media only screen and (min-width: 1024px) {
-  /* line 85, ../sass/layout/_layout.scss */
+  /* line 37, ../sass/layout/_layout.scss */
   .header--big {
     font-size: 3.5em;
     text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.25);
   }
 }
 @media screen and (orientation: landscape) and (max-height: 287px) {
-  /* line 85, ../sass/layout/_layout.scss */
+  /* line 37, ../sass/layout/_layout.scss */
   .header--big {
     font-size: 1.5em;
   }
-}
-/* line 108, ../sass/layout/_layout.scss */
-.header--sub {
-  margin-bottom: 2em;
-  font-weight: 300;
-  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25);
-}
-@media only screen and (min-width: 481px) {
-  /* line 108, ../sass/layout/_layout.scss */
-  .header--sub {
-    font-size: 1.25em;
-  }
-}
-@media only screen and (min-width: 1024px) {
-  /* line 108, ../sass/layout/_layout.scss */
-  .header--sub {
-    font-size: 1.75em;
-  }
-}
-@media screen and (orientation: landscape) and (max-height: 287px) {
-  /* line 108, ../sass/layout/_layout.scss */
-  .header--sub {
-    font-size: 1em;
-  }
-}
-/* line 131, ../sass/layout/_layout.scss */
-.header--button-wrapper {
-  text-align: center;
-}
-/* line 135, ../sass/layout/_layout.scss */
-.header--button-link {
-  border: 2px solid white;
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
-  padding-top: .5em;
-  padding-bottom: .75em;
-  background-color: rgba(0, 0, 0, 0.35);
-  color: white;
-  font-size: 1.5em;
-  font-weight: 600;
-  text-align: center;
-  text-decoration: none;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-/* line 150, ../sass/layout/_layout.scss */
-.header--button-link:link, .header--button-link:visited, .header--button-link:hover, .header--button-link:active {
-  color: #fff;
-  text-decoration: none;
-}
-/* line 158, ../sass/layout/_layout.scss */
-.header--button-link:hover {
-  background-color: rgba(0, 0, 0, 0.65);
-}
-@media only screen and (min-width: 481px) {
-  /* line 135, ../sass/layout/_layout.scss */
-  .header--button-link {
-    width: 50%;
-  }
-}
-@media only screen and (min-width: 1024px) {
-  /* line 135, ../sass/layout/_layout.scss */
-  .header--button-link {
-    width: 40%;
-  }
-}
-@media screen and (orientation: landscape) and (max-height: 287px) {
-  /* line 135, ../sass/layout/_layout.scss */
-  .header--button-link {
-    width: 30%;
-    font-size: 1em;
-  }
-}
-
-/* My work
-   ================================================================================================================== */
-/* line 187, ../sass/layout/_layout.scss */
-.my-work {
-  overflow-x: scroll;
-  padding: 4em 2em 2em;
-  width: 100%;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-/* line 194, ../sass/layout/_layout.scss */
-.my-work--inner {
-  background-color: rgba(255, 255, 255, 0.5);
-}
-/* line 201, ../sass/layout/_layout.scss */
-.my-work--header {
-  color: #535353;
-  font-size: 2em;
-  font-weight: 100;
-  text-align: center;
-}
-/* line 208, ../sass/layout/_layout.scss */
-.my-work--project {
-  margin-right: 3em;
-  margin-bottom: 3em;
-  margin-left: -4px;
-  /* Display inline block fix */
-}
-/* line 216, ../sass/layout/_layout.scss */
-.my-work--project:last-child {
-  margin-right: 0;
-}
-/* line 220, ../sass/layout/_layout.scss */
-.my-work--project-image {
-  margin-bottom: 1em;
-}
-/* line 224, ../sass/layout/_layout.scss */
-.my-work--project-header {
-  font-size: 1.5em;
-  font-weight: 600;
-  text-align: center;
-}
-/* line 230, ../sass/layout/_layout.scss */
-.my-work--project-description {
-  text-align: center;
 }
