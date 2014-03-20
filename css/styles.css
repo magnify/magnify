@@ -1068,3 +1068,28 @@ img {
     font-size: 1.5em;
   }
 }
+/* line 61, ../sass/layout/_layout.scss */
+.header--sub {
+  margin-bottom: 2em;
+  font-weight: 300;
+  text-align: center;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25);
+}
+@media only screen and (min-width: 481px) {
+  /* line 61, ../sass/layout/_layout.scss */
+  .header--sub {
+    font-size: 1.25em;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  /* line 61, ../sass/layout/_layout.scss */
+  .header--sub {
+    font-size: 1.75em;
+  }
+}
+@media screen and (orientation: landscape) and (max-height: 287px) {
+  /* line 61, ../sass/layout/_layout.scss */
+  .header--sub {
+    font-size: 1em;
+  }
+}

@@ -56,4 +56,27 @@
       font-size: 1.5em;
     }
   }
+
+  // Sub header
+  &--sub {
+    margin-bottom: 2em;
+
+    font-weight: 300;
+    text-align: center;
+
+    @include text-shadow(1px 1px 0 transparentize($black, .75));
+
+    @include breakpoint($breakpoint-lap) {
+      font-size: 1.25em;
+    }
+
+    @include breakpoint($breakpoint-desk) {
+      font-size: 1.75em;
+    }
+
+    // Tweaking for mobile device landscape (HTC One so far)
+    @media screen and (orientation:landscape) and (max-height: 287px) {
+      font-size: 1em;
+    }
+  }
 }
