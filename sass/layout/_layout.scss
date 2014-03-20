@@ -240,3 +240,56 @@
     }
   }
 }
+
+
+/* Contact and footer
+   ================================================================================================================== */
+
+.footer {
+  color: $white;
+  text-align: center;
+
+  &--contact {
+    @extend %grid;
+    @extend %grid--middle;
+
+    padding: 2em;
+
+    background-color: #444;
+
+    @include breakpoint($breakpoint-desk) {
+      padding: 5em 8em 16em;
+    }
+
+    &-heading {
+      font-weight: 600;
+    }
+
+    &-phone,
+    &-mail {
+      @extend %grid__item;
+      @extend %desk--one-third;
+
+      margin-left: -4px; /* Display inline block fix */
+    }
+
+    &-phone {
+      text-align: right;
+    }
+
+    &-mail {
+      text-align: left;
+    }
+
+    &-image {
+      @extend %grid__item;
+
+      display: inline-block;
+      max-width: 10em;
+    }
+  }
+
+  &--still-here {
+    background-color: #222;
+  }
+}

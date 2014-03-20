@@ -141,7 +141,7 @@
  * 3. Apply a negative `margin-left` to negate the columns’ gutters.
  */
 /* line 214, ../sass/base/_grid.scss */
-.my-work--inner {
+.my-work--inner, .footer--contact {
   list-style: none;
   /* [1] */
   margin: 0;
@@ -160,7 +160,7 @@
  * 5. Required to combine fluid widths and fixed gutters.
  */
 /* line 240, ../sass/base/_grid.scss */
-.header--inner, .my-work--project {
+.header--inner, .my-work--project, .footer--contact-phone, .footer--contact-mail, .footer--contact-image {
   display: inline-block;
   /* [1] */
   padding-left: 2em;
@@ -197,7 +197,7 @@
   text-align: center;
 }
 /* line 304, ../sass/base/_grid.scss */
-.header > .header--inner, .my-work--inner > .header--inner, .header > .my-work--project, .my-work--inner > .my-work--project {
+.header > .header--inner, .my-work--inner > .header--inner, .header > .my-work--project, .my-work--inner > .my-work--project, .header > .footer--contact-phone, .my-work--inner > .footer--contact-phone, .header > .footer--contact-mail, .my-work--inner > .footer--contact-mail, .header > .footer--contact-image, .my-work--inner > .footer--contact-image {
   text-align: left;
 }
 
@@ -205,6 +205,11 @@
  * Align grid cells vertically (`.grid--middle` or `.grid--bottom`). Extends
  * `.grid`.
  */
+/* line 316, ../sass/base/_grid.scss */
+.footer--contact > .header--inner, .footer--contact > .my-work--project, .footer--contact > .footer--contact-phone, .footer--contact > .footer--contact-mail, .footer--contact > .footer--contact-image {
+  vertical-align: middle;
+}
+
 /**
  * Create grids with narrower gutters. Extends `.grid`.
  */
@@ -358,7 +363,7 @@
    * Thirds
    */
   /* line 380, ../sass/base/_grid.scss */
-  .my-work--project {
+  .my-work--project, .footer--contact-phone, .footer--contact-mail {
     width: 33.333%;
   }
 
@@ -1264,4 +1269,49 @@ img {
 /* line 238, ../sass/layout/_layout.scss */
 .my-work--project-description {
   text-align: center;
+}
+
+/* Contact and footer
+   ================================================================================================================== */
+/* line 248, ../sass/layout/_layout.scss */
+.footer {
+  color: white;
+  text-align: center;
+}
+/* line 252, ../sass/layout/_layout.scss */
+.footer--contact {
+  padding: 2em;
+  background-color: #444;
+}
+@media only screen and (min-width: 1024px) {
+  /* line 252, ../sass/layout/_layout.scss */
+  .footer--contact {
+    padding: 5em 8em 16em;
+  }
+}
+/* line 264, ../sass/layout/_layout.scss */
+.footer--contact-heading {
+  font-weight: 600;
+}
+/* line 268, ../sass/layout/_layout.scss */
+.footer--contact-phone, .footer--contact-mail {
+  margin-left: -4px;
+  /* Display inline block fix */
+}
+/* line 276, ../sass/layout/_layout.scss */
+.footer--contact-phone {
+  text-align: right;
+}
+/* line 280, ../sass/layout/_layout.scss */
+.footer--contact-mail {
+  text-align: left;
+}
+/* line 284, ../sass/layout/_layout.scss */
+.footer--contact-image {
+  display: inline-block;
+  max-width: 10em;
+}
+/* line 292, ../sass/layout/_layout.scss */
+.footer--still-here {
+  background-color: #222;
 }
