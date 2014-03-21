@@ -1318,39 +1318,57 @@ img {
   background-color: #444;
 }
 @media only screen and (min-width: 1024px) {
+  /* line 294, ../sass/layout/_layout.scss */
+  .contact-me--contact-inner.is-scrolling {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  /* line 301, ../sass/layout/_layout.scss */
+  .contact-me--contact-inner.is-ready {
+    -moz-transition: all 1.5s ease-out;
+    -o-transition: all 1.5s ease-out;
+    -webkit-transition: all 1.5s ease-out;
+    transition: all 1.5s ease-out;
+    filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+    opacity: 1;
+  }
+}
+@media only screen and (min-width: 1024px) {
   /* line 285, ../sass/layout/_layout.scss */
   .contact-me--contact {
     padding: 5em 8em 16em;
   }
 }
-/* line 297, ../sass/layout/_layout.scss */
+/* line 313, ../sass/layout/_layout.scss */
 .contact-me--contact-heading {
   font-size: 1.75em;
 }
-/* line 301, ../sass/layout/_layout.scss */
+/* line 317, ../sass/layout/_layout.scss */
 .contact-me--contact-sub-heading {
   color: gray;
   font-size: 1.5em;
 }
-/* line 306, ../sass/layout/_layout.scss */
+/* line 322, ../sass/layout/_layout.scss */
 .contact-me--contact-phone, .contact-me--contact-mail {
   margin-left: -4px;
   /* Display inline block fix */
 }
-/* line 314, ../sass/layout/_layout.scss */
+/* line 330, ../sass/layout/_layout.scss */
 .contact-me--contact-phone {
   text-align: right;
 }
-/* line 318, ../sass/layout/_layout.scss */
+/* line 334, ../sass/layout/_layout.scss */
 .contact-me--contact-mail {
   text-align: left;
 }
-/* line 322, ../sass/layout/_layout.scss */
+/* line 338, ../sass/layout/_layout.scss */
 .contact-me--contact-image {
   display: inline-block;
   max-width: 10em;
 }
-/* line 330, ../sass/layout/_layout.scss */
+/* line 346, ../sass/layout/_layout.scss */
 .contact-me--still-here {
   background-color: #222;
 }

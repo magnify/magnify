@@ -290,6 +290,22 @@
 
     background-color: #444;
 
+    &-inner {
+      &.is-scrolling {
+        @include breakpoint($breakpoint-desk) {
+          @include opacity(0);
+        }
+      }
+
+      // Start animation
+      &.is-ready {
+        @include breakpoint($breakpoint-desk) {
+          @include transition(all 1.5s ease-out);
+          @include opacity(1);
+        }
+      }
+    }
+
     @include breakpoint($breakpoint-desk) {
       padding: 5em 8em 16em;
     }
