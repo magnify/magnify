@@ -283,13 +283,12 @@
   }
 
   &--contact {
-    padding: 4em 2em 2em;
-
     background-color: #444;
 
     &-inner {
-      @extend %grid;
       @extend %grid--middle;
+
+      padding-top: 4em;
 
       &.is-scrolling {
         @include breakpoint($breakpoint-desk) {
@@ -321,15 +320,19 @@
 
     &-phone,
     &-mail {
-      @extend %grid__item;
-      @extend %desk--one-third;
-
-      margin-bottom: 3.25em;
+      display: inline-block;
       margin-left: -4px; /* Display inline block fix */
+
+      @include breakpoint($breakpoint-desk) {
+        margin-bottom: 6em;
+      }
     }
 
     &-phone {
       @include breakpoint($breakpoint-desk) {
+        // Fake centering
+        margin-left: -2.75em;
+
         text-align: right;
       }
     }
@@ -341,29 +344,24 @@
     }
 
     &-image {
-      @extend %grid__item;
-
       display: inline-block;
-      margin-bottom: 4em;
+      margin: 2em 2em 4em;
       max-width: 10em;
     }
 
     &-social {
-      @extend %grid;
-      @extend %grid--full;
-
-      margin-bottom: 4em;
+      padding-bottom: 4em;
     }
 
     &-facebook,
     &-twitter,
     &-linkedin {
       max-width: 3em;
-      margin-right: 2em;
     }
 
-    &-linkedin {
-      margin-right: 0;
+    &-twitter {
+      margin-right: 2em;
+      margin-left: 2em;
     }
   }
 

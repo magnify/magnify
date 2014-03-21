@@ -141,7 +141,7 @@
  * 3. Apply a negative `margin-left` to negate the columns’ gutters.
  */
 /* line 214, ../sass/base/_grid.scss */
-.my-work--inner, .contact-me--contact-inner, .contact-me--contact-social {
+.my-work--inner {
   list-style: none;
   /* [1] */
   margin: 0;
@@ -160,7 +160,7 @@
  * 5. Required to combine fluid widths and fixed gutters.
  */
 /* line 240, ../sass/base/_grid.scss */
-.header--inner, .my-work--project, .contact-me--contact-phone, .contact-me--contact-mail, .contact-me--contact-image {
+.header--inner, .my-work--project {
   display: inline-block;
   /* [1] */
   padding-left: 2em;
@@ -185,15 +185,6 @@
  * Gutterless grids have all the properties of regular grids, minus any spacing.
  * Extends `.grid`.
  */
-/* line 276, ../sass/base/_grid.scss */
-.contact-me--contact-social {
-  margin-left: 0;
-}
-/* line 279, ../sass/base/_grid.scss */
-.contact-me--contact-social > .header--inner, .contact-me--contact-social > .my-work--project, .contact-me--contact-social > .contact-me--contact-phone, .contact-me--contact-social > .contact-me--contact-mail, .contact-me--contact-social > .contact-me--contact-image {
-  padding-left: 0;
-}
-
 /**
  * Align the entire grid to the right. Extends `.grid`.
  */
@@ -206,7 +197,7 @@
   text-align: center;
 }
 /* line 304, ../sass/base/_grid.scss */
-.header > .header--inner, .my-work--inner > .header--inner, .header > .my-work--project, .my-work--inner > .my-work--project, .header > .contact-me--contact-phone, .my-work--inner > .contact-me--contact-phone, .header > .contact-me--contact-mail, .my-work--inner > .contact-me--contact-mail, .header > .contact-me--contact-image, .my-work--inner > .contact-me--contact-image {
+.header > .header--inner, .my-work--inner > .header--inner, .header > .my-work--project, .my-work--inner > .my-work--project {
   text-align: left;
 }
 
@@ -215,7 +206,7 @@
  * `.grid`.
  */
 /* line 316, ../sass/base/_grid.scss */
-.contact-me--contact-inner > .header--inner, .contact-me--contact-inner > .my-work--project, .contact-me--contact-inner > .contact-me--contact-phone, .contact-me--contact-inner > .contact-me--contact-mail, .contact-me--contact-inner > .contact-me--contact-image {
+.contact-me--contact-inner > .header--inner, .contact-me--contact-inner > .my-work--project {
   vertical-align: middle;
 }
 
@@ -372,7 +363,7 @@
    * Thirds
    */
   /* line 380, ../sass/base/_grid.scss */
-  .my-work--project, .contact-me--contact-phone, .contact-me--contact-mail {
+  .my-work--project {
     width: 33.333%;
   }
 
@@ -1323,18 +1314,21 @@ img {
 }
 /* line 285, ../sass/layout/_layout.scss */
 .contact-me--contact {
-  padding: 4em 2em 2em;
   background-color: #444;
 }
+/* line 288, ../sass/layout/_layout.scss */
+.contact-me--contact-inner {
+  padding-top: 4em;
+}
 @media only screen and (min-width: 1024px) {
-  /* line 294, ../sass/layout/_layout.scss */
+  /* line 293, ../sass/layout/_layout.scss */
   .contact-me--contact-inner.is-scrolling {
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
     opacity: 0;
   }
 }
 @media only screen and (min-width: 1024px) {
-  /* line 301, ../sass/layout/_layout.scss */
+  /* line 300, ../sass/layout/_layout.scss */
   .contact-me--contact-inner.is-ready {
     -moz-transition: all 1.5s ease-out;
     -o-transition: all 1.5s ease-out;
@@ -1350,70 +1344,77 @@ img {
     padding: 5em 8em 16em;
   }
 }
-/* line 313, ../sass/layout/_layout.scss */
+/* line 312, ../sass/layout/_layout.scss */
 .contact-me--contact-header {
   font-size: 1.75em;
 }
-/* line 317, ../sass/layout/_layout.scss */
+/* line 316, ../sass/layout/_layout.scss */
 .contact-me--contact-sub-header {
   color: gray;
   font-size: 1.5em;
 }
-/* line 322, ../sass/layout/_layout.scss */
+/* line 321, ../sass/layout/_layout.scss */
 .contact-me--contact-phone, .contact-me--contact-mail {
-  margin-bottom: 3.25em;
+  display: inline-block;
   margin-left: -4px;
   /* Display inline block fix */
 }
 @media only screen and (min-width: 1024px) {
+  /* line 321, ../sass/layout/_layout.scss */
+  .contact-me--contact-phone, .contact-me--contact-mail {
+    margin-bottom: 6em;
+  }
+}
+@media only screen and (min-width: 1024px) {
   /* line 331, ../sass/layout/_layout.scss */
   .contact-me--contact-phone {
+    margin-left: -2.75em;
     text-align: right;
   }
 }
 @media only screen and (min-width: 1024px) {
-  /* line 337, ../sass/layout/_layout.scss */
+  /* line 340, ../sass/layout/_layout.scss */
   .contact-me--contact-mail {
     text-align: left;
   }
 }
-/* line 343, ../sass/layout/_layout.scss */
+/* line 346, ../sass/layout/_layout.scss */
 .contact-me--contact-image {
   display: inline-block;
-  margin-bottom: 4em;
+  margin: 2em 2em 4em;
   max-width: 10em;
 }
-/* line 351, ../sass/layout/_layout.scss */
+/* line 352, ../sass/layout/_layout.scss */
 .contact-me--contact-social {
-  margin-bottom: 4em;
+  padding-bottom: 4em;
 }
-/* line 358, ../sass/layout/_layout.scss */
+/* line 356, ../sass/layout/_layout.scss */
 .contact-me--contact-facebook, .contact-me--contact-twitter, .contact-me--contact-linkedin {
   max-width: 3em;
+}
+/* line 362, ../sass/layout/_layout.scss */
+.contact-me--contact-twitter {
   margin-right: 2em;
+  margin-left: 2em;
 }
-/* line 365, ../sass/layout/_layout.scss */
-.contact-me--contact-linkedin {
-  margin-right: 0;
-}
-/* line 370, ../sass/layout/_layout.scss */
+/* line 368, ../sass/layout/_layout.scss */
 .contact-me--still-here {
   padding: 10em 2em 2em;
   background-color: #222;
 }
-/* line 375, ../sass/layout/_layout.scss */
+/* line 373, ../sass/layout/_layout.scss */
 .contact-me--still-here-header {
   margin-bottom: 1em;
   font-size: 1.5em;
 }
-/* line 381, ../sass/layout/_layout.scss */
+/* line 379, ../sass/layout/_layout.scss */
 .contact-me--still-here-sub-header {
   margin-bottom: 2em;
   color: #bfbfbf;
   font-size: 1.25em;
   font-weight: 100;
 }
-/* line 389, ../sass/layout/_layout.scss */
+/* line 387, ../sass/layout/_layout.scss */
 .contact-me--still-here-image {
   margin-bottom: 2em;
   max-width: 10em;
