@@ -1314,7 +1314,7 @@ img {
 }
 /* line 285, ../sass/layout/_layout.scss */
 .contact-me--contact {
-  background-color: #444;
+  background: url(http://subtlepatterns.com/patterns/debut_dark.png) #444444;
 }
 /* line 288, ../sass/layout/_layout.scss */
 .contact-me--contact-inner {
@@ -1372,49 +1372,53 @@ img {
     text-align: right;
   }
 }
+/* line 340, ../sass/layout/_layout.scss */
+.contact-me--contact-mail {
+  margin-bottom: 3em;
+}
 @media only screen and (min-width: 1024px) {
   /* line 340, ../sass/layout/_layout.scss */
   .contact-me--contact-mail {
     text-align: left;
   }
 }
-/* line 346, ../sass/layout/_layout.scss */
+/* line 348, ../sass/layout/_layout.scss */
 .contact-me--contact-image {
   display: inline-block;
-  margin: 2em 2em 4em;
+  margin: 2em;
   max-width: 10em;
 }
-/* line 352, ../sass/layout/_layout.scss */
+/* line 354, ../sass/layout/_layout.scss */
 .contact-me--contact-social {
   padding-bottom: 4em;
 }
-/* line 356, ../sass/layout/_layout.scss */
+/* line 358, ../sass/layout/_layout.scss */
 .contact-me--contact-facebook, .contact-me--contact-twitter, .contact-me--contact-linkedin {
   max-width: 3em;
 }
-/* line 362, ../sass/layout/_layout.scss */
+/* line 364, ../sass/layout/_layout.scss */
 .contact-me--contact-twitter {
   margin-right: 2em;
   margin-left: 2em;
 }
-/* line 368, ../sass/layout/_layout.scss */
+/* line 370, ../sass/layout/_layout.scss */
 .contact-me--still-here {
   padding: 10em 2em 2em;
-  background-color: #222;
+  background: url("/images/still-here-bg.png") #222222;
 }
-/* line 373, ../sass/layout/_layout.scss */
+/* line 375, ../sass/layout/_layout.scss */
 .contact-me--still-here-header {
   margin-bottom: 1em;
   font-size: 1.5em;
 }
-/* line 379, ../sass/layout/_layout.scss */
+/* line 381, ../sass/layout/_layout.scss */
 .contact-me--still-here-sub-header {
   margin-bottom: 2em;
   color: #bfbfbf;
   font-size: 1.25em;
   font-weight: 100;
 }
-/* line 387, ../sass/layout/_layout.scss */
+/* line 389, ../sass/layout/_layout.scss */
 .contact-me--still-here-image {
   margin-bottom: 2em;
   max-width: 10em;

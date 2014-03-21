@@ -283,7 +283,7 @@
   }
 
   &--contact {
-    background-color: #444;
+    background: url(http://subtlepatterns.com/patterns/debut_dark.png) #444;
 
     &-inner {
       @extend %grid--middle;
@@ -338,6 +338,8 @@
     }
 
     &-mail {
+      margin-bottom: 3em;
+
       @include breakpoint($breakpoint-desk) {
         text-align: left;
       }
@@ -345,7 +347,7 @@
 
     &-image {
       display: inline-block;
-      margin: 2em 2em 4em;
+      margin: 2em;
       max-width: 10em;
     }
 
@@ -368,7 +370,7 @@
   &--still-here {
     padding: 10em 2em 2em;
 
-    background-color: #222;
+    background: url("/images/still-here-bg.png") #222;
 
     &-header {
       margin-bottom: 1em;

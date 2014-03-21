@@ -28,6 +28,16 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/images\/footer-bg.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 16980,
+		"inputAbbreviatedPath": "\/images\/footer-bg.png",
+		"outputAbbreviatedPath": "\/images\/footer-bg.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/images\/gecko.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -65,6 +75,16 @@
 		"initialSize": 127656,
 		"inputAbbreviatedPath": "\/images\/me.png",
 		"outputAbbreviatedPath": "\/images\/me.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/still-here-bg.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 32733,
+		"inputAbbreviatedPath": "\/images\/still-here-bg.png",
+		"outputAbbreviatedPath": "\/images\/still-here-bg.png",
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
