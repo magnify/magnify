@@ -5,6 +5,7 @@
   @extend %grid--center;
 
   position: relative;
+  z-index: 99;
 
   height: 100%;
   width: 100%;
@@ -187,7 +188,6 @@
    ================================================================================================================== */
 
 .my-work {
-  overflow-x: scroll;
   padding: 2em;
   width: 100%;
 
@@ -195,6 +195,24 @@
 
   @include breakpoint($breakpoint-desk) {
     padding: 5em 8em 2em;
+  }
+
+  &.is-scrolling {
+    @include breakpoint($breakpoint-desk) {
+      margin-top: -10em;
+
+      @include opacity(0);
+    }
+  }
+
+  // Start animation
+  &.is-ready {
+    @include breakpoint($breakpoint-desk) {
+      margin-top: 0;
+
+      @include transition(all .5s ease-out);
+      @include opacity(1);
+    }
   }
 
   &--inner {

@@ -1,1 +1,1 @@
-smoothScroll.init({speed:350,easing:"easeInOutQuart",updateURL:!0});
+function addScrollStartClass(){var s=document.getElementsByClassName("js-scroll");s.classList?s[0].classList.add("is-scrolling"):s[0].className+=" is-scrolling"}function addScrollEndClass(){var s=document.getElementsByClassName("js-scroll");s.classList?s[0].classList.add("is-ready"):s[0].className+=" is-ready"}smoothScroll.init({speed:350,easing:"easeInOutQuart",updateURL:!1,callbackBefore:addScrollStartClass,callbackAfter:addScrollEndClass});

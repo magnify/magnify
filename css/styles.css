@@ -1044,6 +1044,7 @@ img {
 /* line 4, ../sass/layout/_layout.scss */
 .header {
   position: relative;
+  z-index: 99;
   height: 100%;
   width: 100%;
   background: url("/images/header-background.jpg") no-repeat left;
@@ -1059,7 +1060,7 @@ img {
     background-position: center;
   }
 }
-/* line 22, ../sass/layout/_layout.scss */
+/* line 23, ../sass/layout/_layout.scss */
 .header--inner {
   position: relative;
   top: 50%;
@@ -1069,7 +1070,7 @@ img {
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-/* line 37, ../sass/layout/_layout.scss */
+/* line 38, ../sass/layout/_layout.scss */
 .header--nav {
   position: absolute;
   top: 0;
@@ -1080,31 +1081,31 @@ img {
   line-height: 3.5em;
   text-align: center;
 }
-/* line 49, ../sass/layout/_layout.scss */
+/* line 50, ../sass/layout/_layout.scss */
 .header--nav-link {
   margin-right: 1.5em;
 }
-/* line 52, ../sass/layout/_layout.scss */
+/* line 53, ../sass/layout/_layout.scss */
 .header--nav-link:last-child {
   margin-right: 0;
 }
-/* line 59, ../sass/layout/_layout.scss */
+/* line 60, ../sass/layout/_layout.scss */
 .header--nav a:link {
   color: white;
   font-weight: 600;
   text-decoration: none;
 }
-/* line 65, ../sass/layout/_layout.scss */
+/* line 66, ../sass/layout/_layout.scss */
 .header--nav a:visited {
   color: #f2f2f2;
 }
-/* line 69, ../sass/layout/_layout.scss */
+/* line 70, ../sass/layout/_layout.scss */
 .header--nav a:hover, .header--nav a:focus {
   color: #f0f1d2;
   text-decoration: none;
 }
 @media only screen and (min-width: 481px) {
-  /* line 37, ../sass/layout/_layout.scss */
+  /* line 38, ../sass/layout/_layout.scss */
   .header--nav {
     padding-right: 1.5em;
     padding-left: 1.5em;
@@ -1114,60 +1115,60 @@ img {
     box-sizing: border-box;
   }
 }
-/* line 87, ../sass/layout/_layout.scss */
+/* line 88, ../sass/layout/_layout.scss */
 .header--big {
   font-size: 2em;
   font-weight: 600;
   text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.25);
 }
 @media only screen and (min-width: 481px) {
-  /* line 87, ../sass/layout/_layout.scss */
+  /* line 88, ../sass/layout/_layout.scss */
   .header--big {
     font-size: 3em;
   }
 }
 @media only screen and (min-width: 1024px) {
-  /* line 87, ../sass/layout/_layout.scss */
+  /* line 88, ../sass/layout/_layout.scss */
   .header--big {
     font-size: 3.5em;
     text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.25);
   }
 }
 @media screen and (orientation: landscape) and (max-height: 287px) {
-  /* line 87, ../sass/layout/_layout.scss */
+  /* line 88, ../sass/layout/_layout.scss */
   .header--big {
     font-size: 1.5em;
   }
 }
-/* line 110, ../sass/layout/_layout.scss */
+/* line 111, ../sass/layout/_layout.scss */
 .header--sub {
   margin-bottom: 2em;
   font-weight: 300;
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25);
 }
 @media only screen and (min-width: 481px) {
-  /* line 110, ../sass/layout/_layout.scss */
+  /* line 111, ../sass/layout/_layout.scss */
   .header--sub {
     font-size: 1.25em;
   }
 }
 @media only screen and (min-width: 1024px) {
-  /* line 110, ../sass/layout/_layout.scss */
+  /* line 111, ../sass/layout/_layout.scss */
   .header--sub {
     font-size: 1.75em;
   }
 }
 @media screen and (orientation: landscape) and (max-height: 287px) {
-  /* line 110, ../sass/layout/_layout.scss */
+  /* line 111, ../sass/layout/_layout.scss */
   .header--sub {
     font-size: 1em;
   }
 }
-/* line 133, ../sass/layout/_layout.scss */
+/* line 134, ../sass/layout/_layout.scss */
 .header--button-wrapper {
   text-align: center;
 }
-/* line 137, ../sass/layout/_layout.scss */
+/* line 138, ../sass/layout/_layout.scss */
 .header--button-link {
   border: 2px solid white;
   display: block;
@@ -1188,29 +1189,29 @@ img {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 152, ../sass/layout/_layout.scss */
+/* line 153, ../sass/layout/_layout.scss */
 .header--button-link:link, .header--button-link:visited, .header--button-link:hover, .header--button-link:active {
   color: #fff;
   text-decoration: none;
 }
-/* line 160, ../sass/layout/_layout.scss */
+/* line 161, ../sass/layout/_layout.scss */
 .header--button-link:hover {
   background-color: rgba(0, 0, 0, 0.65);
 }
 @media only screen and (min-width: 481px) {
-  /* line 137, ../sass/layout/_layout.scss */
+  /* line 138, ../sass/layout/_layout.scss */
   .header--button-link {
     width: 50%;
   }
 }
 @media only screen and (min-width: 1024px) {
-  /* line 137, ../sass/layout/_layout.scss */
+  /* line 138, ../sass/layout/_layout.scss */
   .header--button-link {
     width: 40%;
   }
 }
 @media screen and (orientation: landscape) and (max-height: 287px) {
-  /* line 137, ../sass/layout/_layout.scss */
+  /* line 138, ../sass/layout/_layout.scss */
   .header--button-link {
     width: 30%;
     font-size: 1em;
@@ -1219,9 +1220,8 @@ img {
 
 /* My work
    ================================================================================================================== */
-/* line 189, ../sass/layout/_layout.scss */
+/* line 190, ../sass/layout/_layout.scss */
 .my-work {
-  overflow-x: scroll;
   padding: 2em;
   width: 100%;
   -moz-box-sizing: border-box;
@@ -1229,16 +1229,36 @@ img {
   box-sizing: border-box;
 }
 @media only screen and (min-width: 1024px) {
-  /* line 189, ../sass/layout/_layout.scss */
+  /* line 190, ../sass/layout/_layout.scss */
   .my-work {
     padding: 5em 8em 2em;
   }
 }
-/* line 200, ../sass/layout/_layout.scss */
+@media only screen and (min-width: 1024px) {
+  /* line 200, ../sass/layout/_layout.scss */
+  .my-work.is-scrolling {
+    margin-top: -10em;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  /* line 209, ../sass/layout/_layout.scss */
+  .my-work.is-ready {
+    margin-top: 0;
+    -moz-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    -webkit-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+    filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+    opacity: 1;
+  }
+}
+/* line 218, ../sass/layout/_layout.scss */
 .my-work--inner {
   background-color: rgba(255, 255, 255, 0.5);
 }
-/* line 207, ../sass/layout/_layout.scss */
+/* line 225, ../sass/layout/_layout.scss */
 .my-work--header {
   margin-bottom: 1.5em;
   color: #535353;
@@ -1246,72 +1266,72 @@ img {
   font-weight: 100;
   text-align: center;
 }
-/* line 216, ../sass/layout/_layout.scss */
+/* line 234, ../sass/layout/_layout.scss */
 .my-work--project {
   margin-bottom: 3em;
   margin-left: -4px;
   /* Display inline block fix */
 }
-/* line 224, ../sass/layout/_layout.scss */
+/* line 242, ../sass/layout/_layout.scss */
 .my-work--project:last-child {
   margin-right: 0;
 }
-/* line 228, ../sass/layout/_layout.scss */
+/* line 246, ../sass/layout/_layout.scss */
 .my-work--project-image {
   margin-bottom: 1em;
 }
-/* line 232, ../sass/layout/_layout.scss */
+/* line 250, ../sass/layout/_layout.scss */
 .my-work--project-header {
   font-size: 1.5em;
   font-weight: 600;
   text-align: center;
 }
-/* line 238, ../sass/layout/_layout.scss */
+/* line 256, ../sass/layout/_layout.scss */
 .my-work--project-description {
   text-align: center;
 }
 
 /* Contact and footer
    ================================================================================================================== */
-/* line 248, ../sass/layout/_layout.scss */
+/* line 266, ../sass/layout/_layout.scss */
 .footer {
   color: white;
   text-align: center;
 }
-/* line 252, ../sass/layout/_layout.scss */
+/* line 270, ../sass/layout/_layout.scss */
 .footer--contact {
   padding: 2em;
   background-color: #444;
 }
 @media only screen and (min-width: 1024px) {
-  /* line 252, ../sass/layout/_layout.scss */
+  /* line 270, ../sass/layout/_layout.scss */
   .footer--contact {
     padding: 5em 8em 16em;
   }
 }
-/* line 264, ../sass/layout/_layout.scss */
+/* line 282, ../sass/layout/_layout.scss */
 .footer--contact-heading {
   font-weight: 600;
 }
-/* line 268, ../sass/layout/_layout.scss */
+/* line 286, ../sass/layout/_layout.scss */
 .footer--contact-phone, .footer--contact-mail {
   margin-left: -4px;
   /* Display inline block fix */
 }
-/* line 276, ../sass/layout/_layout.scss */
+/* line 294, ../sass/layout/_layout.scss */
 .footer--contact-phone {
   text-align: right;
 }
-/* line 280, ../sass/layout/_layout.scss */
+/* line 298, ../sass/layout/_layout.scss */
 .footer--contact-mail {
   text-align: left;
 }
-/* line 284, ../sass/layout/_layout.scss */
+/* line 302, ../sass/layout/_layout.scss */
 .footer--contact-image {
   display: inline-block;
   max-width: 10em;
 }
-/* line 292, ../sass/layout/_layout.scss */
+/* line 310, ../sass/layout/_layout.scss */
 .footer--still-here {
   background-color: #222;
 }
