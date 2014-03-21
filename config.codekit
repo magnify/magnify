@@ -38,6 +38,16 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/images\/linkedin.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2984,
+		"inputAbbreviatedPath": "\/images\/linkedin.png",
+		"outputAbbreviatedPath": "\/images\/linkedin.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/images\/me.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -45,6 +55,16 @@
 		"initialSize": 127656,
 		"inputAbbreviatedPath": "\/images\/me.png",
 		"outputAbbreviatedPath": "\/images\/me.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/twitter.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2742,
+		"inputAbbreviatedPath": "\/images\/twitter.png",
+		"outputAbbreviatedPath": "\/images\/twitter.png",
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},

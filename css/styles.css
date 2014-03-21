@@ -141,7 +141,7 @@
  * 3. Apply a negative `margin-left` to negate the columns’ gutters.
  */
 /* line 214, ../sass/base/_grid.scss */
-.my-work--inner, .contact-me--contact {
+.my-work--inner, .contact-me--contact-inner, .contact-me--contact-social {
   list-style: none;
   /* [1] */
   margin: 0;
@@ -185,6 +185,15 @@
  * Gutterless grids have all the properties of regular grids, minus any spacing.
  * Extends `.grid`.
  */
+/* line 276, ../sass/base/_grid.scss */
+.contact-me--contact-social {
+  margin-left: 0;
+}
+/* line 279, ../sass/base/_grid.scss */
+.contact-me--contact-social > .header--inner, .contact-me--contact-social > .my-work--project, .contact-me--contact-social > .contact-me--contact-phone, .contact-me--contact-social > .contact-me--contact-mail, .contact-me--contact-social > .contact-me--contact-image {
+  padding-left: 0;
+}
+
 /**
  * Align the entire grid to the right. Extends `.grid`.
  */
@@ -206,7 +215,7 @@
  * `.grid`.
  */
 /* line 316, ../sass/base/_grid.scss */
-.contact-me--contact > .header--inner, .contact-me--contact > .my-work--project, .contact-me--contact > .contact-me--contact-phone, .contact-me--contact > .contact-me--contact-mail, .contact-me--contact > .contact-me--contact-image {
+.contact-me--contact-inner > .header--inner, .contact-me--contact-inner > .my-work--project, .contact-me--contact-inner > .contact-me--contact-phone, .contact-me--contact-inner > .contact-me--contact-mail, .contact-me--contact-inner > .contact-me--contact-image {
   vertical-align: middle;
 }
 
@@ -1175,7 +1184,7 @@ img {
   display: block;
   margin-right: auto;
   margin-left: auto;
-  padding-top: .5em;
+  padding-top: .6em;
   padding-bottom: .75em;
   background-color: rgba(0, 0, 0, 0.35);
   color: white;
@@ -1314,7 +1323,7 @@ img {
 }
 /* line 285, ../sass/layout/_layout.scss */
 .contact-me--contact {
-  padding: 2em;
+  padding: 4em 2em 2em;
   background-color: #444;
 }
 @media only screen and (min-width: 1024px) {
@@ -1342,33 +1351,70 @@ img {
   }
 }
 /* line 313, ../sass/layout/_layout.scss */
-.contact-me--contact-heading {
+.contact-me--contact-header {
   font-size: 1.75em;
 }
 /* line 317, ../sass/layout/_layout.scss */
-.contact-me--contact-sub-heading {
+.contact-me--contact-sub-header {
   color: gray;
   font-size: 1.5em;
 }
 /* line 322, ../sass/layout/_layout.scss */
 .contact-me--contact-phone, .contact-me--contact-mail {
+  margin-bottom: 3.25em;
   margin-left: -4px;
   /* Display inline block fix */
 }
-/* line 330, ../sass/layout/_layout.scss */
-.contact-me--contact-phone {
-  text-align: right;
+@media only screen and (min-width: 1024px) {
+  /* line 331, ../sass/layout/_layout.scss */
+  .contact-me--contact-phone {
+    text-align: right;
+  }
 }
-/* line 334, ../sass/layout/_layout.scss */
-.contact-me--contact-mail {
-  text-align: left;
+@media only screen and (min-width: 1024px) {
+  /* line 337, ../sass/layout/_layout.scss */
+  .contact-me--contact-mail {
+    text-align: left;
+  }
 }
-/* line 338, ../sass/layout/_layout.scss */
+/* line 343, ../sass/layout/_layout.scss */
 .contact-me--contact-image {
   display: inline-block;
+  margin-bottom: 4em;
   max-width: 10em;
 }
-/* line 346, ../sass/layout/_layout.scss */
+/* line 351, ../sass/layout/_layout.scss */
+.contact-me--contact-social {
+  margin-bottom: 4em;
+}
+/* line 358, ../sass/layout/_layout.scss */
+.contact-me--contact-facebook, .contact-me--contact-twitter, .contact-me--contact-linkedin {
+  max-width: 3em;
+  margin-right: 2em;
+}
+/* line 365, ../sass/layout/_layout.scss */
+.contact-me--contact-linkedin {
+  margin-right: 0;
+}
+/* line 370, ../sass/layout/_layout.scss */
 .contact-me--still-here {
+  padding: 10em 2em 2em;
   background-color: #222;
+}
+/* line 375, ../sass/layout/_layout.scss */
+.contact-me--still-here-header {
+  margin-bottom: 1em;
+  font-size: 1.5em;
+}
+/* line 381, ../sass/layout/_layout.scss */
+.contact-me--still-here-sub-header {
+  margin-bottom: 2em;
+  color: #bfbfbf;
+  font-size: 1.25em;
+  font-weight: 100;
+}
+/* line 389, ../sass/layout/_layout.scss */
+.contact-me--still-here-image {
+  margin-bottom: 2em;
+  max-width: 10em;
 }
