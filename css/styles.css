@@ -141,7 +141,7 @@
  * 3. Apply a negative `margin-left` to negate the columns’ gutters.
  */
 /* line 214, ../sass/base/_grid.scss */
-.my-work--inner, .footer--contact {
+.my-work--inner, .contact-me--contact {
   list-style: none;
   /* [1] */
   margin: 0;
@@ -160,7 +160,7 @@
  * 5. Required to combine fluid widths and fixed gutters.
  */
 /* line 240, ../sass/base/_grid.scss */
-.header--inner, .my-work--project, .footer--contact-phone, .footer--contact-mail, .footer--contact-image {
+.header--inner, .my-work--project, .contact-me--contact-phone, .contact-me--contact-mail, .contact-me--contact-image {
   display: inline-block;
   /* [1] */
   padding-left: 2em;
@@ -197,7 +197,7 @@
   text-align: center;
 }
 /* line 304, ../sass/base/_grid.scss */
-.header > .header--inner, .my-work--inner > .header--inner, .header > .my-work--project, .my-work--inner > .my-work--project, .header > .footer--contact-phone, .my-work--inner > .footer--contact-phone, .header > .footer--contact-mail, .my-work--inner > .footer--contact-mail, .header > .footer--contact-image, .my-work--inner > .footer--contact-image {
+.header > .header--inner, .my-work--inner > .header--inner, .header > .my-work--project, .my-work--inner > .my-work--project, .header > .contact-me--contact-phone, .my-work--inner > .contact-me--contact-phone, .header > .contact-me--contact-mail, .my-work--inner > .contact-me--contact-mail, .header > .contact-me--contact-image, .my-work--inner > .contact-me--contact-image {
   text-align: left;
 }
 
@@ -206,7 +206,7 @@
  * `.grid`.
  */
 /* line 316, ../sass/base/_grid.scss */
-.footer--contact > .header--inner, .footer--contact > .my-work--project, .footer--contact > .footer--contact-phone, .footer--contact > .footer--contact-mail, .footer--contact > .footer--contact-image {
+.contact-me--contact > .header--inner, .contact-me--contact > .my-work--project, .contact-me--contact > .contact-me--contact-phone, .contact-me--contact > .contact-me--contact-mail, .contact-me--contact > .contact-me--contact-image {
   vertical-align: middle;
 }
 
@@ -363,7 +363,7 @@
    * Thirds
    */
   /* line 380, ../sass/base/_grid.scss */
-  .my-work--project, .footer--contact-phone, .footer--contact-mail {
+  .my-work--project, .contact-me--contact-phone, .contact-me--contact-mail {
     width: 33.333%;
   }
 
@@ -1064,13 +1064,14 @@ img {
 .header--inner {
   position: relative;
   top: 50%;
+  max-width: 75em;
   padding: 4.5em 1.5em 1.5em;
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-/* line 38, ../sass/layout/_layout.scss */
+/* line 39, ../sass/layout/_layout.scss */
 .header--nav {
   position: absolute;
   top: 0;
@@ -1081,31 +1082,31 @@ img {
   line-height: 3.5em;
   text-align: center;
 }
-/* line 50, ../sass/layout/_layout.scss */
+/* line 51, ../sass/layout/_layout.scss */
 .header--nav-link {
   margin-right: 1.5em;
 }
-/* line 53, ../sass/layout/_layout.scss */
+/* line 54, ../sass/layout/_layout.scss */
 .header--nav-link:last-child {
   margin-right: 0;
 }
-/* line 60, ../sass/layout/_layout.scss */
+/* line 61, ../sass/layout/_layout.scss */
 .header--nav a:link {
   color: white;
   font-weight: 600;
   text-decoration: none;
 }
-/* line 66, ../sass/layout/_layout.scss */
+/* line 67, ../sass/layout/_layout.scss */
 .header--nav a:visited {
   color: #f2f2f2;
 }
-/* line 70, ../sass/layout/_layout.scss */
+/* line 71, ../sass/layout/_layout.scss */
 .header--nav a:hover, .header--nav a:focus {
   color: #f0f1d2;
   text-decoration: none;
 }
 @media only screen and (min-width: 481px) {
-  /* line 38, ../sass/layout/_layout.scss */
+  /* line 39, ../sass/layout/_layout.scss */
   .header--nav {
     padding-right: 1.5em;
     padding-left: 1.5em;
@@ -1115,60 +1116,60 @@ img {
     box-sizing: border-box;
   }
 }
-/* line 88, ../sass/layout/_layout.scss */
+/* line 89, ../sass/layout/_layout.scss */
 .header--big {
   font-size: 2em;
   font-weight: 600;
   text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.25);
 }
 @media only screen and (min-width: 481px) {
-  /* line 88, ../sass/layout/_layout.scss */
+  /* line 89, ../sass/layout/_layout.scss */
   .header--big {
     font-size: 3em;
   }
 }
 @media only screen and (min-width: 1024px) {
-  /* line 88, ../sass/layout/_layout.scss */
+  /* line 89, ../sass/layout/_layout.scss */
   .header--big {
     font-size: 3.5em;
     text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.25);
   }
 }
 @media screen and (orientation: landscape) and (max-height: 287px) {
-  /* line 88, ../sass/layout/_layout.scss */
+  /* line 89, ../sass/layout/_layout.scss */
   .header--big {
     font-size: 1.5em;
   }
 }
-/* line 111, ../sass/layout/_layout.scss */
+/* line 112, ../sass/layout/_layout.scss */
 .header--sub {
   margin-bottom: 2em;
   font-weight: 300;
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25);
 }
 @media only screen and (min-width: 481px) {
-  /* line 111, ../sass/layout/_layout.scss */
+  /* line 112, ../sass/layout/_layout.scss */
   .header--sub {
     font-size: 1.25em;
   }
 }
 @media only screen and (min-width: 1024px) {
-  /* line 111, ../sass/layout/_layout.scss */
+  /* line 112, ../sass/layout/_layout.scss */
   .header--sub {
     font-size: 1.75em;
   }
 }
 @media screen and (orientation: landscape) and (max-height: 287px) {
-  /* line 111, ../sass/layout/_layout.scss */
+  /* line 112, ../sass/layout/_layout.scss */
   .header--sub {
     font-size: 1em;
   }
 }
-/* line 134, ../sass/layout/_layout.scss */
+/* line 135, ../sass/layout/_layout.scss */
 .header--button-wrapper {
   text-align: center;
 }
-/* line 138, ../sass/layout/_layout.scss */
+/* line 139, ../sass/layout/_layout.scss */
 .header--button-link {
   border: 2px solid white;
   display: block;
@@ -1189,29 +1190,29 @@ img {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 153, ../sass/layout/_layout.scss */
+/* line 154, ../sass/layout/_layout.scss */
 .header--button-link:link, .header--button-link:visited, .header--button-link:hover, .header--button-link:active {
   color: #fff;
   text-decoration: none;
 }
-/* line 161, ../sass/layout/_layout.scss */
+/* line 162, ../sass/layout/_layout.scss */
 .header--button-link:hover {
   background-color: rgba(0, 0, 0, 0.65);
 }
 @media only screen and (min-width: 481px) {
-  /* line 138, ../sass/layout/_layout.scss */
+  /* line 139, ../sass/layout/_layout.scss */
   .header--button-link {
     width: 50%;
   }
 }
 @media only screen and (min-width: 1024px) {
-  /* line 138, ../sass/layout/_layout.scss */
+  /* line 139, ../sass/layout/_layout.scss */
   .header--button-link {
     width: 40%;
   }
 }
 @media screen and (orientation: landscape) and (max-height: 287px) {
-  /* line 138, ../sass/layout/_layout.scss */
+  /* line 139, ../sass/layout/_layout.scss */
   .header--button-link {
     width: 30%;
     font-size: 1em;
@@ -1220,7 +1221,7 @@ img {
 
 /* My work
    ================================================================================================================== */
-/* line 190, ../sass/layout/_layout.scss */
+/* line 191, ../sass/layout/_layout.scss */
 .my-work {
   padding: 2em;
   width: 100%;
@@ -1229,13 +1230,13 @@ img {
   box-sizing: border-box;
 }
 @media only screen and (min-width: 1024px) {
-  /* line 190, ../sass/layout/_layout.scss */
+  /* line 191, ../sass/layout/_layout.scss */
   .my-work {
     padding: 5em 8em 2em;
   }
 }
 @media only screen and (min-width: 1024px) {
-  /* line 200, ../sass/layout/_layout.scss */
+  /* line 201, ../sass/layout/_layout.scss */
   .my-work.is-scrolling {
     margin-top: -10em;
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
@@ -1243,7 +1244,7 @@ img {
   }
 }
 @media only screen and (min-width: 1024px) {
-  /* line 209, ../sass/layout/_layout.scss */
+  /* line 210, ../sass/layout/_layout.scss */
   .my-work.is-ready {
     margin-top: 0;
     -moz-transition: all 0.5s ease-out;
@@ -1254,11 +1255,12 @@ img {
     opacity: 1;
   }
 }
-/* line 218, ../sass/layout/_layout.scss */
+/* line 219, ../sass/layout/_layout.scss */
 .my-work--inner {
+  max-width: 75em;
   background-color: rgba(255, 255, 255, 0.5);
 }
-/* line 225, ../sass/layout/_layout.scss */
+/* line 228, ../sass/layout/_layout.scss */
 .my-work--header {
   margin-bottom: 1.5em;
   color: #535353;
@@ -1266,72 +1268,89 @@ img {
   font-weight: 100;
   text-align: center;
 }
-/* line 234, ../sass/layout/_layout.scss */
+/* line 237, ../sass/layout/_layout.scss */
 .my-work--project {
   margin-bottom: 3em;
   margin-left: -4px;
   /* Display inline block fix */
 }
-/* line 242, ../sass/layout/_layout.scss */
+/* line 245, ../sass/layout/_layout.scss */
 .my-work--project:last-child {
   margin-right: 0;
 }
-/* line 246, ../sass/layout/_layout.scss */
+/* line 249, ../sass/layout/_layout.scss */
 .my-work--project-image {
   margin-bottom: 1em;
 }
-/* line 250, ../sass/layout/_layout.scss */
+/* line 253, ../sass/layout/_layout.scss */
 .my-work--project-header {
   font-size: 1.5em;
   font-weight: 600;
   text-align: center;
 }
-/* line 256, ../sass/layout/_layout.scss */
+/* line 259, ../sass/layout/_layout.scss */
 .my-work--project-description {
   text-align: center;
 }
 
 /* Contact and footer
    ================================================================================================================== */
-/* line 266, ../sass/layout/_layout.scss */
-.footer {
+/* line 269, ../sass/layout/_layout.scss */
+.contact-me {
   color: white;
   text-align: center;
 }
-/* line 270, ../sass/layout/_layout.scss */
-.footer--contact {
+/* line 273, ../sass/layout/_layout.scss */
+.contact-me a:link,
+.contact-me a:visited {
+  color: white;
+  text-decoration: none;
+}
+/* line 279, ../sass/layout/_layout.scss */
+.contact-me a:hover,
+.contact-me a:focus {
+  color: #f0f1d2;
+  text-decoration: none;
+}
+/* line 285, ../sass/layout/_layout.scss */
+.contact-me--contact {
   padding: 2em;
   background-color: #444;
 }
 @media only screen and (min-width: 1024px) {
-  /* line 270, ../sass/layout/_layout.scss */
-  .footer--contact {
+  /* line 285, ../sass/layout/_layout.scss */
+  .contact-me--contact {
     padding: 5em 8em 16em;
   }
 }
-/* line 282, ../sass/layout/_layout.scss */
-.footer--contact-heading {
-  font-weight: 600;
+/* line 297, ../sass/layout/_layout.scss */
+.contact-me--contact-heading {
+  font-size: 1.75em;
 }
-/* line 286, ../sass/layout/_layout.scss */
-.footer--contact-phone, .footer--contact-mail {
+/* line 301, ../sass/layout/_layout.scss */
+.contact-me--contact-sub-heading {
+  color: gray;
+  font-size: 1.5em;
+}
+/* line 306, ../sass/layout/_layout.scss */
+.contact-me--contact-phone, .contact-me--contact-mail {
   margin-left: -4px;
   /* Display inline block fix */
 }
-/* line 294, ../sass/layout/_layout.scss */
-.footer--contact-phone {
+/* line 314, ../sass/layout/_layout.scss */
+.contact-me--contact-phone {
   text-align: right;
 }
-/* line 298, ../sass/layout/_layout.scss */
-.footer--contact-mail {
+/* line 318, ../sass/layout/_layout.scss */
+.contact-me--contact-mail {
   text-align: left;
 }
-/* line 302, ../sass/layout/_layout.scss */
-.footer--contact-image {
+/* line 322, ../sass/layout/_layout.scss */
+.contact-me--contact-image {
   display: inline-block;
   max-width: 10em;
 }
-/* line 310, ../sass/layout/_layout.scss */
-.footer--still-here {
+/* line 330, ../sass/layout/_layout.scss */
+.contact-me--still-here {
   background-color: #222;
 }

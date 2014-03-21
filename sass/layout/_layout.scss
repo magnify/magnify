@@ -29,6 +29,7 @@
     position: relative;
     top: 50%;
 
+    max-width: 75em;
     padding: 4.5em 1.5em 1.5em;
 
     @include translateY(-50%);
@@ -219,6 +220,8 @@
     @extend %grid;
     @extend %grid--center;
 
+    max-width: 75em;
+
     background-color: transparentize($white, .5);
   }
 
@@ -263,9 +266,21 @@
 /* Contact and footer
    ================================================================================================================== */
 
-.footer {
+.contact-me {
   color: $white;
   text-align: center;
+
+  a:link,
+  a:visited {
+    color: white;
+    text-decoration: none;
+  }
+
+  a:hover,
+  a:focus {
+    color: $link-color;
+    text-decoration: none;
+  }
 
   &--contact {
     @extend %grid;
@@ -280,7 +295,12 @@
     }
 
     &-heading {
-      font-weight: 600;
+      font-size: 1.75em;
+    }
+
+    &-sub-heading {
+      color: darken($white, 50%);
+      font-size: 1.5em;
     }
 
     &-phone,
