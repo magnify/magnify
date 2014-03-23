@@ -28,16 +28,10 @@
     @include opacity(0);
   }
 
-  50% {
+  75% {
     right: 50%;
 
     @include opacity(0);
-  }
-
-  75% {
-    right: 0;
-
-    @include opacity(1);
   }
 
   100% {
@@ -52,7 +46,7 @@
     @include opacity(0);
   }
 
-  75% {
+  95% {
     @include opacity(0);
   }
 
@@ -241,7 +235,7 @@
       @include breakpoint($breakpoint-desk) {
         width: 40%;
 
-        @include animation(header-button 1.5s ease 1);
+        @include animation(header-button 3s ease 1);
       }
 
       // Tweaking for mobile device landscape (HTC One so far)
