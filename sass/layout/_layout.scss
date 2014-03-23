@@ -360,6 +360,8 @@
   }
 
   &--contact {
+    padding-top: 4em;
+
     background: url("/images/footer-bg.png") #444;
 
     @include breakpoint($breakpoint-desk) {
