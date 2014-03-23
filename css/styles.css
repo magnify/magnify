@@ -1233,7 +1233,7 @@ img {
 @media only screen and (min-width: 1024px) {
   /* line 192, ../sass/layout/_layout.scss */
   .my-work {
-    padding: 5em 8em 2em;
+    padding: 5em 8em;
   }
 }
 /* line 202, ../sass/layout/_layout.scss */

@@ -196,7 +196,7 @@
   @include box-sizing(border-box);
 
   @include breakpoint($breakpoint-desk) {
-    padding: 5em 8em 2em;
+    padding: 5em 8em;
   }
 
   &--inner {
