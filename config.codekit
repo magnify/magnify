@@ -1,6 +1,6 @@
 {
 "CodeKitInfo": "This is a CodeKit 2.x project configuration file. It is designed to sync project settings across multiple machines. MODIFYING THE CONTENTS OF THIS FILE IS A POOR LIFE DECISION. If you do so, you will likely cause CodeKit to crash. This file is not useful unless accompanied by the project that created it in CodeKit 2. This file is not backwards-compatible with CodeKit 1.x. For more information, see: http:\/\/incident57.com\/codekit",
-"creatorBuild": "16844",
+"creatorBuild": "16877",
 "files": {
 	"\/config.rb": {
 		"fileType": 131072,
@@ -18,6 +18,36 @@
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsSetByUser": 0
 		},
+	"\/images\/facebook.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 879,
+		"inputAbbreviatedPath": "\/images\/facebook.png",
+		"outputAbbreviatedPath": "\/images\/facebook.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/footer-bg.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 13966,
+		"inputAbbreviatedPath": "\/images\/footer-bg.png",
+		"outputAbbreviatedPath": "\/images\/footer-bg.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/gecko.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 31410,
+		"inputAbbreviatedPath": "\/images\/gecko.png",
+		"outputAbbreviatedPath": "\/images\/gecko.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/images\/header-background.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -25,6 +55,106 @@
 		"initialSize": 58404,
 		"inputAbbreviatedPath": "\/images\/header-background.jpg",
 		"outputAbbreviatedPath": "\/images\/header-background.jpg",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/linkedin.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 902,
+		"inputAbbreviatedPath": "\/images\/linkedin.png",
+		"outputAbbreviatedPath": "\/images\/linkedin.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/me.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 36919,
+		"inputAbbreviatedPath": "\/images\/me.png",
+		"outputAbbreviatedPath": "\/images\/me.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/still-here-bg.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 19097,
+		"inputAbbreviatedPath": "\/images\/still-here-bg.png",
+		"outputAbbreviatedPath": "\/images\/still-here-bg.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/twitter.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 912,
+		"inputAbbreviatedPath": "\/images\/twitter.png",
+		"outputAbbreviatedPath": "\/images\/twitter.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/work-barsushi.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 58356,
+		"inputAbbreviatedPath": "\/images\/work-barsushi.png",
+		"outputAbbreviatedPath": "\/images\/work-barsushi.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/work-infostander.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 36609,
+		"inputAbbreviatedPath": "\/images\/work-infostander.png",
+		"outputAbbreviatedPath": "\/images\/work-infostander.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/work-litteratursiden.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 51016,
+		"inputAbbreviatedPath": "\/images\/work-litteratursiden.png",
+		"outputAbbreviatedPath": "\/images\/work-litteratursiden.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/work-loop.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2191,
+		"inputAbbreviatedPath": "\/images\/work-loop.png",
+		"outputAbbreviatedPath": "\/images\/work-loop.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/work-odaa.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2334,
+		"inputAbbreviatedPath": "\/images\/work-odaa.png",
+		"outputAbbreviatedPath": "\/images\/work-odaa.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/work-smartaarhus.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 5031,
+		"inputAbbreviatedPath": "\/images\/work-smartaarhus.png",
+		"outputAbbreviatedPath": "\/images\/work-smartaarhus.png",
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},

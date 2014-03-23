@@ -89,6 +89,7 @@
   &--big {
     font-size: 2em;
     font-weight: 600;
+    text-align: center;
 
     @include text-shadow(2px 2px 0 transparentize($black, .75));
 
@@ -102,7 +103,7 @@
       @include text-shadow(4px 4px 0 transparentize($black, .75));
     }
 
-    // Tweaking for mobile device landscape (HTC One so far)
+    // Tweaking for landscape
     @media screen and (orientation:landscape) and (max-height: 287px) {
       font-size: 1.5em;
     }
@@ -124,7 +125,7 @@
       font-size: 1.75em;
     }
 
-    // Tweaking for mobile device landscape (HTC One so far)
+    // Tweaking for landscape
     @media screen and (orientation:landscape) and (max-height: 287px) {
       font-size: 1em;
     }
@@ -198,24 +199,6 @@
     padding: 5em 8em 2em;
   }
 
-  &.is-scrolling {
-    @include breakpoint($breakpoint-desk) {
-      margin-top: -10em;
-
-      @include opacity(0);
-    }
-  }
-
-  // Start animation
-  &.is-ready {
-    @include breakpoint($breakpoint-desk) {
-      margin-top: 0;
-
-      @include transition(all .5s ease-out);
-      @include opacity(1);
-    }
-  }
-
   &--inner {
     @extend %grid;
     @extend %grid--center;
@@ -260,6 +243,24 @@
       text-align: center;
     }
   }
+
+  &.is-scrolling {
+    @include breakpoint($breakpoint-desk) {
+      margin-top: -10em;
+
+      @include opacity(0);
+    }
+  }
+
+  // Start animation
+  &.is-ready {
+    @include breakpoint($breakpoint-desk) {
+      margin-top: 0;
+
+      @include transition(all .5s ease-out);
+      @include opacity(1);
+    }
+  }
 }
 
 
@@ -282,13 +283,28 @@
     text-decoration: none;
   }
 
+  &--header {
+    margin-bottom: 1.5em;
+
+    font-size: 2em;
+    font-weight: 100;
+    text-align: center;
+
+    @include breakpoint($breakpoint-desk) {
+      // Tweak centering
+      margin-left: -.75em;
+    }
+  }
+
   &--contact {
-    background: url(http://subtlepatterns.com/patterns/debut_dark.png) #444;
+    background: url("/images/footer-bg.png") #444;
+
+    @include breakpoint($breakpoint-desk) {
+      padding: 5em 8em 16em;
+    }
 
     &-inner {
       @extend %grid--middle;
-
-      padding-top: 4em;
 
       &.is-scrolling {
         @include breakpoint($breakpoint-desk) {
@@ -303,10 +319,6 @@
           @include opacity(1);
         }
       }
-    }
-
-    @include breakpoint($breakpoint-desk) {
-      padding: 5em 8em 16em;
     }
 
     &-header {
@@ -330,7 +342,7 @@
 
     &-phone {
       @include breakpoint($breakpoint-desk) {
-        // Fake centering
+        // Tweak centering
         margin-left: -2.75em;
 
         text-align: right;
