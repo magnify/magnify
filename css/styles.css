@@ -1476,7 +1476,7 @@ img {
 /* line 429, ../sass/layout/_layout.scss */
 .contact-me--contact-image {
   display: inline-block;
-  margin: 2em;
+  margin: 0 2em 4em;
   max-width: 10em;
 }
 /* line 435, ../sass/layout/_layout.scss */
