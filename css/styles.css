@@ -1041,7 +1041,77 @@ img {
 
 /* Header
    ================================================================================================================== */
-/* line 4, ../sass/layout/_layout.scss */
+@keyframes header-big {
+  /* line 5, ../sass/layout/_layout.scss */
+  0% {
+    right: 50%;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+  }
+
+  /* line 11, ../sass/layout/_layout.scss */
+  50% {
+    right: 0;
+    filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+    opacity: 1;
+  }
+
+  /* line 17, ../sass/layout/_layout.scss */
+  100% {
+    right: 0;
+    filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+    opacity: 1;
+  }
+}
+@keyframes header-sub {
+  /* line 25, ../sass/layout/_layout.scss */
+  0% {
+    right: 50%;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+  }
+
+  /* line 31, ../sass/layout/_layout.scss */
+  50% {
+    right: 50%;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+  }
+
+  /* line 37, ../sass/layout/_layout.scss */
+  75% {
+    right: 0;
+    filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+    opacity: 1;
+  }
+
+  /* line 43, ../sass/layout/_layout.scss */
+  100% {
+    right: 0;
+    filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+    opacity: 1;
+  }
+}
+@keyframes header-button {
+  /* line 51, ../sass/layout/_layout.scss */
+  0% {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+  }
+
+  /* line 55, ../sass/layout/_layout.scss */
+  75% {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+  }
+
+  /* line 59, ../sass/layout/_layout.scss */
+  100% {
+    filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+    opacity: 1;
+  }
+}
+/* line 64, ../sass/layout/_layout.scss */
 .header {
   position: relative;
   z-index: 99;
@@ -1055,12 +1125,12 @@ img {
   background-size: cover;
 }
 @media only screen and (min-width: 481px) {
-  /* line 4, ../sass/layout/_layout.scss */
+  /* line 64, ../sass/layout/_layout.scss */
   .header {
     background-position: center;
   }
 }
-/* line 23, ../sass/layout/_layout.scss */
+/* line 83, ../sass/layout/_layout.scss */
 .header--inner {
   position: relative;
   top: 50%;
@@ -1071,7 +1141,7 @@ img {
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-/* line 39, ../sass/layout/_layout.scss */
+/* line 99, ../sass/layout/_layout.scss */
 .header--nav {
   position: absolute;
   top: 0;
@@ -1082,31 +1152,31 @@ img {
   line-height: 3.5em;
   text-align: center;
 }
-/* line 51, ../sass/layout/_layout.scss */
+/* line 111, ../sass/layout/_layout.scss */
 .header--nav-link {
   margin-right: 1.5em;
 }
-/* line 54, ../sass/layout/_layout.scss */
+/* line 114, ../sass/layout/_layout.scss */
 .header--nav-link:last-child {
   margin-right: 0;
 }
-/* line 61, ../sass/layout/_layout.scss */
+/* line 121, ../sass/layout/_layout.scss */
 .header--nav a:link {
   color: white;
   font-weight: 600;
   text-decoration: none;
 }
-/* line 67, ../sass/layout/_layout.scss */
+/* line 127, ../sass/layout/_layout.scss */
 .header--nav a:visited {
   color: #f2f2f2;
 }
-/* line 71, ../sass/layout/_layout.scss */
+/* line 131, ../sass/layout/_layout.scss */
 .header--nav a:hover, .header--nav a:focus {
   color: #f0f1d2;
   text-decoration: none;
 }
 @media only screen and (min-width: 481px) {
-  /* line 39, ../sass/layout/_layout.scss */
+  /* line 99, ../sass/layout/_layout.scss */
   .header--nav {
     padding-right: 1.5em;
     padding-left: 1.5em;
@@ -1116,7 +1186,7 @@ img {
     box-sizing: border-box;
   }
 }
-/* line 89, ../sass/layout/_layout.scss */
+/* line 149, ../sass/layout/_layout.scss */
 .header--big {
   font-size: 2em;
   font-weight: 600;
@@ -1124,53 +1194,61 @@ img {
   text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.25);
 }
 @media only screen and (min-width: 481px) {
-  /* line 89, ../sass/layout/_layout.scss */
+  /* line 149, ../sass/layout/_layout.scss */
   .header--big {
     font-size: 3em;
   }
 }
 @media only screen and (min-width: 1024px) {
-  /* line 89, ../sass/layout/_layout.scss */
+  /* line 149, ../sass/layout/_layout.scss */
   .header--big {
+    position: relative;
     font-size: 3.5em;
+    -moz-animation: header-big 1.5s ease 1;
+    -webkit-animation: header-big 1.5s ease 1;
+    animation: header-big 1.5s ease 1;
     text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.25);
   }
 }
 @media screen and (orientation: landscape) and (max-height: 287px) {
-  /* line 89, ../sass/layout/_layout.scss */
+  /* line 149, ../sass/layout/_layout.scss */
   .header--big {
     font-size: 1.5em;
   }
 }
-/* line 113, ../sass/layout/_layout.scss */
+/* line 176, ../sass/layout/_layout.scss */
 .header--sub {
   margin-bottom: 2em;
   font-weight: 300;
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25);
 }
 @media only screen and (min-width: 481px) {
-  /* line 113, ../sass/layout/_layout.scss */
+  /* line 176, ../sass/layout/_layout.scss */
   .header--sub {
     font-size: 1.25em;
   }
 }
 @media only screen and (min-width: 1024px) {
-  /* line 113, ../sass/layout/_layout.scss */
+  /* line 176, ../sass/layout/_layout.scss */
   .header--sub {
+    position: relative;
     font-size: 1.75em;
+    -moz-animation: header-sub 1.5s ease 1;
+    -webkit-animation: header-sub 1.5s ease 1;
+    animation: header-sub 1.5s ease 1;
   }
 }
 @media screen and (orientation: landscape) and (max-height: 287px) {
-  /* line 113, ../sass/layout/_layout.scss */
+  /* line 176, ../sass/layout/_layout.scss */
   .header--sub {
     font-size: 1em;
   }
 }
-/* line 136, ../sass/layout/_layout.scss */
+/* line 203, ../sass/layout/_layout.scss */
 .header--button-wrapper {
   text-align: center;
 }
-/* line 140, ../sass/layout/_layout.scss */
+/* line 207, ../sass/layout/_layout.scss */
 .header--button-link {
   border: 2px solid white;
   display: block;
@@ -1191,29 +1269,32 @@ img {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 155, ../sass/layout/_layout.scss */
+/* line 222, ../sass/layout/_layout.scss */
 .header--button-link:link, .header--button-link:visited, .header--button-link:hover, .header--button-link:active {
   color: #fff;
   text-decoration: none;
 }
-/* line 163, ../sass/layout/_layout.scss */
+/* line 230, ../sass/layout/_layout.scss */
 .header--button-link:hover {
   background-color: rgba(0, 0, 0, 0.65);
 }
 @media only screen and (min-width: 481px) {
-  /* line 140, ../sass/layout/_layout.scss */
+  /* line 207, ../sass/layout/_layout.scss */
   .header--button-link {
     width: 50%;
   }
 }
 @media only screen and (min-width: 1024px) {
-  /* line 140, ../sass/layout/_layout.scss */
+  /* line 207, ../sass/layout/_layout.scss */
   .header--button-link {
     width: 40%;
+    -moz-animation: header-button 1.5s ease 1;
+    -webkit-animation: header-button 1.5s ease 1;
+    animation: header-button 1.5s ease 1;
   }
 }
 @media screen and (orientation: landscape) and (max-height: 287px) {
-  /* line 140, ../sass/layout/_layout.scss */
+  /* line 207, ../sass/layout/_layout.scss */
   .header--button-link {
     width: 30%;
     font-size: 1em;
@@ -1222,7 +1303,7 @@ img {
 
 /* My work
    ================================================================================================================== */
-/* line 192, ../sass/layout/_layout.scss */
+/* line 261, ../sass/layout/_layout.scss */
 .my-work {
   padding: 2em;
   width: 100%;
@@ -1231,17 +1312,17 @@ img {
   box-sizing: border-box;
 }
 @media only screen and (min-width: 1024px) {
-  /* line 192, ../sass/layout/_layout.scss */
+  /* line 261, ../sass/layout/_layout.scss */
   .my-work {
     padding: 5em 8em;
   }
 }
-/* line 202, ../sass/layout/_layout.scss */
+/* line 271, ../sass/layout/_layout.scss */
 .my-work--inner {
   max-width: 75em;
   background-color: rgba(255, 255, 255, 0.5);
 }
-/* line 211, ../sass/layout/_layout.scss */
+/* line 280, ../sass/layout/_layout.scss */
 .my-work--header {
   margin-bottom: 1.5em;
   color: #535353;
@@ -1249,32 +1330,32 @@ img {
   font-weight: 100;
   text-align: center;
 }
-/* line 220, ../sass/layout/_layout.scss */
+/* line 289, ../sass/layout/_layout.scss */
 .my-work--project {
   margin-bottom: 3em;
   margin-left: -4px;
   /* Display inline block fix */
 }
-/* line 228, ../sass/layout/_layout.scss */
+/* line 297, ../sass/layout/_layout.scss */
 .my-work--project:last-child {
   margin-right: 0;
 }
-/* line 232, ../sass/layout/_layout.scss */
+/* line 301, ../sass/layout/_layout.scss */
 .my-work--project-image {
   margin-bottom: 1em;
 }
-/* line 236, ../sass/layout/_layout.scss */
+/* line 305, ../sass/layout/_layout.scss */
 .my-work--project-header {
   font-size: 1.5em;
   font-weight: 600;
   text-align: center;
 }
-/* line 242, ../sass/layout/_layout.scss */
+/* line 311, ../sass/layout/_layout.scss */
 .my-work--project-description {
   text-align: center;
 }
 @media only screen and (min-width: 1024px) {
-  /* line 247, ../sass/layout/_layout.scss */
+  /* line 316, ../sass/layout/_layout.scss */
   .my-work.is-scrolling {
     margin-top: -10em;
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
@@ -1282,7 +1363,7 @@ img {
   }
 }
 @media only screen and (min-width: 1024px) {
-  /* line 256, ../sass/layout/_layout.scss */
+  /* line 325, ../sass/layout/_layout.scss */
   .my-work.is-ready {
     margin-top: 0;
     -moz-transition: all 0.5s ease-out;
@@ -1296,24 +1377,24 @@ img {
 
 /* Contact and footer
    ================================================================================================================== */
-/* line 270, ../sass/layout/_layout.scss */
+/* line 339, ../sass/layout/_layout.scss */
 .contact-me {
   color: white;
   text-align: center;
 }
-/* line 274, ../sass/layout/_layout.scss */
+/* line 343, ../sass/layout/_layout.scss */
 .contact-me a:link,
 .contact-me a:visited {
   color: white;
   text-decoration: none;
 }
-/* line 280, ../sass/layout/_layout.scss */
+/* line 349, ../sass/layout/_layout.scss */
 .contact-me a:hover,
 .contact-me a:focus {
   color: #f0f1d2;
   text-decoration: none;
 }
-/* line 286, ../sass/layout/_layout.scss */
+/* line 355, ../sass/layout/_layout.scss */
 .contact-me--header {
   margin-bottom: 1.5em;
   font-size: 2em;
@@ -1321,30 +1402,30 @@ img {
   text-align: center;
 }
 @media only screen and (min-width: 1024px) {
-  /* line 286, ../sass/layout/_layout.scss */
+  /* line 355, ../sass/layout/_layout.scss */
   .contact-me--header {
     margin-left: -.75em;
   }
 }
-/* line 299, ../sass/layout/_layout.scss */
+/* line 368, ../sass/layout/_layout.scss */
 .contact-me--contact {
   background: url("/images/footer-bg.png") #444444;
 }
 @media only screen and (min-width: 1024px) {
-  /* line 299, ../sass/layout/_layout.scss */
+  /* line 368, ../sass/layout/_layout.scss */
   .contact-me--contact {
     padding: 5em 8em 16em;
   }
 }
 @media only screen and (min-width: 1024px) {
-  /* line 309, ../sass/layout/_layout.scss */
+  /* line 378, ../sass/layout/_layout.scss */
   .contact-me--contact-inner.is-scrolling {
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
     opacity: 0;
   }
 }
 @media only screen and (min-width: 1024px) {
-  /* line 316, ../sass/layout/_layout.scss */
+  /* line 385, ../sass/layout/_layout.scss */
   .contact-me--contact-inner.is-ready {
     -moz-transition: all 1.5s ease-out;
     -o-transition: all 1.5s ease-out;
@@ -1354,81 +1435,81 @@ img {
     opacity: 1;
   }
 }
-/* line 324, ../sass/layout/_layout.scss */
+/* line 393, ../sass/layout/_layout.scss */
 .contact-me--contact-header {
   font-size: 1.75em;
 }
-/* line 328, ../sass/layout/_layout.scss */
+/* line 397, ../sass/layout/_layout.scss */
 .contact-me--contact-sub-header {
   color: gray;
   font-size: 1.5em;
 }
-/* line 333, ../sass/layout/_layout.scss */
+/* line 402, ../sass/layout/_layout.scss */
 .contact-me--contact-phone, .contact-me--contact-mail {
   display: inline-block;
   margin-left: -4px;
   /* Display inline block fix */
 }
 @media only screen and (min-width: 1024px) {
-  /* line 333, ../sass/layout/_layout.scss */
+  /* line 402, ../sass/layout/_layout.scss */
   .contact-me--contact-phone, .contact-me--contact-mail {
     margin-bottom: 6em;
   }
 }
 @media only screen and (min-width: 1024px) {
-  /* line 343, ../sass/layout/_layout.scss */
+  /* line 412, ../sass/layout/_layout.scss */
   .contact-me--contact-phone {
     margin-left: -2.75em;
     text-align: right;
   }
 }
-/* line 352, ../sass/layout/_layout.scss */
+/* line 421, ../sass/layout/_layout.scss */
 .contact-me--contact-mail {
   margin-bottom: 3em;
 }
 @media only screen and (min-width: 1024px) {
-  /* line 352, ../sass/layout/_layout.scss */
+  /* line 421, ../sass/layout/_layout.scss */
   .contact-me--contact-mail {
     text-align: left;
   }
 }
-/* line 360, ../sass/layout/_layout.scss */
+/* line 429, ../sass/layout/_layout.scss */
 .contact-me--contact-image {
   display: inline-block;
   margin: 2em;
   max-width: 10em;
 }
-/* line 366, ../sass/layout/_layout.scss */
+/* line 435, ../sass/layout/_layout.scss */
 .contact-me--contact-social {
   padding-bottom: 4em;
 }
-/* line 370, ../sass/layout/_layout.scss */
+/* line 439, ../sass/layout/_layout.scss */
 .contact-me--contact-facebook, .contact-me--contact-twitter, .contact-me--contact-linkedin {
   max-width: 3em;
 }
-/* line 376, ../sass/layout/_layout.scss */
+/* line 445, ../sass/layout/_layout.scss */
 .contact-me--contact-twitter {
   margin-right: 2em;
   margin-left: 2em;
 }
-/* line 382, ../sass/layout/_layout.scss */
+/* line 451, ../sass/layout/_layout.scss */
 .contact-me--still-here {
   padding: 10em 2em 2em;
   background: url("/images/still-here-bg.png") #222222;
 }
-/* line 387, ../sass/layout/_layout.scss */
+/* line 456, ../sass/layout/_layout.scss */
 .contact-me--still-here-header {
   margin-bottom: 1em;
   font-size: 1.5em;
 }
-/* line 393, ../sass/layout/_layout.scss */
+/* line 462, ../sass/layout/_layout.scss */
 .contact-me--still-here-sub-header {
   margin-bottom: 2em;
   color: #bfbfbf;
   font-size: 1.25em;
   font-weight: 100;
 }
-/* line 401, ../sass/layout/_layout.scss */
+/* line 470, ../sass/layout/_layout.scss */
 .contact-me--still-here-image {
   margin-bottom: 2em;
   max-width: 10em;

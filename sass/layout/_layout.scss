@@ -1,6 +1,66 @@
 /* Header
    ================================================================================================================== */
 
+@keyframes header-big {
+  0% {
+    right: 50%;
+
+    @include opacity(0);
+  }
+
+  50% {
+    right: 0;
+
+    @include opacity(1);
+  }
+
+  100% {
+    right: 0;
+
+    @include opacity(1);
+  }
+}
+
+@keyframes header-sub {
+  0% {
+    right: 50%;
+
+    @include opacity(0);
+  }
+
+  50% {
+    right: 50%;
+
+    @include opacity(0);
+  }
+
+  75% {
+    right: 0;
+
+    @include opacity(1);
+  }
+
+  100% {
+    right: 0;
+
+    @include opacity(1);
+  }
+}
+
+@keyframes header-button {
+  0% {
+    @include opacity(0);
+  }
+
+  75% {
+    @include opacity(0);
+  }
+
+  100% {
+    @include opacity(1);
+  }
+}
+
 .header {
   @extend %grid--center;
 
@@ -98,8 +158,11 @@
     }
 
     @include breakpoint($breakpoint-desk) {
+      position: relative;
+
       font-size: 3.5em;
 
+      @include animation(header-big 1.5s ease 1);
       @include text-shadow(4px 4px 0 transparentize($black, .75));
     }
 
@@ -122,7 +185,11 @@
     }
 
     @include breakpoint($breakpoint-desk) {
+      position: relative;
+
       font-size: 1.75em;
+
+      @include animation(header-sub 1.5s ease 1);
     }
 
     // Tweaking for landscape
@@ -173,6 +240,8 @@
 
       @include breakpoint($breakpoint-desk) {
         width: 40%;
+
+        @include animation(header-button 1.5s ease 1);
       }
 
       // Tweaking for mobile device landscape (HTC One so far)
