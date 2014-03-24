@@ -358,8 +358,7 @@
     text-align: center;
 
     @include breakpoint($breakpoint-desk) {
-      // Tweak centering
-      margin-left: -.75em;
+      margin-left: -.75em; /* Tweak centering */
     }
   }
 
@@ -402,6 +401,7 @@
     &-phone,
     &-mail {
       display: inline-block;
+      margin-bottom: 3em;
       margin-left: -4px; /* Display inline block fix */
 
       @include breakpoint($breakpoint-desk) {
@@ -410,9 +410,9 @@
     }
 
     &-phone {
+
       @include breakpoint($breakpoint-desk) {
-        // Tweak centering
-        margin-left: -2.75em;
+        margin-left: -2.75em; /* Tweak centering */
 
         text-align: right;
       }
