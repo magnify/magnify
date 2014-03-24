@@ -1,7 +1,7 @@
 /* Header
    ================================================================================================================== */
 
-@keyframes header-big {
+@include keyframes(header-big) {
   0% {
     right: 50%;
 
@@ -21,7 +21,7 @@
   }
 }
 
-@keyframes header-sub {
+@include keyframes(header-sub) {
   0% {
     right: 50%;
 
@@ -41,7 +41,7 @@
   }
 }
 
-@keyframes header-button {
+@include keyframes(header-button) {
   0% {
     @include opacity(0);
   }
