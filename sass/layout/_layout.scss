@@ -143,6 +143,7 @@
   &--big {
     font-size: 2em;
     font-weight: 600;
+    text-align: center;
 
     @include text-shadow(2px 2px 0 transparentize($black, .75));
 
@@ -154,7 +155,6 @@
       position: relative;
 
       font-size: 3.5em;
-      text-align: center;
 
       @include animation(header-big 1.5s ease 1);
       @include text-shadow(4px 4px 0 transparentize($black, .75));
@@ -171,11 +171,13 @@
     margin-bottom: 2em;
 
     font-weight: 300;
+    text-align: center;
 
     @include text-shadow(1px 1px 0 transparentize($black, .75));
 
     @include breakpoint($breakpoint-lap) {
       font-size: 1.25em;
+      text-align: left;
     }
 
     @include breakpoint($breakpoint-desk) {
