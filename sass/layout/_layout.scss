@@ -143,7 +143,6 @@
   &--big {
     font-size: 2em;
     font-weight: 600;
-    text-align: center;
 
     @include text-shadow(2px 2px 0 transparentize($black, .75));
 
@@ -155,6 +154,7 @@
       position: relative;
 
       font-size: 3.5em;
+      text-align: center;
 
       @include animation(header-big 1.5s ease 1);
       @include text-shadow(4px 4px 0 transparentize($black, .75));
