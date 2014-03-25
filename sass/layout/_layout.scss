@@ -290,6 +290,7 @@
   &--project {
     @extend %grid__item;
     @extend %palm--one-whole;
+    @extend %lap--one-half;
     @extend %desk--one-third;
 
     margin-bottom: 3em;
