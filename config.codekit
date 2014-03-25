@@ -10,6 +10,14 @@
 		"outputAbbreviatedPath": "\/config.rb",
 		"outputPathIsSetByUser": 0
 		},
+	"\/css\/styles.css": {
+		"fileType": 16,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/css\/styles.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
 	"\/images\/facebook.png": {
 		"fileType": 32768,
 		"ignore": 0,

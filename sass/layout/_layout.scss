@@ -83,10 +83,16 @@
     position: relative;
     top: 50%;
 
+
     max-width: 75em;
     padding: 4.5em 1.5em 1.5em;
 
     @include translateY(-50%);
+
+    // Seems there is a bug with the vertical align in Chrome on first load, this fixes it
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
   }
 
   // Nav
@@ -238,7 +244,7 @@
       @include breakpoint($breakpoint-desk) {
         width: 40%;
 
-        @include animation(header-button 3s ease 1);
+        @include animation(header-button 2s ease 1);
       }
 
       // Tweaking for mobile device landscape (HTC One so far)
