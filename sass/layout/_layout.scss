@@ -257,6 +257,8 @@
    ================================================================================================================== */
 
 .my-work {
+  @extend %grid;
+
   padding: 2em;
   width: 100%;
 
@@ -269,8 +271,6 @@
   &--inner {
     @extend %grid;
     @extend %grid--center;
-
-    max-width: 75em;
 
     background-color: transparentize($white, .5);
   }
