@@ -177,7 +177,6 @@
 
     @include breakpoint($breakpoint-lap) {
       font-size: 1.25em;
-      text-align: left;
     }
 
     @include breakpoint($breakpoint-desk) {
