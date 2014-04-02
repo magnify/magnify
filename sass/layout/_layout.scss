@@ -119,12 +119,12 @@
   @include background-size(cover);
 
   @include breakpoint($breakpoint-lap) {
-    position: fixed;
-    top: 0;
+    background-position: center;
   }
 
-  @include breakpoint($breakpoint-lap) {
-    background-position: center;
+  @include breakpoint($breakpoint-desk) {
+    position: fixed;
+    top: 0;
   }
 
   // Header inner
@@ -380,7 +380,6 @@
 
 .contact-me {
   position: relative;
-  top: 100%;
   z-index: 90;
 
   color: $white;
@@ -397,6 +396,10 @@
     color: $link-color;
     text-decoration: none;
   }
+
+   @include breakpoint($breakpoint-desk) {
+     top: 100%;
+   }
 
   &--header {
     margin-bottom: 1.5em;
