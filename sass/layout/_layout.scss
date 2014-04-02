@@ -1,3 +1,55 @@
+/* Navigation
+   ================================================================================================================== */
+
+.nav {
+  position: fixed;
+  top: 0;
+  z-index: 99;
+
+  height: 4em;
+  width: 100%;
+
+  background-color: transparentize($black, .15);
+  line-height: 3.5em;
+  text-align: center;
+
+  &-link {
+    margin-right: 1.5em;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+
+  a {
+    &:link {
+      color: $white;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    &:visited {
+      color: darken($white, 5%);
+    }
+
+    &:hover,
+    &:focus {
+      color: #f0f1d2;
+      text-decoration: none;
+    }
+  }
+
+  @include breakpoint($breakpoint-lap) {
+    padding-right: 1.5em;
+    padding-left: 1.5em;
+
+    text-align: right;
+
+    @include box-sizing(border-box);
+  }
+}
+
 /* Header
    ================================================================================================================== */
 
@@ -58,8 +110,8 @@
 .header {
   @extend %grid--center;
 
-  position: relative;
-  z-index: 99;
+  position: fixed;
+  top: 0;
 
   height: 100%;
   width: 100%;
@@ -78,13 +130,12 @@
     @extend %grid__item;
     @extend %lap--seven-eighths;
     @extend %desk--three-quarters;
-    @extend %bigscreen--three-fifths;
+    @extend %bigscreen--four-fifths;
 
     position: relative;
     top: 50%;
 
 
-    max-width: 75em;
     padding: 4.5em 1.5em 1.5em;
 
     @include translateY(-50%);
@@ -93,56 +144,6 @@
     display: block;
     margin-right: auto;
     margin-left: auto;
-  }
-
-  // Nav
-  &--nav {
-    position: absolute;
-    top: 0;
-    z-index: 99;
-
-    height: 4em;
-    width: 100%;
-
-    background-color: transparentize($black, .25);
-    line-height: 3.5em;
-    text-align: center;
-
-    &-link {
-      margin-right: 1.5em;
-
-      &:last-child {
-        margin-right: 0;
-      }
-    }
-
-
-    a {
-      &:link {
-        color: $white;
-        font-weight: 600;
-        text-decoration: none;
-      }
-
-      &:visited {
-        color: darken($white, 5%);
-      }
-
-      &:hover,
-      &:focus {
-        color: $link-color;
-        text-decoration: none;
-      }
-    }
-
-    @include breakpoint($breakpoint-lap) {
-      padding-right: 1.5em;
-      padding-left: 1.5em;
-
-      text-align: right;
-
-      @include box-sizing(border-box);
-    }
   }
 
   // Big header
@@ -164,6 +165,10 @@
 
       @include animation(header-big 1.5s ease 1);
       @include text-shadow(4px 4px 0 transparentize($black, .75));
+    }
+
+    @include breakpoint($breakpoint-bigscreen) {
+      font-size: 5em;
     }
 
     // Tweaking for landscape
@@ -191,6 +196,10 @@
       font-size: 1.75em;
 
       @include animation(header-sub 1.5s ease 1);
+    }
+
+    @include breakpoint($breakpoint-bigscreen) {
+      font-size: 2em;
     }
 
     // Tweaking for landscape
@@ -236,13 +245,13 @@
       @include box-sizing(border-box);
 
       @include breakpoint($breakpoint-lap) {
-        width: 50%;
+        width: 40%;
 
         font-size: 1.5em;
       }
 
       @include breakpoint($breakpoint-desk) {
-        width: 40%;
+        width: 30%;
 
         @include animation(header-button 2s ease 1);
       }
@@ -262,20 +271,24 @@
    ================================================================================================================== */
 
 .my-work {
+  position: relative;
+  top: 100%;
+  z-index: 90;
+
   padding: 2em;
   width: 100%;
+
+  background-color: $white;
 
   @include box-sizing(border-box);
 
   @include breakpoint($breakpoint-desk) {
-    padding: 5em 8em;
+    padding: 8em;
   }
 
   &--inner {
     @extend %grid;
     @extend %grid--center;
-
-    background-color: transparentize($white, .5);
   }
 
   &--header {
@@ -284,7 +297,6 @@
     color: #535353;
     font-size: 2em;
     font-weight: 100;
-    text-align: center;
   }
 
   &--project {
@@ -296,8 +308,14 @@
     margin-bottom: 3em;
     margin-left: -4px; /* Display inline block fix */
 
+    text-align: center;
+
     &:last-child {
       margin-right: 0;
+    }
+
+    &-inner {
+      text-align: center;
     }
 
     &-image {
@@ -307,29 +325,49 @@
     &-header {
       font-size: 1.5em;
       font-weight: 600;
-      text-align: center;
     }
 
     &-description {
-      text-align: center;
+      margin-bottom: .5em;
+      min-height: 3em;
+      padding-bottom: 1em;
     }
-  }
 
-  &.is-scrolling {
-    @include breakpoint($breakpoint-desk) {
-      margin-top: -10em;
+    &-link,
+    &-no-link {
+      border-top: 1px dashed #e1e1e1;
+      border-bottom: 1px dashed #e1e1e1;
+      display: block;
+      margin-bottom: 1em;
+      margin-right: auto;
+      margin-left: auto;
+      max-width: 15em;
+      padding-top: .6em;
+      padding-bottom: .6em;
 
-      @include opacity(0);
+      font-weight: 300;
+
+      &-image {
+        margin-right: .25em;
+        max-width: 1.5em;
+
+        @include opacity(.25);
+      }
+
+      &:link,
+      &:visited,
+      &:hover,
+      &:active {
+        text-decoration: none;
+      }
+
+      &:hover {
+        background-color: #f1f1f1;
+      }
     }
-  }
 
-  // Start animation
-  &.is-ready {
-    @include breakpoint($breakpoint-desk) {
-      margin-top: 0;
-
-      @include transition(all .5s ease-out);
-      @include opacity(1);
+    &-no-link {
+      color: lighten($black, 50%);
     }
   }
 }
@@ -339,6 +377,10 @@
    ================================================================================================================== */
 
 .contact-me {
+  position: relative;
+  top: 100%;
+  z-index: 90;
+
   color: $white;
   text-align: center;
 
@@ -367,12 +409,12 @@
   }
 
   &--contact {
-    padding-top: 4em;
+    padding-top: 8em;
 
     background: url("/images/footer-bg.png") #444;
 
     @include breakpoint($breakpoint-desk) {
-      padding: 5em 8em 16em;
+      padding: 8em 8em 16em;
     }
 
     &-inner {

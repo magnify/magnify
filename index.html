@@ -9,11 +9,12 @@
   <link href="/css/styles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<header class="header" role="banner">
-  <nav class="header--nav">
-    <a href="#my-work" class="header--nav-link" data-scroll>My work</a>
-    <a href="#contact-me" class="header--nav-link" data-scroll>Contact me</a>
-  </nav>
+<nav class="nav">
+  <a href="#home" class="nav-link" data-scroll>Home</a>
+  <a href="#my-work" class="nav-link" data-scroll>My work</a>
+  <a href="#contact-me" class="nav-link" data-scroll>Contact me</a>
+</nav>
+<header class="header" role="banner" id="home">
   <div class="header--inner">
     <h1 class="header--big">Hello I'm Brian, I make websites</h1>
     <p class="header--sub">I am a webdesigner and frontend developer based in Aarhus, Denmark.<br>I specialize in making usable responsive websites.</p>
@@ -24,9 +25,12 @@
   <div class="my-work--inner">
     <h2 class="my-work--header">My work</h2>
     <article class="my-work--project">
-      <img src="/images/work-infostander.png" class="my-work--project-image">
-      <p class="my-work--project-header">Infostander Aarhus</p>
-      <p class="my-work--project-description">Responsive one-pager website<br>Design and frontend</p>
+      <div class="my-work--project-inner">
+        <img src="/images/work-infostander.png" class="my-work--project-image">
+        <p class="my-work--project-header">Infostander Aarhus</p>
+        <p class="my-work--project-description">Responsive one-pager website<br>Design and frontend</p>
+        <a href="http://infostanderaarhus.dk" class="my-work--project-link"><img src="/images/link.png" class="my-work--project-link-image">infostanderaarhus.dk</a>
+      </div>
     </article>
     <!-- <article class="my-work--project">
       <img src="/images/work-barsushi.png" class="my-work--project-image">
@@ -34,24 +38,36 @@
       <p class="my-work--project-description">Design of an online ordering system<br>(not live)</p>
     </article> -->
     <article class="my-work--project">
-      <img src="/images/work-litteratursiden.png" class="my-work--project-image">
-      <p class="my-work--project-header">Litteratursiden</p>
-      <p class="my-work--project-description">Design and frontend development</p>
+      <div class="my-work--project-inner">
+        <img src="/images/work-litteratursiden.png" class="my-work--project-image">
+        <p class="my-work--project-header">Litteratursiden</p>
+        <p class="my-work--project-description">Design and frontend development</p>
+        <a href="http://litteratursiden.dk" class="my-work--project-link"><img src="/images/link.png" class="my-work--project-link-image">litteratursiden.dk</a>
+      </div>
     </article>
     <article class="my-work--project">
-      <img src="/images/work-odaa.png" class="my-work--project-image">
-      <p class="my-work--project-header">Open Data Aarhus</p>
-      <p class="my-work--project-description">Logo design</p>
+      <div class="my-work--project-inner">
+        <img src="/images/work-odaa.png" class="my-work--project-image">
+        <p class="my-work--project-header">Open Data Aarhus</p>
+        <p class="my-work--project-description">Logo design for ODAA, see the website at <a href="http://odaa.dk">http://odaa.dk</a></p>
+        <span class="my-work--project-no-link">Logo design</span>
+      </div>
     </article>
     <article class="my-work--project">
-      <img src="/images/work-smartaarhus.png" class="my-work--project-image">
-      <p class="my-work--project-header">Smart Aarhus WiFI</p>
-      <p class="my-work--project-description">Site for free WiFi login<br>Design and frontend development</p>
+      <div class="my-work--project-inner">
+        <img src="/images/work-smartaarhus.png" class="my-work--project-image">
+        <p class="my-work--project-header">Smart Aarhus WiFI</p>
+        <p class="my-work--project-description">Site for free WiFi login<br>Design and frontend development</p>
+        <span class="my-work--project-no-link">Not online</span>
+      </div>
     </article>
     <article class="my-work--project">
-      <img src="/images/work-loop.png" class="my-work--project-image">
-      <p class="my-work--project-header">LOOP</p>
-      <p class="my-work--project-description">Logo design</p>
+      <div class="my-work--project-inner">
+        <img src="/images/work-loop.png" class="my-work--project-image">
+        <p class="my-work--project-header">LOOP</p>
+        <p class="my-work--project-description">Logo design for an upcoming website</p>
+        <span class="my-work--project-no-link">Logo design</span>
+      </div>
     </article>
   </div>
 </section>
