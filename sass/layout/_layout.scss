@@ -365,6 +365,65 @@
 }
 
 
+/* About
+   ================================================================================================================== */
+
+.about-me {
+  position: relative;
+  z-index: 90;
+
+  padding: 7em 2em 2em;
+  width: 100%;
+
+  background-color: $black;
+
+  @include box-sizing(border-box);
+
+  @include breakpoint($breakpoint-desk) {
+    top: 100%;
+
+    padding: 8em;
+  }
+
+  // Make sure paragraphs in this section got some margin bottom
+  p {
+    margin-bottom: 1.5em;
+  }
+
+  &--inner {
+    @extend %grid;
+    @extend %grid--center;
+
+    color: $white;
+  }
+
+  &--header {
+    margin-bottom: 1.5em;
+
+    font-size: 2em;
+    font-weight: 100;
+    text-align: center;
+  }
+
+  &--sub-header {
+    margin-bottom: 1em;
+
+    font-size: 1.5em;
+    font-weight: 100;
+    text-align: center;
+  }
+
+  &--personal,
+  &--work {
+    @extend %grid__item;
+    @extend %palm--one-whole;
+    @extend %lap--one-third;
+    @extend %desk--one-third;
+
+    padding-right: 2em;
+  }
+}
+
 /* Contact and footer
    ================================================================================================================== */
 
