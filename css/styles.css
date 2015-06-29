@@ -1236,7 +1236,7 @@ img {
         /* Tweak centering */ } }
   .contact-me--contact {
     padding-top: 7em;
-    background: url("/images/footer-bg.png") #444; }
+    background: url("../images/footer-bg.png") #444; }
     @media only screen and (min-width: 1024px) {
       .contact-me--contact {
         padding: 8em 8em 16em; } }
@@ -1288,7 +1288,7 @@ img {
       margin-left: 2em; }
   .contact-me--still-here {
     padding: 10em 2em 2em;
-    background: url("/images/still-here-bg.png") #222; }
+    background: url("../images/still-here-bg.png") #222; }
     .contact-me--still-here-header {
       margin-bottom: 1em;
       font-size: 1.5em; }

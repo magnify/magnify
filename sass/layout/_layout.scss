@@ -465,7 +465,7 @@
   &--contact {
     padding-top: 7em;
 
-    background: url("/images/footer-bg.png") #444;
+    background: url("../images/footer-bg.png") #444;
 
     @include breakpoint($breakpoint-desk) {
       padding: 8em 8em 16em;
@@ -551,7 +551,7 @@
   &--still-here {
     padding: 10em 2em 2em;
 
-    background: url("/images/still-here-bg.png") #222;
+    background: url("../images/still-here-bg.png") #222;
 
     &-header {
       margin-bottom: 1em;
