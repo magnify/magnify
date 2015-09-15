@@ -919,20 +919,23 @@ img {
    ================================================================================================================== */
 .nav {
   position: fixed;
-  top: 0;
-  z-index: 99;
-  height: 4em;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.85);
-  line-height: 3.5em;
-  text-align: center; }
+  left: 12.5%;
+  z-index: 89;
+  width: 75%;
+  line-height: 10em;
+  text-align: right; }
+  .nav-title {
+    position: absolute;
+    left: 0;
+    font-weight: 600;
+    text-transform: uppercase; }
   .nav-link {
-    margin-right: 1.5em; }
+    margin-right: 1em;
+    font-weight: 100; }
     .nav-link:last-child {
       margin-right: 0; }
   .nav a:link {
     color: #fff;
-    font-weight: 600;
     text-decoration: none; }
   .nav a:visited {
     color: #f2f2f2; }
@@ -941,8 +944,6 @@ img {
     text-decoration: none; }
   @media only screen and (min-width: 481px) {
     .nav {
-      padding-right: 1.5em;
-      padding-left: 1.5em;
       -moz-box-sizing: border-box;
       -webkit-box-sizing: border-box;
       box-sizing: border-box; } }
@@ -986,27 +987,24 @@ img {
   .header--inner {
     position: relative;
     top: 50%;
-    padding: 4.5em 1.5em 1.5em;
     -moz-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
     display: block;
     margin-right: auto;
-    margin-left: auto; }
+    margin-left: auto;
+    padding-left: 0; }
   .header--big {
     font-size: 2em;
-    font-weight: 600;
-    text-align: center;
-    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.25); }
+    font-weight: 600; }
     @media only screen and (min-width: 481px) {
       .header--big {
         font-size: 3em; } }
     @media only screen and (min-width: 1024px) {
       .header--big {
         position: relative;
-        font-size: 3.5em;
-        text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.25); } }
+        font-size: 3.5em; } }
     @media only screen and (min-width: 1700px) {
       .header--big {
         font-size: 5em; } }
@@ -1016,7 +1014,6 @@ img {
   .header--sub {
     margin-bottom: 2em;
     font-weight: 300;
-    text-align: center;
     text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25); }
     @media only screen and (min-width: 481px) {
       .header--sub {

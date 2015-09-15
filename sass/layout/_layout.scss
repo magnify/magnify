@@ -3,29 +3,35 @@
 
 .nav {
   position: fixed;
-  top: 0;
-  z-index: 99;
+  left: 12.5%;
+  z-index: 89;
 
-  height: 4em;
-  width: 100%;
+  width: 75%;
 
-  background-color: transparentize($black, .15);
-  line-height: 3.5em;
-  text-align: center;
+  line-height: 10em;
+  text-align: right;
+
+  &-title {
+    position: absolute;
+    left: 0;
+
+    font-weight: 600;
+    text-transform: uppercase;
+  }
 
   &-link {
-    margin-right: 1.5em;
+    margin-right: 1em;
+
+    font-weight: 100;
 
     &:last-child {
       margin-right: 0;
     }
   }
 
-
   a {
     &:link {
       color: $white;
-      font-weight: 600;
       text-decoration: none;
     }
 
@@ -41,9 +47,6 @@
   }
 
   @include breakpoint($breakpoint-lap) {
-    padding-right: 1.5em;
-    padding-left: 1.5em;
-
     @include box-sizing(border-box);
   }
 }
@@ -74,7 +77,6 @@
 
   @include animation(header 1s ease 1);
 
-
   @include breakpoint($breakpoint-lap) {
     background-position: center;
   }
@@ -94,23 +96,19 @@
     position: relative;
     top: 50%;
 
-    padding: 4.5em 1.5em 1.5em;
-
     @include translateY(-50%);
 
     // Seems there is a bug with the vertical align in Chrome on first load, this fixes it
     display: block;
     margin-right: auto;
     margin-left: auto;
+    padding-left: 0;
   }
 
   // Big header
   &--big {
     font-size: 2em;
     font-weight: 600;
-    text-align: center;
-
-    @include text-shadow(2px 2px 0 transparentize($black, .75));
 
     @include breakpoint($breakpoint-lap) {
       font-size: 3em;
@@ -120,8 +118,6 @@
       position: relative;
 
       font-size: 3.5em;
-
-      @include text-shadow(4px 4px 0 transparentize($black, .75));
     }
 
     @include breakpoint($breakpoint-bigscreen) {
@@ -139,7 +135,6 @@
     margin-bottom: 2em;
 
     font-weight: 300;
-    text-align: center;
 
     @include text-shadow(1px 1px 0 transparentize($black, .75));
 
