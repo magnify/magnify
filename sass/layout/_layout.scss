@@ -44,8 +44,6 @@
     padding-right: 1.5em;
     padding-left: 1.5em;
 
-    text-align: right;
-
     @include box-sizing(border-box);
   }
 }
@@ -327,8 +325,6 @@
 
     &-link,
     &-no-link {
-      border-top: 1px dashed #e1e1e1;
-      border-bottom: 1px dashed #e1e1e1;
       display: block;
       margin-bottom: 1em;
       margin-right: auto;
@@ -338,6 +334,8 @@
       padding-bottom: .6em;
 
       font-weight: 300;
+
+      @include border-radius(.6em);
 
       &-image {
         margin-right: .25em;

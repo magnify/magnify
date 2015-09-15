@@ -8,7 +8,7 @@
    ================================================================================================================== */
 /* Colors
    ================================================================================================================== */
-/* Typograhy
+/* Typography
    ================================================================================================================== */
 /* Link colors
    ================================================================================================================== */
@@ -943,7 +943,6 @@ img {
     .nav {
       padding-right: 1.5em;
       padding-left: 1.5em;
-      text-align: right;
       -moz-box-sizing: border-box;
       -webkit-box-sizing: border-box;
       box-sizing: border-box; } }
@@ -1153,8 +1152,6 @@ img {
       min-height: 3em;
       padding-bottom: 1em; }
     .my-work--project-link, .my-work--project-no-link {
-      border-top: 1px dashed #e1e1e1;
-      border-bottom: 1px dashed #e1e1e1;
       display: block;
       margin-bottom: 1em;
       margin-right: auto;
@@ -1162,7 +1159,10 @@ img {
       max-width: 15em;
       padding-top: .6em;
       padding-bottom: .6em;
-      font-weight: 300; }
+      font-weight: 300;
+      -moz-border-radius: 0.6em;
+      -webkit-border-radius: 0.6em;
+      border-radius: 0.6em; }
       .my-work--project-link-image, .my-work--project-no-link-image {
         margin-right: .25em;
         max-width: 1.5em;
