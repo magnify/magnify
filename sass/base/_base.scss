@@ -10,8 +10,6 @@ html {
 }
 
 body {
-  overflow-y: scroll;
-
   height: 100%;
 
   background-color: $white;
@@ -61,20 +59,20 @@ em {
 a {
   &:link {
     color: $link-color;
-    text-decoration: underline;
-  }
-
-  &:visited {
-    color: darken($link-color, 5%);
-  }
-
-  &:hover {
-    color: darken($link-color, 10%);
     text-decoration: none;
   }
 
+  &:visited {
+    color: lighten($link-color, 5%);
+  }
+
+  &:hover {
+    color: $white;
+    text-decoration: underline;
+  }
+
   &:focus {
-    color: darken($link-color, 10%);
+    color: lighten($link-color, 10%);
   }
 }
 

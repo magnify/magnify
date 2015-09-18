@@ -3,79 +3,37 @@
 
 .nav {
   position: fixed;
-  left: 12.5%;
-  z-index: 89;
+  z-index: 99;
 
-  width: 75%;
+  width: 100%;
 
-  line-height: 10em;
-  text-align: right;
+  &--inner {
+    padding: 2em;
+    max-width: 62.5em;
+    margin-right: auto;
+    margin-left: auto;
+  }
 
   &-title {
-    position: absolute;
-    left: 0;
-
+    color: $white;
     font-weight: 600;
     text-transform: uppercase;
-  }
-
-  &-link {
-    margin-right: 1em;
-
-    font-weight: 100;
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-
-  a {
-    &:link {
-      color: $white;
-      text-decoration: none;
-    }
-
-    &:visited {
-      color: darken($white, 5%);
-    }
-
-    &:hover,
-    &:focus {
-      color: #f0f1d2;
-      text-decoration: none;
-    }
-  }
-
-  @include breakpoint($breakpoint-lap) {
-    @include box-sizing(border-box);
   }
 }
 
 /* Header
    ================================================================================================================== */
 
-@include keyframes(header) {
-  0% {
-    @include opacity(0);
-  }
-
-  100% {
-    @include opacity(1);
-  }
-}
-
 .header {
-  @extend %grid--center;
-
+  box-sizing: border-box;
   height: 100%;
+  padding: 2em;
   width: 100%;
 
   background: url('../images/header-background.jpg') no-repeat left;
   color: $white;
 
   @include background-size(cover);
-
-  @include animation(header 1s ease 1);
 
   @include breakpoint($breakpoint-lap) {
     background-position: center;
@@ -88,11 +46,6 @@
 
   // Header inner
   &--inner {
-    @extend %grid__item;
-    @extend %lap--seven-eighths;
-    @extend %desk--three-quarters;
-    @extend %bigscreen--four-fifths;
-
     position: relative;
     top: 50%;
 
@@ -102,6 +55,7 @@
     display: block;
     margin-right: auto;
     margin-left: auto;
+    max-width: 62.5em;
     padding-left: 0;
   }
 
@@ -121,7 +75,7 @@
     }
 
     @include breakpoint($breakpoint-bigscreen) {
-      font-size: 5em;
+      font-size: 4em;
     }
 
     // Tweaking for landscape
@@ -135,8 +89,6 @@
     margin-bottom: 2em;
 
     font-weight: 300;
-
-    @include text-shadow(1px 1px 0 transparentize($black, .75));
 
     @include breakpoint($breakpoint-lap) {
       font-size: 1.25em;
@@ -155,414 +107,6 @@
     // Tweaking for landscape
     @media screen and (orientation:landscape) and (max-height: 287px) {
       font-size: 1em;
-    }
-  }
-
-  // Link button
-  &--button {
-    &-wrapper {
-      text-align: center;
-    }
-
-    &-link {
-      border: 2px solid $white;
-      display: block;
-      margin-right: auto;
-      margin-left: auto;
-      padding-top: .6em;
-      padding-bottom: .75em;
-      width: 75%;
-
-      background-color: transparentize($black, .65);
-      color: $white;
-      font-weight: 600;
-      text-align: center;
-      text-decoration: none;
-
-      &:link,
-      &:visited,
-      &:hover,
-      &:active {
-        color: #fff;
-        text-decoration: none;
-      }
-
-      &:hover {
-        background-color: transparentize($black, .35);
-      }
-
-      @include border-radius(10px);
-      @include box-sizing(border-box);
-
-      @include breakpoint($breakpoint-lap) {
-        width: 40%;
-
-        font-size: 1.5em;
-      }
-
-      @include breakpoint($breakpoint-desk) {
-        width: 30%;
-      }
-
-      // Tweaking for mobile device landscape (HTC One so far)
-      @media screen and (orientation:landscape) and (max-height: 287px) {
-        width: 30%;
-
-        font-size: 1em;
-      }
-    }
-  }
-}
-
-
-/* My work
-   ================================================================================================================== */
-
-.my-work {
-  position: relative;
-  z-index: 90;
-
-  padding: 7em 2em 2em;
-  width: 100%;
-
-  background-color: $white;
-
-  @include box-sizing(border-box);
-
-  @include breakpoint($breakpoint-desk) {
-    top: 100%;
-
-    padding: 8em;
-
-    &.is-scrolling {
-      .my-work--project {
-        @include translateX(-2000em);
-      }
-    }
-
-    &.is-ready {
-      .my-work--project {
-        position: relative;
-
-        @include transition-duration(.5s);
-        @include transition-timing-function(ease);
-        @include translateX(0);
-
-        &:nth-of-type(1) {
-          @include transition-delay(0s);
-        }
-
-        &:nth-of-type(2) {
-          @include transition-delay(.5s);
-        }
-
-        &:nth-of-type(3) {
-          @include transition-delay(1s);
-        }
-
-        &:nth-of-type(4) {
-          @include transition-delay(1.5s);
-        }
-
-        &:nth-of-type(5) {
-          @include transition-delay(2s);
-        }
-      }
-    }
-  }
-
-  &--inner {
-    @extend %grid;
-    @extend %grid--center;
-  }
-
-  &--header {
-    margin-bottom: 1.5em;
-
-    color: #535353;
-    font-size: 2em;
-    font-weight: 100;
-  }
-
-  &--project {
-    @extend %grid__item;
-    @extend %palm--one-whole;
-    @extend %lap--one-half;
-    @extend %desk--one-third;
-
-    margin-bottom: 3em;
-    margin-left: -4px; /* Display inline block fix */
-
-    text-align: center;
-
-    &:last-child {
-      margin-right: 0;
-    }
-
-    &-inner {
-      text-align: center;
-    }
-
-    &-image {
-      margin-bottom: 1em;
-    }
-
-    &-header {
-      font-size: 1.5em;
-      font-weight: 600;
-    }
-
-    &-description {
-      margin-bottom: .5em;
-      min-height: 3em;
-      padding-bottom: 1em;
-    }
-
-    &-link,
-    &-no-link {
-      display: block;
-      margin-bottom: 1em;
-      margin-right: auto;
-      margin-left: auto;
-      max-width: 15em;
-      padding-top: .6em;
-      padding-bottom: .6em;
-
-      font-weight: 300;
-
-      @include border-radius(.6em);
-
-      &-image {
-        margin-right: .25em;
-        max-width: 1.5em;
-
-        @include opacity(.25);
-      }
-
-      &:link,
-      &:visited,
-      &:hover,
-      &:active {
-        text-decoration: none;
-      }
-
-      &:hover {
-        background-color: #f1f1f1;
-      }
-    }
-
-    &-no-link {
-      color: lighten($black, 50%);
-    }
-  }
-}
-
-
-/* About
-   ================================================================================================================== */
-
-.about-me {
-  position: relative;
-  z-index: 90;
-
-  padding: 7em 2em 2em;
-  width: 100%;
-
-  background-color: #222;
-
-  @include box-sizing(border-box);
-
-  @include breakpoint($breakpoint-desk) {
-    top: 100%;
-
-    padding: 8em;
-  }
-
-  // Make sure paragraphs in this section got some margin bottom
-  p {
-    margin-bottom: 1.5em;
-  }
-
-  &--inner {
-    @extend %grid;
-    @extend %grid--center;
-
-    color: $white;
-  }
-
-  &--header {
-    margin-bottom: 1.5em;
-
-    font-size: 2em;
-    font-weight: 100;
-    text-align: center;
-  }
-
-  &--sub-header {
-    margin-bottom: 1em;
-
-    font-size: 1.5em;
-    font-weight: 100;
-    text-align: center;
-  }
-
-  &--personal,
-  &--work {
-    @extend %grid__item;
-    @extend %palm--one-whole;
-    @extend %lap--one-third;
-    @extend %desk--one-third;
-
-    padding-right: 2em;
-  }
-}
-
-/* Contact and footer
-   ================================================================================================================== */
-
-.contact-me {
-  position: relative;
-  z-index: 90;
-
-  color: $white;
-  text-align: center;
-
-  a:link,
-  a:visited {
-    color: white;
-    text-decoration: none;
-  }
-
-  a:hover,
-  a:focus {
-    color: $link-color;
-    text-decoration: none;
-  }
-
-   @include breakpoint($breakpoint-desk) {
-     top: 100%;
-   }
-
-  &--header {
-    margin-bottom: 1.5em;
-
-    font-size: 2em;
-    font-weight: 100;
-    text-align: center;
-
-    @include breakpoint($breakpoint-desk) {
-      margin-left: -.75em; /* Tweak centering */
-    }
-  }
-
-  &--contact {
-    padding-top: 7em;
-
-    background: url("../images/footer-bg.png") #444;
-
-    @include breakpoint($breakpoint-desk) {
-      padding: 8em 8em 16em;
-    }
-
-    &-inner {
-      @extend %grid--middle;
-
-      &.is-scrolling {
-        @include breakpoint($breakpoint-desk) {
-          @include opacity(0);
-        }
-      }
-
-      // Start animation
-      &.is-ready {
-        @include breakpoint($breakpoint-desk) {
-          @include transition(all 1.5s ease-out);
-          @include opacity(1);
-        }
-      }
-    }
-
-    &-header {
-      font-size: 1.75em;
-    }
-
-    &-sub-header {
-      color: darken($white, 50%);
-      font-size: 1.5em;
-    }
-
-    &-phone,
-    &-mail {
-      display: inline-block;
-      margin-bottom: 3em;
-      margin-left: -4px; /* Display inline block fix */
-
-      @include breakpoint($breakpoint-desk) {
-        margin-bottom: 6em;
-      }
-    }
-
-    &-phone {
-
-      @include breakpoint($breakpoint-desk) {
-        margin-left: -2.75em; /* Tweak centering */
-
-        text-align: right;
-      }
-    }
-
-    &-mail {
-      margin-bottom: 3em;
-
-      @include breakpoint($breakpoint-desk) {
-        text-align: left;
-      }
-    }
-
-    &-image {
-      display: inline-block;
-      margin: 0 2em 4em;
-      max-width: 10em;
-    }
-
-    &-social {
-      padding-bottom: 4em;
-    }
-
-    &-facebook,
-    &-twitter,
-    &-linkedin {
-      max-width: 3em;
-    }
-
-    &-twitter {
-      margin-right: 2em;
-      margin-left: 2em;
-    }
-  }
-
-  &--still-here {
-    padding: 10em 2em 2em;
-
-    background: url("../images/still-here-bg.png") #222;
-
-    &-header {
-      margin-bottom: 1em;
-
-      font-size: 1.5em;
-    }
-
-    &-sub-header {
-      margin-bottom: 2em;
-
-      color: darken($white, 25%);
-      font-size: 1.25em;
-      font-weight: 100;
-    }
-
-    &-image {
-      margin-bottom: 2em;
-      max-width: 10em;
     }
   }
 }
