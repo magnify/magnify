@@ -57,6 +57,8 @@ em {
    ================================================================================================================== */
 
 a {
+  transition: color .5s, text-decoration .5s;
+
   &:link {
     color: $link-color;
     text-decoration: none;
