@@ -19,8 +19,10 @@ $white:            #fff;
 /* Typography
    ================================================================================================================== */
 
-$font-family:      "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
-$font:             1em/1.5 $font-family !default;
+
+$font-header:      "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-body:        "Roboto Slab", serif;
+$font:             1em/1.5 $font-body;
 
 
 
