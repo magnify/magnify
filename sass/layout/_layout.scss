@@ -20,12 +20,28 @@
   &-logo {
     margin-right: 1em;
     max-width: 4em;
+
+    @include opacity(0);
+    @include transition(opacity .5s ease-in-out);
+
+    &.animate {
+      @include opacity(1);
+      @include transition-delay(.5s);
+    }
   }
 
   &-title {
     color: $white;
     font-weight: 400;
     text-transform: uppercase;
+
+    @include opacity(0);
+    @include transition(opacity .5s ease-in-out);
+
+    &.animate {
+      @include opacity(1);
+      @include transition-delay(1s);
+    }
   }
 }
 
@@ -60,11 +76,27 @@
     padding-left: 0;
   }
 
+  &--big,
+  &--sub {
+    position: relative;
+    bottom: -100em;
+
+    @include transition(bottom .5s ease-in-out);
+
+    &.animate {
+      bottom: 0;
+    }
+  }
+
   // Big header
   &--big {
     font-family: $font-header;
     font-size: 2em;
     font-weight: 600;
+
+    &.animate {
+      @include transition-delay(2s);
+    }
 
     @include breakpoint($breakpoint-lap) {
       font-size: 3em;
@@ -92,13 +124,15 @@
 
     font-weight: 300;
 
+    &.animate {
+      @include transition-delay(2.5s);
+    }
+
     @include breakpoint($breakpoint-lap) {
       font-size: 1.25em;
     }
 
     @include breakpoint($breakpoint-desk) {
-      position: relative;
-
       font-size: 1.5em;
     }
 
@@ -118,9 +152,20 @@
    ================================================================================================================== */
 
 .instagram {
+  position: relative;
+  bottom: -100em;
+
   margin-right: auto;
   margin-left: auto;
   max-width: 62.5em;
+
+  @include transition(bottom .5s ease-in-out);
+
+  &.animate {
+    @include transition-delay(3s);
+
+    bottom: 0;
+  }
 
   &--header {
     font-family: $font-header;
@@ -135,10 +180,22 @@
    ================================================================================================================== */
 
 .footer {
+  position: relative;
+  bottom: -100%;
+
   margin-right: auto;
   margin-left: auto;
   max-width: 62.5em;
   padding: 2em;
 
   text-align: center;
+
+  @include transition(bottom .5s ease-in-out);
+
+
+  &.animate {
+    @include transition-delay(3.5s);
+
+    bottom: 0;
+  }
 }

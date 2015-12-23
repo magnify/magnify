@@ -7,33 +7,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="//fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
   <link href="//fonts.googleapis.com/css?family=Roboto+Slab:300,400,700" rel="stylesheet" type="text/css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <link href="css/styles.css" rel="stylesheet" type="text/css">
+  <script>
+    (function($) {
+      'use strict';
+
+      $(window).on('load', function() {
+        $('.js-animate').addClass('animate');
+      });
+    })(jQuery);
+  </script>
 </head>
 <body>
 <main class="main" role="banner" id="home">
   <header>
     <nav class="nav">
       <div class="nav--inner">
-        <img src="/images/logo.png" alt="Frontend Designer og UX'er - Brian Stefan Jensen" class="nav-logo">
-        <span class="nav-title">Brian Stefan Jensen</span>
+        <img src="/images/logo.png" alt="Frontend Designer og UX'er - Brian Stefan Jensen" class="nav-logo js-animate">
+        <span class="nav-title js-animate">Brian Stefan Jensen</span>
       </div>
     </nav>
     <div class="main--inner">
-      <h1 class="main--big">Frontend Designer, UX'er og udvikler</h1>
-      <p class="main--sub">Jeg kan hjælpe med at scope, designe og udvikle websites, prototyper og systemer.</p>
-      <p class="main--sub">Der er travlt, men jeg har plads til mindre projekter.</p>
-      <p class="main--sub">
+      <h1 class="main--big js-animate">Frontend Designer, UX'er og udvikler</h1>
+      <p class="main--sub js-animate">Jeg kan hjælpe med at scope, designe og udvikle websites, prototyper og systemer.</p>
+      <p class="main--sub js-animate">Der er travlt, men jeg har plads til mindre projekter.</p>
+      <p class="main--sub js-animate">
         Fang mig på
         <a href="mailto:hallo@magnify.dk">hallo@magnify.dk</a>,
         <a href="//twitter.com/magnifydk">Twitter</a> eller
         <a href="//www.linkedin.com/in/magnifydk">LinkedIn</a>.
       </p>
-      <p class="main--sub">
+      <p class="main--sub js-animate">
         Vi ses derude!
       </p>
     </div>
   </header>
-  <section class="instagram">
+  <section class="instagram js-animate">
     <h3 class="footer">~ <a href="https://instagram.com/mgnfy/">mgnfy</a> @ Instagram ~</h3>
     <!-- INSTANSIVE WIDGET --><script src="//instansive.com/widget/js/instansive.js"></script>
     <iframe src="//instansive.com/widgets/94f1db44236b6a43f05f9946003da3381f313e52.html" id="instansive_94f1db4423"
@@ -41,7 +51,7 @@
       style="width: 100%; border: 0; overflow: hidden;">
     </iframe>
   </section>
-  <section class="footer">
+  <section class="footer js-animate">
     Brug for en Frontender, Designer eller UX'er? Send mig en mail på <a href="mailto:hallo@magnify.dk">hallo@magnify
     .dk</a>. :)
   </section>
