@@ -341,12 +341,12 @@ img {
 .nav {
   width: 100%; }
   .nav--inner {
-    padding: 4em 0;
+    padding: 2em 0;
     max-width: 62.5em;
     margin-right: auto;
     margin-left: auto;
     line-height: 4em; }
-    @media only screen and (min-width: 1024px) {
+    @media only screen and (min-width: 1700px) {
       .nav--inner {
         padding: 4em 2em; } }
   .nav-logo {
@@ -357,9 +357,9 @@ img {
     font-weight: 400;
     text-transform: uppercase; }
 
-/* Header
+/* main
    ================================================================================================================== */
-.header {
+.main {
   overflow: scroll;
   box-sizing: border-box;
   height: 100%;
@@ -372,9 +372,9 @@ img {
   -webkit-background-size: cover;
   background-size: cover; }
   @media only screen and (min-width: 481px) {
-    .header {
+    .main {
       background-position: center; } }
-  .header--inner {
+  .main--inner {
     display: block;
     margin-right: auto;
     margin-bottom: 5em;
@@ -382,38 +382,38 @@ img {
     max-width: 62.5em;
     padding-top: 2em;
     padding-left: 0; }
-  .header--big {
+  .main--big {
     font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 2em;
     font-weight: 600; }
     @media only screen and (min-width: 481px) {
-      .header--big {
+      .main--big {
         font-size: 3em; } }
     @media only screen and (min-width: 1024px) {
-      .header--big {
+      .main--big {
         position: relative;
         font-size: 3.5em; } }
     @media only screen and (min-width: 1700px) {
-      .header--big {
+      .main--big {
         font-size: 3.8em; } }
     @media screen and (orientation: landscape) and (max-height: 287px) {
-      .header--big {
+      .main--big {
         font-size: 1.5em; } }
-  .header--sub {
+  .main--sub {
     margin-bottom: 1em;
     font-weight: 300; }
     @media only screen and (min-width: 481px) {
-      .header--sub {
+      .main--sub {
         font-size: 1.25em; } }
     @media only screen and (min-width: 1024px) {
-      .header--sub {
+      .main--sub {
         position: relative;
         font-size: 1.5em; } }
     @media only screen and (min-width: 1700px) {
-      .header--sub {
+      .main--sub {
         font-size: 2em; } }
     @media screen and (orientation: landscape) and (max-height: 287px) {
-      .header--sub {
+      .main--sub {
         font-size: 1em; } }
 
 /* Instagram
@@ -422,3 +422,17 @@ img {
   margin-right: auto;
   margin-left: auto;
   max-width: 62.5em; }
+  .instagram--header {
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1.75em;
+    font-weight: 300;
+    text-align: center; }
+
+/* Footer
+   ================================================================================================================== */
+.footer {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 62.5em;
+  padding: 2em;
+  text-align: center; }

@@ -5,14 +5,14 @@
   width: 100%;
 
   &--inner {
-    padding: 4em 0;
+    padding: 2em 0;
     max-width: 62.5em;
     margin-right: auto;
     margin-left: auto;
 
     line-height: 4em;
 
-    @include breakpoint($breakpoint-desk) {
+    @include breakpoint($breakpoint-bigscreen) {
       padding: 4em 2em;
     }
   }
@@ -29,10 +29,10 @@
   }
 }
 
-/* Header
+/* main
    ================================================================================================================== */
 
-.header {
+.main {
   overflow: scroll;
 
   box-sizing: border-box;
@@ -121,4 +121,24 @@
   margin-right: auto;
   margin-left: auto;
   max-width: 62.5em;
+
+  &--header {
+    font-family: $font-header;
+    font-size: 1.75em;
+    font-weight: 300;
+    text-align: center;
+  }
+}
+
+
+/* Footer
+   ================================================================================================================== */
+
+.footer {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 62.5em;
+  padding: 2em;
+
+  text-align: center;
 }
