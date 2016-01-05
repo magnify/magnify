@@ -300,7 +300,7 @@
 /* Quote
    ================================================================================================================== */
 
-.quote {
+.experience-driven-design {
   @include transition(bottom .75s ease-in-out);
 
   position: relative;
@@ -318,19 +318,19 @@
     font-weight: bold;
   }
 
-  &--text {
-    padding-right: 6em;
-    padding-left: 6em;
-
-    font-style: italic;
-  }
-
   &.animate {
     @include transition-delay(2.5s);
 
     bottom: 0;
 
     border-bottom: 1px solid transparentize($white, .85);
+  }
+
+  @include breakpoint($breakpoint-desk) {
+    &--text {
+      padding-right: 6em;
+      padding-left: 6em;
+    }
   }
 }
 
