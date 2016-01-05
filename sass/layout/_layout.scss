@@ -251,6 +251,8 @@
   max-width: 62.5em;
   padding-bottom: 4em;
 
+  text-align: center;
+
   &.animate {
     @include transition-delay(2.5s);
 
@@ -263,7 +265,6 @@
     font-family: $font-header;
     font-size: 1.25em;
     font-weight: 600;
-    text-align: center;
   }
 
   &--now {
@@ -273,14 +274,12 @@
   &--now,
   &--earlier {
     @include flex-basis(100%);
-
+    
     font-weight: 100;
   }
 
   @include breakpoint($breakpoint-desk) {
     @include flex-direction(row);
-
-    text-align: center;
 
     &--now {
       margin-bottom: 0;
@@ -311,10 +310,11 @@
   margin-left: auto;
   max-width: 62.5em;
 
+  text-align: center;
+
   &--header {
     font-family: $font-header;
     font-weight: 600;
-    text-align: center;
   }
 
   &--text {
@@ -330,8 +330,6 @@
   }
 
   @include breakpoint($breakpoint-desk) {
-    text-align: center;
-
     &--text {
       padding-right: 6em;
       padding-left: 6em;
