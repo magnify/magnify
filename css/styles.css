@@ -562,7 +562,6 @@ img {
     -moz-flex-basis: 100%;
     -ms-flex-preferred-size: 100%;
     flex-basis: 100%;
-    font-size: .85em;
     font-weight: 100; }
   @media only screen and (min-width: 1024px) {
     .about {
@@ -598,7 +597,9 @@ img {
   text-align: center; }
   .experience-driven-design--header {
     font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: bold; }
+    font-weight: 600; }
+  .experience-driven-design--text {
+    font-weight: 100; }
   .experience-driven-design.animate {
     -moz-transition-delay: 2.5s;
     -o-transition-delay: 2.5s;

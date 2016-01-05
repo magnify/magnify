@@ -275,7 +275,6 @@
   &--earlier {
     @include flex-basis(100%);
 
-    font-size: .85em;
     font-weight: 100;
   }
 
@@ -315,7 +314,11 @@
 
   &--header {
     font-family: $font-header;
-    font-weight: bold;
+    font-weight: 600;
+  }
+
+  &--text {
+    font-weight: 100;
   }
 
   &.animate {
