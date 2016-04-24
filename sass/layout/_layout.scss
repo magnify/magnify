@@ -251,8 +251,6 @@
   max-width: 62.5em;
   padding-bottom: 4em;
 
-  text-align: center;
-
   &.animate {
     @include transition-delay(2.5s);
 
@@ -268,71 +266,12 @@
   }
 
   &--now {
-    margin-bottom: 3em;
-  }
-
-  &--now,
-  &--earlier {
     @include flex-basis(100%);
 
     font-weight: 100;
-  }
 
-  @include breakpoint($breakpoint-desk) {
-    @include flex-direction(row);
-
-    &--now {
-      margin-bottom: 0;
-    }
-
-    &--now,
-    &--earlier {
-      @include flex-basis(50%);
-
-      padding-right: 2em;
-      padding-left: 2em;
-    }
-  }
-}
-
-
-/* Quote
-   ================================================================================================================== */
-
-.experience-driven-design {
-  @include transition(bottom .75s ease-in-out);
-
-  position: relative;
-  bottom: -100%;
-
-  margin-right: auto;
-  margin-bottom: 4em;
-  margin-left: auto;
-  max-width: 62.5em;
-
-  text-align: center;
-
-  &--header {
-    font-family: $font-header;
-    font-weight: 600;
-  }
-
-  &--text {
-    font-weight: 100;
-  }
-
-  &.animate {
-    @include transition-delay(2.5s);
-
-    bottom: 0;
-
-    border-bottom: 1px solid transparentize($white, .85);
-  }
-
-  @include breakpoint($breakpoint-desk) {
-    &--text {
-      padding-right: 6em;
-      padding-left: 6em;
+    p + p {
+      margin-top: 1em;
     }
   }
 }

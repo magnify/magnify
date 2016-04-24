@@ -542,8 +542,7 @@ img {
   margin-bottom: 4em;
   margin-left: auto;
   max-width: 62.5em;
-  padding-bottom: 4em;
-  text-align: center; }
+  padding-bottom: 4em; }
   .about.animate {
     -moz-transition-delay: 2.5s;
     -o-transition-delay: 2.5s;
@@ -556,61 +555,13 @@ img {
     font-size: 1.25em;
     font-weight: 600; }
   .about--now {
-    margin-bottom: 3em; }
-  .about--now, .about--earlier {
     -webkit-flex-basis: 100%;
     -moz-flex-basis: 100%;
     -ms-flex-preferred-size: 100%;
     flex-basis: 100%;
     font-weight: 100; }
-  @media only screen and (min-width: 1024px) {
-    .about {
-      -webkit-box-direction: normal;
-      -webkit-box-orient: horizontal;
-      -webkit-flex-direction: row;
-      -moz-flex-direction: row;
-      -ms-flex-direction: row;
-      flex-direction: row; }
-      .about--now {
-        margin-bottom: 0; }
-      .about--now, .about--earlier {
-        -webkit-flex-basis: 50%;
-        -moz-flex-basis: 50%;
-        -ms-flex-preferred-size: 50%;
-        flex-basis: 50%;
-        padding-right: 2em;
-        padding-left: 2em; } }
-
-/* Quote
-   ================================================================================================================== */
-.experience-driven-design {
-  -moz-transition: bottom 0.75s ease-in-out;
-  -o-transition: bottom 0.75s ease-in-out;
-  -webkit-transition: bottom 0.75s ease-in-out;
-  transition: bottom 0.75s ease-in-out;
-  position: relative;
-  bottom: -100%;
-  margin-right: auto;
-  margin-bottom: 4em;
-  margin-left: auto;
-  max-width: 62.5em;
-  text-align: center; }
-  .experience-driven-design--header {
-    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 600; }
-  .experience-driven-design--text {
-    font-weight: 100; }
-  .experience-driven-design.animate {
-    -moz-transition-delay: 2.5s;
-    -o-transition-delay: 2.5s;
-    -webkit-transition-delay: 2.5s;
-    transition-delay: 2.5s;
-    bottom: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15); }
-  @media only screen and (min-width: 1024px) {
-    .experience-driven-design--text {
-      padding-right: 6em;
-      padding-left: 6em; } }
+    .about--now p + p {
+      margin-top: 1em; }
 
 /* Instagram
    ================================================================================================================== */
