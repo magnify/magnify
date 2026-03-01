@@ -78,6 +78,27 @@
     /* ---- Header ---- */
     header {
       padding: 5rem 0 1rem;
+      position: relative;
+    }
+
+    .cta {
+      position: absolute;
+      top: 5rem;
+      right: 0;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+
+    .cta:hover {
+      color: var(--text-bright);
+      border-color: var(--green);
+      background: rgba(74,222,128,0.05);
     }
 
     .header-line {
@@ -244,7 +265,7 @@
       border: 1px solid var(--border);
     }
 
-    .badge-wip {
+    .badge {
       font-family: var(--mono);
       display: inline-block;
       padding: 0.1rem 0.4rem;
@@ -255,9 +276,26 @@
       text-transform: uppercase;
       vertical-align: middle;
       margin-left: 0.4rem;
+    }
+
+    .badge-wip {
       background: rgba(251,191,36,0.1);
       color: var(--yellow);
       border: 1px solid rgba(251,191,36,0.2);
+    }
+
+    .badge-live {
+      background: rgba(74,222,128,0.1);
+      color: var(--green);
+      border: 1px solid rgba(74,222,128,0.2);
+    }
+
+    .card-wip {
+      opacity: 0.6;
+    }
+
+    .card-wip:hover {
+      opacity: 1;
     }
 
     /* Card colors */
@@ -295,6 +333,7 @@
     @media (max-width: 640px) {
       .logo { font-size: 3rem }
       header { padding: 3rem 0 0.5rem }
+      .cta { position: static; display: inline-block; margin-top: 1.25rem }
       .projects { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto }
       .phone { width: 100px; height: 200px }
       footer { flex-direction: column; gap: 0.5rem; text-align: center }
@@ -309,6 +348,7 @@
       <div class="header-line"><span>&gt;</span> magnify.dk</div>
       <h1 class="logo">magnify</h1>
       <p class="subtitle">Projects by Brian Stefan Jensen</p>
+      <a class="cta" href="mailto:hallo@magnify.dk">Have an idea? &rarr;</a>
     </header>
 
     <hr class="divider">
@@ -320,7 +360,7 @@
           <img src="images/bird-quiz.png" alt="Dansk Fugleviden">
         </div>
         <div class="card-title">
-          <span class="status-dot"></span>Dansk Fugleviden
+          <span class="status-dot"></span>Dansk Fugleviden <span class="badge badge-live">live</span>
         </div>
         <div class="card-meta">bird identification quiz</div>
         <p class="card-description">
@@ -333,12 +373,12 @@
         </div>
       </a>
 
-      <a class="project-card card-knitter" href="#">
+      <a class="project-card card-knitter card-wip" href="#">
         <div class="phone">
           <img src="images/knitter.png" alt="Knitter">
         </div>
         <div class="card-title">
-          <span class="status-dot blink"></span>Knitter <span class="badge-wip">wip</span>
+          <span class="status-dot blink"></span>Knitter <span class="badge badge-wip">wip</span>
         </div>
         <div class="card-meta">knitting project manager</div>
         <p class="card-description">
@@ -350,12 +390,12 @@
           <span class="tag">mobile-first</span>
         </div>
       </a>
-      <a class="project-card card-foodscan" href="#">
+      <a class="project-card card-foodscan card-wip" href="#">
         <div class="phone">
           <img src="images/foodscan.png" alt="FoodScan">
         </div>
         <div class="card-title">
-          <span class="status-dot blink"></span>FoodScan <span class="badge-wip">wip</span>
+          <span class="status-dot blink"></span>FoodScan <span class="badge badge-wip">wip</span>
         </div>
         <div class="card-meta">product scanner</div>
         <p class="card-description">
