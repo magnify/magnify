@@ -120,6 +120,36 @@
       opacity: 1;
     }
 
+    .card-inner {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .card-screenshot-wrap {
+      flex-shrink: 0;
+      width: 140px;
+      height: 280px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 2px solid var(--border);
+      background: #000;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    }
+
+    .card-screenshot {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+
+    .card-content {
+      flex: 1;
+      min-width: 0;
+    }
+
     .card-header {
       display: flex;
       align-items: center;
@@ -172,6 +202,24 @@
       font-size: 0.75rem;
       color: var(--text-muted);
       letter-spacing: 0.02em;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 100px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+
+    .badge-wip {
+      background: rgba(255,217,61,0.15);
+      color: #ffd93d;
+      border: 1px solid rgba(255,217,61,0.25);
     }
 
     .card-arrow {
@@ -269,6 +317,8 @@
       .container { padding: 1.5rem 1rem }
       header { padding: 2.5rem 0 2rem }
       .project-card { padding: 1.5rem }
+      .card-inner { flex-direction: column; gap: 1.25rem }
+      .card-screenshot-wrap { width: 120px; height: 240px; align-self: center }
       .card-title { font-size: 1.25rem }
     }
   </style>
@@ -288,21 +338,57 @@
 
     <section class="projects">
       <a class="project-card" href="https://bird-quiz.magnify.dk" style="--card-accent: #6bcb77">
-        <div class="card-header">
-          <div class="card-icon">🐦</div>
-          <div>
-            <div class="card-title">Dansk Fugleviden</div>
-            <div class="card-subtitle">Bird identification quiz</div>
+        <div class="card-inner">
+          <div class="card-screenshot-wrap">
+            <img class="card-screenshot" src="images/bird-quiz.png" alt="Dansk Fugleviden screenshot">
+          </div>
+          <div class="card-content">
+            <div class="card-header">
+              <div class="card-icon">🐦</div>
+              <div>
+                <div class="card-title">Dansk Fugleviden</div>
+                <div class="card-subtitle">Bird identification quiz</div>
+              </div>
+            </div>
+            <p class="card-description">
+              Test your knowledge of Danish and Northern European birds. Identify species from photos or names across 160+ species with spaced repetition learning.
+            </p>
+            <div class="card-tags">
+              <span class="tag">Quiz</span>
+              <span class="tag">160+ birds</span>
+              <span class="tag">Spaced repetition</span>
+              <span class="tag">Danish</span>
+            </div>
           </div>
         </div>
-        <p class="card-description">
-          Test your knowledge of Danish and Northern European birds. Identify species from photos or names across 160+ species with spaced repetition learning.
-        </p>
-        <div class="card-tags">
-          <span class="tag">Quiz</span>
-          <span class="tag">160+ birds</span>
-          <span class="tag">Spaced repetition</span>
-          <span class="tag">Danish</span>
+        <div class="card-arrow">
+          <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </div>
+      </a>
+
+      <a class="project-card" href="#" style="--card-accent: #ff6b9d">
+        <div class="card-inner">
+          <div class="card-screenshot-wrap">
+            <img class="card-screenshot" src="images/knitter.png" alt="Knitter screenshot">
+          </div>
+          <div class="card-content">
+            <div class="card-header">
+              <div class="card-icon">🧶</div>
+              <div>
+                <div class="card-title">Knitter <span class="badge badge-wip">WIP</span></div>
+                <div class="card-subtitle">Knitting project manager</div>
+              </div>
+            </div>
+            <p class="card-description">
+              A mobile-first PWA for knitters to manage projects, track progress with row counters and session timers, and annotate PDF patterns.
+            </p>
+            <div class="card-tags">
+              <span class="tag">PWA</span>
+              <span class="tag">React</span>
+              <span class="tag">Pattern viewer</span>
+              <span class="tag">Mobile-first</span>
+            </div>
+          </div>
         </div>
         <div class="card-arrow">
           <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
