@@ -137,7 +137,7 @@
     /* ---- Projects ---- */
     .projects {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
       gap: 1rem;
       padding-bottom: 3rem;
     }
@@ -263,6 +263,7 @@
     /* Card colors */
     .card-birds { --card-color: var(--green) }
     .card-knitter { --card-color: var(--pink) }
+    .card-foodscan { --card-color: var(--yellow) }
 
     /* ---- Footer ---- */
     footer {
@@ -287,10 +288,14 @@
     }
 
     /* ---- Responsive ---- */
+    @media (max-width: 900px) {
+      .projects { grid-template-columns: 1fr 1fr }
+    }
+
     @media (max-width: 640px) {
       .logo { font-size: 3rem }
       header { padding: 3rem 0 0.5rem }
-      .projects { grid-template-columns: 1fr; max-width: 380px; margin: 0 auto }
+      .projects { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto }
       .phone { width: 100px; height: 200px }
       footer { flex-direction: column; gap: 0.5rem; text-align: center }
     }
@@ -343,6 +348,23 @@
           <span class="tag">pwa</span>
           <span class="tag">react</span>
           <span class="tag">mobile-first</span>
+        </div>
+      </a>
+      <a class="project-card card-foodscan" href="#">
+        <div class="phone">
+          <img src="images/foodscan.png" alt="FoodScan">
+        </div>
+        <div class="card-title">
+          <span class="status-dot blink"></span>FoodScan <span class="badge-wip">wip</span>
+        </div>
+        <div class="card-meta">product scanner</div>
+        <p class="card-description">
+          Scan food products for supportive context and practical alternatives. Non-judgmental approach to food choices.
+        </p>
+        <div class="card-tags">
+          <span class="tag">ionic</span>
+          <span class="tag">react</span>
+          <span class="tag">barcode</span>
         </div>
       </a>
     </section>
