@@ -1,0 +1,781 @@
+<!doctype html>
+<html lang="en" data-lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>magnify.dk — Brian Jensen, product builder</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='0,0 80,0 100,20 100,100 20,100 0,80' fill='none' stroke='%23c0d34a' stroke-width='10' stroke-linejoin='round'/%3E%3Ctext x='50' y='72' text-anchor='middle' font-family='monospace' font-weight='700' font-size='60' fill='%23c0d34a'%3Em%3C/text%3E%3C/svg%3E">
+<meta name="description" content="Brian Jensen — product builder. Small useful things on the internet, since 2000." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Geist:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+/* ============= TOKENS ============= */
+:root {
+  --bg: #0c0d0a;
+  --bg-2: #131410;
+  --panel: #161712;
+  --line: #222319;
+  --line-2: #2a2b1f;
+  --ink: #e9e6d8;
+  --ink-2: #b9b6a4;
+  --mute: #6b6a55;
+  --olive: #c0d34a;     /* 2003 acid olive */
+  --olive-2: #8e9a2c;
+  --rust: #d97552;      /* warm callback */
+  --paper: #f1ecd9;     /* 2006 paper */
+
+  --sans: "Geist", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --serif: "Instrument Serif", "Times New Roman", serif;
+  --mono: "JetBrains Mono", "Courier New", monospace;
+
+  --max: 1240px;
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  font-feature-settings: "ss01", "ss02";
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+::selection { background: var(--olive); color: #0a0b06; }
+
+/* full-bleed dot grid */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(192,211,74,0.05) 1px, transparent 1.2px);
+  background-size: 22px 22px;
+  z-index: 0;
+}
+
+/* lang toggle */
+[data-lang="en"] [lang="da"] { display: none; }
+[data-lang="da"] [lang="en"] { display: none; }
+
+/* ============= TYPE ============= */
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mute);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.eyebrow .dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--olive);
+  box-shadow: 0 0 0 4px rgba(192,211,74,0.12);
+  animation: pulse 1.8s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+.serif { font-family: var(--serif); font-style: italic; font-weight: 400; }
+.mono { font-family: var(--mono); }
+.muted { color: var(--mute); }
+.acid  { color: var(--olive); }
+
+h1, h2, h3 {
+  font-family: var(--sans);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 0.96;
+  margin: 0;
+  text-wrap: balance;
+}
+h1 { font-size: clamp(48px, 8vw, 124px); }
+h2 { font-size: clamp(34px, 4.4vw, 64px); }
+h3 { font-size: clamp(20px, 2vw, 28px); letter-spacing: -0.02em; line-height: 1.15; }
+
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
+@media (min-width: 720px) { .wrap { padding: 0 28px; } }
+.section { padding: clamp(72px, 10vw, 140px) 0; position: relative; z-index: 1; }
+
+/* ============= NAV ============= */
+.nav {
+  position: sticky; top: 0; z-index: 60;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  background: rgba(12,13,10,0.65);
+  border-bottom: 1px solid var(--line);
+}
+.nav__inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px;
+}
+@media (max-width: 700px) {
+  .nav__inner { padding: 12px 16px; }
+}
+.brand { display: inline-flex; align-items: center; gap: 10px; }
+.brand__cube {
+  width: 26px; height: 26px;
+  position: relative;
+  display: grid; place-items: center;
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--olive);
+  transition: transform 320ms var(--ease);
+}
+.brand__cube svg {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  overflow: visible;
+}
+.brand__cube span {
+  position: relative; z-index: 1; line-height: 1;
+}
+.brand:hover .brand__cube { transform: rotate(-12deg) scale(1.06); }
+.brand__name {
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: -0.02em;
+}
+.brand__name b { font-weight: 600; }
+.brand__name .muted { font-weight: 400; }
+
+.nav__links {
+  display: flex; gap: 2px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--ink-2);
+}
+.nav__link {
+  padding: 8px 14px;
+  border-radius: 999px;
+  transition: background 200ms ease, color 200ms ease;
+  white-space: nowrap;
+}
+.nav__link:hover { background: rgba(192,211,74,0.08); color: var(--olive); }
+.nav__link.active { background: var(--ink); color: #0a0b06; }
+@media (max-width: 600px) {
+  .nav__inner { gap: 8px; }
+  .nav__links { font-size: 11px; gap: 0; }
+  .nav__link { padding: 6px 9px; }
+  .nav__link.active { display: none; }
+  .brand__name { font-size: 14px; }
+  .lang { padding: 5px 8px; font-size: 10px; }
+}
+@media (max-width: 380px) {
+  .nav__link { padding: 5px 7px; font-size: 10px; }
+}
+
+.nav__tools { display: flex; align-items: center; gap: 10px; }
+.lang {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em;
+  border: 1px solid var(--line-2);
+  padding: 6px 10px; cursor: pointer; background: transparent; color: var(--ink-2);
+  border-radius: 999px;
+}
+.lang:hover { color: var(--olive); border-color: var(--olive-2); }
+.lang span[data-active]{ color: var(--olive); }
+
+/* ============= HERO ============= */
+.hero { padding: clamp(64px, 9vw, 120px) 0 clamp(32px, 5vw, 64px); }
+.hero__top {
+  display: grid; grid-template-columns: 1fr auto;
+  align-items: end; gap: 24px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 22px;
+  margin-bottom: 36px;
+}
+.hero__title {
+  margin-top: 28px;
+  max-width: 18ch;
+}
+.hero__title .ser { font-weight: 400; }
+.hero__title .strike { text-decoration: line-through; text-decoration-color: var(--mute); text-decoration-thickness: 2px; opacity: .5; }
+.hero__bottom {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: clamp(32px, 5vw, 80px);
+  align-items: end;
+  margin-top: 64px;
+}
+.hero__lede {
+  font-family: var(--serif);
+  font-style: normal;
+  font-size: clamp(20px, 1.8vw, 26px);
+  line-height: 1.35;
+  color: var(--ink-2);
+  max-width: 32ch;
+}
+.hero__lede em { color: var(--olive); font-style: italic; }
+.hero__meta { display: grid; gap: 8px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; color: var(--mute); }
+.hero__meta .row { display: flex; justify-content: space-between; gap: 16px; padding: 8px 0; border-bottom: 1px dashed var(--line-2); }
+.hero__meta .row:last-child { border-bottom: 0; }
+.hero__meta .v { color: var(--ink-2); text-transform: uppercase; }
+
+@media (max-width: 800px) {
+  .hero__top { grid-template-columns: 1fr; }
+  .hero__bottom { grid-template-columns: 1fr; }
+}
+
+.hero__actions { margin-top: 28px; display: flex; gap: 10px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 13px 18px;
+  font-family: var(--sans); font-size: 14px; font-weight: 500;
+  border: 1px solid var(--olive);
+  background: var(--olive); color: #0a0b06;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 220ms var(--ease), background 220ms ease;
+}
+.btn:hover { transform: translateY(-2px); background: #d4e75c; }
+.btn--ghost { background: transparent; color: var(--ink); border-color: var(--line-2); }
+.btn--ghost:hover { background: var(--ink); color: #0a0b06; border-color: var(--ink); }
+.btn .arrow { transition: transform 220ms var(--ease); }
+.btn:hover .arrow { transform: translateX(3px); }
+
+/* ============= MARQUEE ============= */
+.marquee {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background:
+    linear-gradient(90deg, rgba(192,211,74,0.06), transparent 30%, transparent 70%, rgba(192,211,74,0.06)),
+    var(--bg);
+  overflow: hidden;
+  position: relative; z-index: 1;
+}
+.marquee__track {
+  display: flex; gap: 48px;
+  white-space: nowrap;
+  padding: 22px 0;
+  animation: scroll 38s linear infinite;
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+.marquee__track span { display: inline-flex; align-items: center; gap: 48px; }
+.marquee__track i { font-style: normal; color: var(--olive); }
+.marquee__track .sep { color: var(--mute); }
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ============= SECTIONS ============= */
+.section__head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  padding-bottom: 28px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--line);
+}
+.section__head h2 { max-width: 18ch; }
+
+/* ============= PROJECT CARDS ============= */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 18px;
+}
+.card {
+  position: relative;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: border-color 240ms ease, transform 280ms var(--ease);
+  display: block;
+}
+.card:hover { border-color: var(--olive-2); transform: translateY(-3px); }
+
+.card--half { grid-column: span 3; }
+.card--xl { grid-column: span 4; }
+.card--sm { grid-column: span 2; }
+.card--md { grid-column: span 3; }
+@media (max-width: 800px) {
+  .work-grid { grid-template-columns: 1fr; gap: 14px; }
+  .card--xl, .card--sm, .card--md, .card--half { grid-column: span 1; }
+}
+
+.card__media {
+  position: relative;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: #1a1d10;
+  display: grid; place-items: center;
+}
+.card--xl .card__media { aspect-ratio: 16/8; }
+.card__media::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background-image: repeating-linear-gradient(0deg, rgba(0,0,0,0) 0 2px, rgba(0,0,0,0.18) 2px 3px);
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+}
+.card__media svg { transition: transform 600ms var(--ease); }
+.card:hover .card__media svg { transform: scale(1.05) rotate(-2deg); }
+
+/* media variants */
+.media--bird   { background: linear-gradient(135deg, #4a5e22 0%, #2c3a14 100%); color: #d8e6a0; }
+.media--kolony { background: linear-gradient(135deg, #6e4a1a 0%, #2a1d08 100%); color: #f0c97a; }
+.media--knit   { background: linear-gradient(135deg, #6a2a4a 0%, #2e0f1f 100%); color: #f0bbd5; }
+.media--food   { background: linear-gradient(135deg, #1f4a5e 0%, #0a1e2a 100%); color: #9ad3ea; }
+
+.media__label {
+  position: absolute;
+  top: 14px; left: 14px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: rgba(10,11,6,0.65);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 4px 8px;
+  border-radius: 999px;
+  z-index: 2;
+  color: var(--ink-2);
+}
+.media__label.live { color: var(--olive); border-color: var(--olive-2); }
+.media__label.live::before { content: '●'; margin-right: 6px; animation: pulse 1.8s infinite; }
+
+.card__body {
+  padding: 22px 22px 22px;
+  display: grid;
+  gap: 12px;
+}
+.card__row {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em;
+  color: var(--mute); text-transform: uppercase;
+}
+.card__row .arrow { color: var(--olive); transition: transform 240ms var(--ease); }
+.card:hover .card__row .arrow { transform: translate(4px, -4px); }
+.card__title { font-size: clamp(22px, 2vw, 30px); }
+.card__desc { color: var(--ink-2); font-size: 14px; line-height: 1.5; max-width: 50ch; }
+
+/* ============= ABOUT SPLIT ============= */
+.about {
+  background: var(--bg-2);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.about__grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: start;
+}
+@media (max-width: 900px) { .about__grid { grid-template-columns: 1fr; gap: 28px; } }
+.about__lede {
+  font-family: var(--serif);
+  font-size: clamp(28px, 3.4vw, 48px);
+  line-height: 1.15;
+  color: var(--ink);
+  font-style: normal;
+  text-wrap: pretty;
+}
+.about__lede em { color: var(--olive); font-style: italic; }
+
+.skills {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--panel);
+  padding: 24px;
+}
+.skills__head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding-bottom: 16px; margin-bottom: 14px;
+  border-bottom: 1px dashed var(--line-2);
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mute);
+}
+.skills__row {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 14px;
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--line-2);
+  align-items: baseline;
+  font-size: 14px;
+}
+.skills__row:last-child { border-bottom: 0; }
+.skills__row .when { font-family: var(--mono); font-size: 11px; color: var(--mute); letter-spacing: 0.06em; }
+.skills__row .what { color: var(--ink); }
+.skills__row .badge { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--olive); padding: 2px 6px; border: 1px solid var(--olive-2); border-radius: 4px; }
+
+/* ============= CONTACT ============= */
+.contact { padding-bottom: clamp(80px, 12vw, 140px); }
+.contact__inner {
+  max-width: 940px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: clamp(36px, 5vw, 64px);
+  background:
+    radial-gradient(ellipse at 90% -10%, rgba(192,211,74,0.18), transparent 50%),
+    radial-gradient(ellipse at 0% 110%, rgba(217,117,82,0.10), transparent 60%),
+    var(--panel);
+}
+.contact h2 { max-width: 18ch; margin-top: 14px; margin-bottom: 18px; }
+.contact h2 em { color: var(--olive); font-family: var(--serif); font-style: italic; font-weight: 400; }
+.contact p { color: var(--ink-2); font-size: 17px; max-width: 56ch; margin: 0 0 28px; }
+.contact__actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+/* ============= FOOTER ============= */
+.footer {
+  border-top: 1px solid var(--line);
+  background: #08090666;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--mute);
+}
+.footer__inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 22px 28px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 14px;
+  align-items: center;
+}
+.footer__center { text-align: center; }
+.footer__right { text-align: right; display: flex; gap: 10px; align-items: center; justify-content: flex-end; }
+.counter {
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.counter__digits {
+  background: #000;
+  color: var(--olive);
+  padding: 3px 9px;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+  border: 1px solid var(--line-2);
+  font-variant-numeric: tabular-nums;
+  border-radius: 4px;
+}
+@media (max-width: 700px) {
+  .footer__inner { grid-template-columns: 1fr; text-align: center; }
+  .footer__right { justify-content: center; }
+}
+
+/* hero shard ascii visual */
+.hero__row { display: grid; grid-template-columns: 1fr 320px; gap: clamp(24px, 4vw, 56px); align-items: center; }
+@media (max-width: 900px) {
+  .hero__row { grid-template-columns: 1fr 220px; gap: 32px; }
+}
+@media (max-width: 700px) {
+  .hero__row { grid-template-columns: 1fr; gap: 24px; }
+  .shard { max-width: 140px; justify-self: start; }
+}
+.shard {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  max-width: 360px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--bg-2);
+  display: grid; place-items: center;
+}
+.shard svg { width: 80%; height: 80%; }
+.shard__caption {
+  position: absolute; left: 12px; bottom: 12px;
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--mute);
+}
+.shard__caption b { color: var(--olive); font-weight: 500; }
+</style>
+</head>
+<body>
+
+<!-- ============= NAV ============= -->
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="#" class="brand">
+      <span class="brand__cube" aria-hidden="true">
+        <svg viewBox="0 0 100 100" fill="none"><polygon points="0,0 80,0 100,20 100,100 20,100 0,80" stroke="currentColor" stroke-width="8" stroke-linejoin="round"/></svg>
+        <span>m</span>
+      </span>
+      <span class="brand__name"><b>magnify</b></span>
+    </a>
+    <div class="nav__links">
+      <a href="#top" class="nav__link active" data-spy="top"><span lang="en">Index</span><span lang="da">Forsiden</span></a>
+      <a href="#work" class="nav__link" data-spy="work"><span lang="en">Work</span><span lang="da">Projekter</span></a>
+      <a href="#contact" class="nav__link" data-spy="contact"><span lang="en">Contact</span><span lang="da">Kontakt</span></a>
+    </div>
+    <div class="nav__tools">
+      <button class="lang" data-lang-toggle><span data-active>EN</span> <span class="muted">/ DA</span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============= HERO ============= -->
+<header class="section hero" id="top">
+  <div class="wrap">
+
+    <div class="hero__row">
+      <h1 class="hero__title">
+        <span lang="en">Building things on the internet – <span class="muted">since</span> <span class="acid">2000.</span></span>
+        <span lang="da">Bygger ting på internettet – <span class="muted">siden</span> <span class="acid">2000.</span></span>
+      </h1>
+
+      <div class="shard" aria-hidden="true">
+        <svg viewBox="0 0 200 200" fill="none">
+          <!-- X.2 mark — slotted chamfer in olive on dark -->
+          <rect x="30" y="30" width="140" height="140" fill="#c0d34a"/>
+          <g transform="translate(170 65) rotate(-45)">
+            <rect x="-50" y="-8" width="100" height="16" fill="#0c0d0a"/>
+          </g>
+          <text x="100" y="122" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="700" font-size="80" fill="#0c0d0a">m</text>
+          <g stroke="#c0d34a" stroke-width="0.6" opacity="0.4">
+            <line x1="10" y1="30" x2="22" y2="30"/>
+            <line x1="30" y1="10" x2="30" y2="22"/>
+            <line x1="190" y1="170" x2="178" y2="170"/>
+            <line x1="170" y1="190" x2="170" y2="178"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="hero__actions" style="margin-top: 48px;">
+      <a href="#work" class="btn"><span lang="en">See the work</span><span lang="da">Se arbejdet</span> <span class="arrow">↓</span></a>
+      <a href="#contact" class="btn btn--ghost"><span lang="en">Get in touch</span><span lang="da">Kontakt</span></a>
+    </div>
+
+  </div>
+</header>
+
+<!-- ============= WORK ============= -->
+<section class="section" id="work">
+  <div class="wrap">
+
+    <div class="section__head">
+      <span class="eyebrow"><span lang="en">Projects</span><span lang="da">Projekter</span></span>
+    </div>
+
+    <div class="work-grid">
+
+      <!-- Fugleviden -->
+      <a href="#" class="card card--half">
+        <div class="card__media media--bird">
+          <span class="media__label live">Live</span>
+          <svg viewBox="0 0 200 200" width="180" height="180" aria-hidden="true">
+            <path d="M40 130 Q60 80 100 70 Q140 60 165 90 Q170 95 175 88 L172 78 Q178 80 182 86 L177 94 Q190 100 165 110 Q140 120 130 145 Q120 160 100 158 Q80 160 70 145 Q55 145 40 130 Z" fill="currentColor" opacity="0.92"/>
+            <circle cx="155" cy="92" r="2.8" fill="#0a0b06"/>
+          </svg>
+        </div>
+        <div class="card__body">
+          <div class="card__row"><span>2025 · Quiz</span><span class="arrow">↗</span></div>
+          <h3 class="card__title">Dansk Fugleviden</h3>
+          <p class="card__desc"><span lang="en">160+ Danish birds. Spaced repetition.</span><span lang="da">160+ danske fugle. Spaced repetition.</span></p>
+        </div>
+      </a>
+
+      <!-- Kolony -->
+      <a href="#" class="card card--half">
+        <div class="card__media media--kolony">
+          <span class="media__label">WIP</span>
+          <svg viewBox="0 0 200 200" width="160" height="160" aria-hidden="true">
+            <path d="M30 100 Q40 80 60 85 L80 75 Q100 70 110 85 L140 80 Q170 85 175 105 Q170 115 145 110 L130 120 L150 135 Q160 150 145 158 Q135 160 125 150 L115 130 L100 135 L88 150 Q75 158 65 150 Q60 142 75 130 L70 115 L50 120 Q35 115 30 100 Z" fill="currentColor"/>
+            <circle cx="55" cy="95" r="2" fill="#0a0b06"/>
+          </svg>
+        </div>
+        <div class="card__body">
+          <div class="card__row"><span>2026 · Web app</span><span class="arrow">↗</span></div>
+          <h3 class="card__title">Kolony</h3>
+          <p class="card__desc"><span lang="en">Weight, health and lineage for exotic-animal keepers.</span><span lang="da">Vægt, sundhed og stamtavle for keepers af eksotiske dyr.</span></p>
+        </div>
+      </a>
+
+      <!-- Knitter -->
+      <a href="#" class="card card--half">
+        <div class="card__media media--knit">
+          <span class="media__label">WIP</span>
+          <svg viewBox="0 0 200 200" width="170" height="170" aria-hidden="true">
+            <!-- ball of yarn -->
+            <circle cx="90" cy="118" r="46" fill="currentColor" opacity="0.95"/>
+            <g stroke="#2e0f1f" stroke-width="2" fill="none" opacity="0.55" stroke-linecap="round">
+              <path d="M52 110 Q90 80 128 116"/>
+              <path d="M48 124 Q92 96 130 132"/>
+              <path d="M56 138 Q96 116 132 148"/>
+              <path d="M70 152 Q100 138 124 158"/>
+              <path d="M62 100 Q88 130 122 100"/>
+              <path d="M70 88 Q104 124 130 94"/>
+            </g>
+            <!-- knitting needles crossing through -->
+            <g stroke="#0a0b06" stroke-width="5" stroke-linecap="round">
+              <line x1="40" y1="60" x2="158" y2="178"/>
+              <line x1="158" y1="60" x2="40" y2="178"/>
+            </g>
+            <circle cx="40" cy="60" r="4.5" fill="#0a0b06"/>
+            <circle cx="158" cy="60" r="4.5" fill="#0a0b06"/>
+          </svg>
+        </div>
+        <div class="card__body">
+          <div class="card__row"><span>2026 · PWA</span><span class="arrow">↗</span></div>
+          <h3 class="card__title">Knitter</h3>
+          <p class="card__desc"><span lang="en">Row counters, session timers, PDF pattern annotation.</span><span lang="da">Maskstællere, sessions-timer, annotering af PDF-mønstre.</span></p>
+        </div>
+      </a>
+
+      <!-- FoodScan -->
+      <a href="#" class="card card--half">
+        <div class="card__media media--food">
+          <span class="media__label">WIP</span>
+          <svg viewBox="0 0 200 200" width="170" height="170" aria-hidden="true">
+            <!-- product can -->
+            <rect x="64" y="46" width="72" height="118" rx="8" fill="currentColor" opacity="0.95"/>
+            <rect x="64" y="46" width="72" height="10" rx="2" fill="#0a0b06" opacity="0.25"/>
+            <rect x="64" y="154" width="72" height="10" rx="2" fill="#0a0b06" opacity="0.25"/>
+            <!-- barcode -->
+            <g fill="#0a1e2a">
+              <rect x="74" y="78" width="3" height="54"/>
+              <rect x="80" y="78" width="2" height="54"/>
+              <rect x="85" y="78" width="4" height="54"/>
+              <rect x="92" y="78" width="2" height="54"/>
+              <rect x="97" y="78" width="3" height="54"/>
+              <rect x="103" y="78" width="2" height="54"/>
+              <rect x="108" y="78" width="4" height="54"/>
+              <rect x="115" y="78" width="2" height="54"/>
+              <rect x="120" y="78" width="3" height="54"/>
+              <rect x="126" y="78" width="2" height="54"/>
+            </g>
+            <!-- scanner beam -->
+            <rect x="40" y="100" width="120" height="3" fill="#c0d34a" opacity="0.85"/>
+            <rect x="40" y="100" width="120" height="3" fill="none" stroke="#c0d34a" stroke-width="0.5" opacity="0.4"/>
+            <!-- corner reticles -->
+            <g stroke="#c0d34a" stroke-width="3" fill="none">
+              <path d="M34 70 L34 56 L48 56"/>
+              <path d="M166 70 L166 56 L152 56"/>
+              <path d="M34 134 L34 148 L48 148"/>
+              <path d="M166 134 L166 148 L152 148"/>
+            </g>
+          </svg>
+        </div>
+        <div class="card__body">
+          <div class="card__row"><span>2026 · Scanner</span><span class="arrow">↗</span></div>
+          <h3 class="card__title">FoodScan</h3>
+          <p class="card__desc"><span lang="en">Supportive context and practical alternatives for food choices.</span><span lang="da">Støttende kontekst og brugbare alternativer til madvalg.</span></p>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============= CONTACT ============= -->
+<section class="section contact" id="contact">
+  <div class="wrap">
+    <div class="contact__inner">
+      <span class="eyebrow"><span class="dot"></span> hallo@magnify.dk</span>
+      <h2><span lang="en">Got something that needs <em>building?</em></span><span lang="da">Skal noget <em>bygges?</em></span></h2>
+      <div class="contact__actions">
+        <a href="mailto:hallo@magnify.dk" class="btn">hallo@magnify.dk <span class="arrow">→</span></a>
+        <a href="https://www.linkedin.com/in/brianstefan" target="_blank" rel="noopener" class="btn btn--ghost">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= FOOTER ============= -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div>magnify.dk · since 2000</div>
+    <div class="footer__center"></div>
+    <div class="footer__right">
+      <span class="counter">visitors:
+        <span class="counter__digits" id="counter">001 337</span>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// language toggle
+(() => {
+  const html = document.documentElement;
+  const btn = document.querySelector('[data-lang-toggle]');
+  if (!btn) return;
+  btn.addEventListener('click', () => {
+    const cur = html.dataset.lang || 'en';
+    const next = cur === 'en' ? 'da' : 'en';
+    html.dataset.lang = next;
+    btn.innerHTML = next === 'en'
+      ? '<span data-active>EN</span> <span class="muted">/ DA</span>'
+      : '<span class="muted">EN /</span> <span data-active>DA</span>';
+  });
+})();
+
+// counter — fake odometer increment for old-school nostalgia
+(() => {
+  const el = document.getElementById('counter');
+  if (!el) return;
+  let n = 1337;
+  setInterval(() => {
+    if (Math.random() < 0.35) {
+      n += 1;
+      el.textContent = String(n).padStart(6, '0').replace(/(\d{3})(\d{3})/, '$1 $2');
+    }
+  }, 1800);
+})();
+
+// scroll-spy — set .active on the nav link for the section currently in view
+(() => {
+  const links = document.querySelectorAll('.nav__link[data-spy]');
+  if (!links.length) return;
+  const map = new Map();
+  links.forEach(l => {
+    const id = l.dataset.spy;
+    const sec = document.getElementById(id);
+    if (sec) map.set(sec, l);
+  });
+  if (!map.size) return;
+
+  const setActive = (link) => {
+    links.forEach(l => l.classList.toggle('active', l === link));
+  };
+
+  const io = new IntersectionObserver((entries) => {
+    const visible = entries
+      .filter(e => e.isIntersecting)
+      .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+    if (visible[0]) {
+      const link = map.get(visible[0].target);
+      if (link) setActive(link);
+    }
+  }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+
+  map.forEach((_, sec) => io.observe(sec));
+})();
+
+// shard parallax on mouse
+(() => {
+  const shard = document.querySelector('.shard svg');
+  const wrap = document.querySelector('.hero');
+  if (!shard || !wrap) return;
+  wrap.addEventListener('mousemove', (e) => {
+    const r = wrap.getBoundingClientRect();
+    const x = ((e.clientX - r.left) / r.width - 0.5) * 8;
+    const y = ((e.clientY - r.top) / r.height - 0.5) * 8;
+    shard.style.transform = `translate(${x}px, ${y}px)`;
+    shard.style.transition = 'transform 600ms cubic-bezier(0.2, 0.8, 0.2, 1)';
+  });
+})();
+</script>
+
+</body>
+</html>
