@@ -498,6 +498,35 @@ h3 { font-size: clamp(20px, 2vw, 28px); letter-spacing: -0.02em; line-height: 1.
   color: var(--mute);
 }
 .shard__caption b { color: var(--olive); font-weight: 500; }
+
+/* ---- split-flap headline ---- */
+.hero__title .flap {
+  display: inline-block;
+  background: var(--panel);
+  border-radius: 3px;
+  padding: 0 0.05em;
+  margin: 0 1px;
+  position: relative;
+}
+.hero__title .flap::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  top: calc(50% + 0.08em);
+  height: 1px;
+  background: rgba(0,0,0,0.5);
+  pointer-events: none;
+}
+.hero__title .flap[data-sp] {
+  background: transparent;
+  padding: 0;
+}
+.hero__title .flap[data-sp]::after { display: none; }
+@keyframes flap-in {
+  0%   { transform: scaleY(0); transform-origin: top center; opacity: 0.3; }
+  100% { transform: scaleY(1); transform-origin: top center; opacity: 1; }
+}
+.hero__title .flap.flap--tick { animation: flap-in 60ms ease-out both; }
 </style>
 </head>
 <body>
@@ -774,6 +803,65 @@ h3 { font-size: clamp(20px, 2vw, 28px); letter-spacing: -0.02em; line-height: 1.
     shard.style.transform = `translate(${x}px, ${y}px)`;
     shard.style.transition = 'transform 600ms cubic-bezier(0.2, 0.8, 0.2, 1)';
   });
+})();
+
+// split-flap headline animation
+(() => {
+  const CHARS      = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!?#@-+';
+  const TICK_MS    = 60;
+  const STAGGER_MS = 30;
+  const MIN_TICKS  = 5;
+  const EXTRA_TICKS = 9;
+
+  function wrapChars(el) {
+    const flaps = [];
+    function walk(node) {
+      if (node.nodeType === Node.TEXT_NODE) {
+        const chars = [...node.textContent];
+        if (!chars.length) return;
+        const frag = document.createDocumentFragment();
+        for (const ch of chars) {
+          const sp = document.createElement('span');
+          sp.className = 'flap';
+          if (ch.trim() === '') {
+            sp.setAttribute('data-sp', '');
+            sp.textContent = ' ';
+          } else {
+            sp.textContent = ch;
+            flaps.push({ el: sp, target: ch });
+          }
+          frag.appendChild(sp);
+        }
+        node.parentNode.replaceChild(frag, node);
+      } else if (node.nodeType === Node.ELEMENT_NODE) {
+        [...node.childNodes].forEach(walk);
+      }
+    }
+    walk(el);
+    return flaps;
+  }
+
+  function animateFlap(flap, delay) {
+    const ticks = MIN_TICKS + Math.floor(Math.random() * EXTRA_TICKS);
+    setTimeout(() => {
+      let count = 0;
+      const id = setInterval(() => {
+        count++;
+        const done = count >= ticks;
+        flap.el.textContent = done ? flap.target : CHARS[Math.floor(Math.random() * CHARS.length)];
+        flap.el.classList.remove('flap--tick');
+        flap.el.getBoundingClientRect();
+        flap.el.classList.add('flap--tick');
+        if (done) clearInterval(id);
+      }, TICK_MS);
+    }, delay);
+  }
+
+  const lang = document.documentElement.dataset.lang || 'en';
+  const activeSpan = document.querySelector(`.hero__title [lang="${lang}"]`);
+  if (!activeSpan) return;
+  const flaps = wrapChars(activeSpan);
+  flaps.forEach((flap, i) => animateFlap(flap, i * STAGGER_MS));
 })();
 </script>
 
