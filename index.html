@@ -499,7 +499,7 @@ h3 { font-size: clamp(20px, 2vw, 28px); letter-spacing: -0.02em; line-height: 1.
 }
 .shard__caption b { color: var(--olive); font-weight: 500; }
 
-/* ---- split-flap headline ---- */
+/* ---- split-flap cycling headline ---- */
 .hero__title .flap {
   display: inline-block;
   background: var(--panel);
@@ -517,11 +517,19 @@ h3 { font-size: clamp(20px, 2vw, 28px); letter-spacing: -0.02em; line-height: 1.
   background: rgba(0,0,0,0.5);
   pointer-events: none;
 }
-.hero__title .flap[data-sp] {
+.hero__title .flap--space {
   background: transparent;
   padding: 0;
+  min-width: 0.28em;
 }
-.hero__title .flap[data-sp]::after { display: none; }
+.hero__title .flap--space::after { display: none; }
+.hero__title .flap--blank {
+  width: 0;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+.hero__title .flap--blank::after { display: none; }
 @keyframes flap-in {
   0%   { transform: scaleY(0); transform-origin: top center; opacity: 0.3; }
   100% { transform: scaleY(1); transform-origin: top center; opacity: 1; }
@@ -805,63 +813,104 @@ h3 { font-size: clamp(20px, 2vw, 28px); letter-spacing: -0.02em; line-height: 1.
   });
 })();
 
-// split-flap headline animation
+// split-flap cycling headline
 (() => {
-  const CHARS      = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!?#@-+';
+  const CHARS      = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!?#@';
   const TICK_MS    = 60;
-  const STAGGER_MS = 30;
-  const MIN_TICKS  = 5;
-  const EXTRA_TICKS = 9;
+  const STAGGER_MS = 28;
+  const PAUSE_MS   = 4000;
+  const CYCLE_MS   = 5000;
 
-  function wrapChars(el) {
-    const flaps = [];
-    function walk(node) {
-      if (node.nodeType === Node.TEXT_NODE) {
-        const chars = [...node.textContent];
-        if (!chars.length) return;
-        const frag = document.createDocumentFragment();
-        for (const ch of chars) {
-          const sp = document.createElement('span');
-          sp.className = 'flap';
-          if (ch.trim() === '') {
-            sp.setAttribute('data-sp', '');
-            sp.textContent = ' ';
-          } else {
-            sp.textContent = ch;
-            flaps.push({ el: sp, target: ch });
-          }
-          frag.appendChild(sp);
-        }
-        node.parentNode.replaceChild(frag, node);
-      } else if (node.nodeType === Node.ELEMENT_NODE) {
-        [...node.childNodes].forEach(walk);
-      }
+  const STMTS = {
+    en: [
+      'Building things on the internet \u2013 since 2000.',
+      'Making products people actually use.',
+      'Product builder for hire \u2013 since 2000.',
+      'Turning ideas into real software.',
+      'Small useful things on the web.',
+    ],
+    da: [
+      'Bygger ting p\u00e5 internettet \u2013 siden 2000.',
+      'Laver produkter folk faktisk bruger.',
+      'Produktudvikler til leje \u2013 siden 2000.',
+      'Forvandler id\u00e9er til software.',
+      'Sm\u00e5 nyttige ting p\u00e5 nettet.',
+    ],
+  };
+
+  function setupBoard(lang) {
+    const stmts = STMTS[lang];
+    const el = document.querySelector(`.hero__title [lang="${lang}"]`);
+    if (!el || !stmts) return;
+
+    const maxLen = Math.max(...stmts.map(s => [...s].length));
+    el.innerHTML = '';
+    const flaps = Array.from({ length: maxLen }, () => {
+      const sp = document.createElement('span');
+      sp.className = 'flap flap--blank';
+      sp.textContent = ' ';
+      el.appendChild(sp);
+      return sp;
+    });
+
+    function animateTo(stmtIdx, minTicks, extraTicks) {
+      const chars = [...stmts[stmtIdx]];
+      return new Promise(resolve => {
+        let remaining = flaps.length;
+        const done = () => { if (--remaining === 0) resolve(); };
+
+        flaps.forEach((sp, i) => {
+          const ch = chars[i] ?? null;
+          setTimeout(() => {
+            if (ch === null) {
+              sp.textContent = CHARS[Math.floor(Math.random() * CHARS.length)];
+              sp.className = 'flap';
+              sp.classList.remove('flap--tick');
+              sp.getBoundingClientRect();
+              sp.classList.add('flap--tick');
+              setTimeout(() => {
+                sp.className = 'flap flap--blank';
+                sp.textContent = ' ';
+                done();
+              }, TICK_MS + 10);
+              return;
+            }
+            if (ch === ' ') {
+              sp.className = 'flap flap--space';
+              sp.textContent = ' ';
+              done();
+              return;
+            }
+            sp.className = 'flap';
+            const ticks = minTicks + Math.floor(Math.random() * extraTicks);
+            let n = 0;
+            const id = setInterval(() => {
+              n++;
+              const settled = n >= ticks;
+              sp.textContent = settled ? ch : CHARS[Math.floor(Math.random() * CHARS.length)];
+              sp.classList.remove('flap--tick');
+              sp.getBoundingClientRect();
+              sp.classList.add('flap--tick');
+              if (settled) { clearInterval(id); done(); }
+            }, TICK_MS);
+          }, i * STAGGER_MS);
+        });
+      });
     }
-    walk(el);
-    return flaps;
+
+    let idx = 0;
+    animateTo(0, 6, 8).then(() => {
+      setTimeout(() => {
+        setInterval(() => {
+          idx = (idx + 1) % stmts.length;
+          animateTo(idx, 4, 4);
+        }, CYCLE_MS);
+      }, PAUSE_MS);
+    });
   }
 
-  function animateFlap(flap, delay) {
-    const ticks = MIN_TICKS + Math.floor(Math.random() * EXTRA_TICKS);
-    setTimeout(() => {
-      let count = 0;
-      const id = setInterval(() => {
-        count++;
-        const done = count >= ticks;
-        flap.el.textContent = done ? flap.target : CHARS[Math.floor(Math.random() * CHARS.length)];
-        flap.el.classList.remove('flap--tick');
-        flap.el.getBoundingClientRect();
-        flap.el.classList.add('flap--tick');
-        if (done) clearInterval(id);
-      }, TICK_MS);
-    }, delay);
-  }
-
-  const lang = document.documentElement.dataset.lang || 'en';
-  const activeSpan = document.querySelector(`.hero__title [lang="${lang}"]`);
-  if (!activeSpan) return;
-  const flaps = wrapChars(activeSpan);
-  flaps.forEach((flap, i) => animateFlap(flap, i * STAGGER_MS));
+  setupBoard('en');
+  setupBoard('da');
 })();
 </script>
 
