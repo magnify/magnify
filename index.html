@@ -64,6 +64,34 @@ body::before {
 [data-lang="en"] [lang="da"] { display: none; }
 [data-lang="da"] [lang="en"] { display: none; }
 
+/* morphing verb — train-station flip */
+.morph {
+  display: inline-block;
+  vertical-align: baseline;
+  perspective: 360px;
+}
+.morph__char {
+  display: inline-block;
+  transform-origin: 50% 100%;
+  backface-visibility: hidden;
+  animation: morphCharIn 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: opacity, transform;
+}
+.morph__char--out {
+  animation: morphCharOut 0.38s cubic-bezier(0.5, 0, 0.75, 0) forwards;
+}
+@keyframes morphCharIn {
+  0%   { opacity: 0; transform: rotateX(-90deg) translateY(0.28em); }
+  100% { opacity: 1; transform: rotateX(0)      translateY(0); }
+}
+@keyframes morphCharOut {
+  0%   { opacity: 1; transform: rotateX(0)     translateY(0); }
+  100% { opacity: 0; transform: rotateX(90deg) translateY(-0.28em); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .morph__char, .morph__char--out { animation: none; opacity: 1; transform: none; }
+}
+
 /* ============= TYPE ============= */
 .eyebrow {
   font-family: var(--mono);
@@ -536,8 +564,8 @@ h3 { font-size: clamp(20px, 2vw, 28px); letter-spacing: -0.02em; line-height: 1.
 
     <div class="hero__row">
       <h1 class="hero__title">
-        <span lang="en">Building things on the internet – <span class="muted">since</span> <span class="acid">2000.</span></span>
-        <span lang="da">Bygger ting til internettet – <span class="muted">siden</span> <span class="acid">2000.</span></span>
+        <span lang="en"><span class="morph" data-words="Building|Designing|Prototyping"></span> things on the internet – <span class="muted">since</span> <span class="acid">2000.</span></span>
+        <span lang="da"><span class="morph" data-words="Bygger|Designer|Prototyper"></span> ting til internettet – <span class="muted">siden</span> <span class="acid">2000.</span></span>
       </h1>
 
       <div class="shard" aria-hidden="true">
@@ -689,7 +717,7 @@ h3 { font-size: clamp(20px, 2vw, 28px); letter-spacing: -0.02em; line-height: 1.
   <div class="wrap">
     <div class="contact__inner">
       <span class="eyebrow"><span class="dot"></span> hallo@magnify.dk</span>
-      <h2><span lang="en">Got an idea that needs <em>building?</em></span><span lang="da">Har du en idé, der skal <em>bygges?</em></span></h2>
+      <h2><span lang="en">Got an idea that needs <em><span class="morph" data-words="building?|designing?|prototyping?"></span></em></span><span lang="da">Har du en idé, der skal <em><span class="morph" data-words="bygges?|designes?|prototypes?"></span></em></span></h2>
       <div class="contact__actions">
         <a href="mailto:hallo@magnify.dk" class="btn">hallo@magnify.dk <span class="arrow">→</span></a>
         <a href="https://www.linkedin.com/in/brianstefan" target="_blank" rel="noopener" class="btn btn--ghost">LinkedIn</a>
@@ -724,6 +752,48 @@ h3 { font-size: clamp(20px, 2vw, 28px); letter-spacing: -0.02em; line-height: 1.
       ? '<span data-active>EN</span> <span class="muted">/ DA</span>'
       : '<span class="muted">EN /</span> <span data-active>DA</span>';
   });
+})();
+
+// morph — train-station style per-character flip cycle
+(() => {
+  const morphs = document.querySelectorAll('.morph[data-words]');
+  if (!morphs.length) return;
+  const STAGGER = 38;
+  const OUT_BASE = 320;
+  const CYCLE = 4200;
+
+  function render(el, text) {
+    el.replaceChildren();
+    [...text].forEach((ch, i) => {
+      const s = document.createElement('span');
+      s.className = 'morph__char';
+      s.style.animationDelay = `${i * STAGGER}ms`;
+      s.textContent = ch === ' ' ? '\u00a0' : ch;
+      el.appendChild(s);
+    });
+  }
+
+  morphs.forEach(el => {
+    el.dataset.idx = '0';
+    render(el, el.dataset.words.split('|')[0]);
+  });
+
+  setInterval(() => {
+    morphs.forEach(el => {
+      const words = el.dataset.words.split('|');
+      const next = (parseInt(el.dataset.idx, 10) + 1) % words.length;
+      const chars = [...el.children];
+      chars.forEach((c, i) => {
+        c.style.animationDelay = `${i * STAGGER}ms`;
+        c.classList.add('morph__char--out');
+      });
+      const outDur = OUT_BASE + chars.length * STAGGER;
+      setTimeout(() => {
+        el.dataset.idx = String(next);
+        render(el, words[next]);
+      }, outDur);
+    });
+  }, CYCLE);
 })();
 
 // counter — fake odometer increment for old-school nostalgia
