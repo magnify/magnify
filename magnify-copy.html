@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>magnify.dk — Copy Deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b1219;--board:#0e1822;--panel:#10202c;--panel2:#0b1a24;--line:#1d3340;--line2:#264255;
+  --ink:#eef1e4;--ink2:#aebcc4;--mute:#5f7480;--life:#c6d850;--amber:#ffce7a;--flag:#e8412e;
+  --mono:"JetBrains Mono",monospace;--serif:"Fraunces",serif;--pirata:"Pirata One",serif;
+}
+*{box-sizing:border-box;margin:0;}
+html,body{height:100%;}
+body{background:var(--bg);color:var(--ink);font-family:var(--mono);font-size:14px;overflow:hidden;}
+
+/* top bar */
+.bar{position:fixed;top:0;left:0;right:0;height:56px;z-index:50;display:flex;align-items:center;gap:14px;
+  padding:0 20px;background:rgba(11,18,25,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+.bar .logo{font-family:var(--serif);font-weight:600;font-size:17px;}
+.bar .logo b{color:var(--life);}
+.bar .sub{font-size:11px;color:var(--mute);letter-spacing:.04em;}
+.seg{display:inline-flex;border:1px solid var(--line2);border-radius:9px;overflow:hidden;}
+.segb{font-family:var(--mono);font-size:12px;color:var(--ink2);background:transparent;border:none;padding:7px 14px;cursor:pointer;}
+.segb.on{background:var(--life);color:#0b1219;font-weight:600;}
+.mcard{position:absolute;transform:translate(-50%,-50%);width:210px;background:rgba(8,20,30,.93);border:1px solid var(--line2);border-radius:13px;padding:13px 15px;cursor:pointer;transition:transform .15s,border-color .15s,box-shadow .15s;box-shadow:0 14px 32px -16px #000;}
+.mcard:hover{transform:translate(-50%,-50%) scale(1.05);border-color:var(--life);box-shadow:0 0 0 1px var(--life),0 20px 40px -16px #000;z-index:5;}
+.mcard.bw{border-color:rgba(255,206,122,.45);}
+.mcard .mnum{position:absolute;top:-9px;left:13px;font-family:var(--mono);font-size:11px;font-weight:600;color:#0b1219;background:var(--life);padding:2px 8px;border-radius:999px;}
+.mcard.bw .mnum{background:var(--amber);}
+.mcard .mey{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--life);margin-top:6px;}
+.mcard.bw .mey{color:var(--amber);}
+.mcard .mt{font-family:var(--pirata);font-size:20px;line-height:1.05;margin-top:4px;color:var(--ink);}
+.mcard .mb{font-family:var(--serif);font-size:11.5px;line-height:1.4;color:var(--ink2);margin-top:6px;}
+.bar .sp{flex:1;}
+.bar .saved{font-size:11px;color:var(--mute);transition:color .3s;}
+.bar .saved.flash{color:var(--life);}
+.btnx{font-family:var(--mono);font-size:12px;color:var(--ink);background:transparent;border:1px solid var(--line2);
+  border-radius:9px;padding:9px 14px;cursor:pointer;transition:all .15s;display:inline-flex;gap:7px;align-items:center;}
+.btnx:hover{border-color:var(--life);color:var(--life);}
+.btnx.primary{background:var(--life);color:#0b1219;border-color:var(--life);font-weight:600;}
+.btnx.primary:hover{background:#d6e85f;}
+.btnx.danger:hover{border-color:var(--flag);color:var(--flag);}
+
+/* board */
+#board{position:absolute;inset:56px 0 0 0;overflow:auto;padding:30px 30px 120px;}
+.intro{max-width:1380px;margin:0 auto 8px;color:var(--ink2);font-size:13px;line-height:1.6;}
+.intro b{color:var(--ink);} .intro .k{color:var(--amber);}
+.deck{max-width:1380px;margin:0 auto;display:flex;flex-direction:column;gap:22px;}
+.panel{background:var(--board);border:1px solid var(--line);border-radius:16px;overflow:hidden;}
+.panel__head{display:flex;align-items:center;gap:12px;padding:13px 18px;border-bottom:1px solid var(--line);background:var(--panel2);}
+.panel__n{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);}
+.panel__t{font-family:var(--serif);font-size:18px;font-weight:600;}
+.panel__t .em{color:var(--life);}
+.panel__body{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+@media(max-width:1000px){.panel__body{grid-template-columns:1fr;}}
+.fields{padding:18px 20px;border-right:1px solid var(--line);}
+.preview{padding:24px 22px;background:radial-gradient(120% 120% at 50% 0%,#0c1a26,#070f16);display:flex;align-items:center;justify-content:center;}
+
+/* a field */
+.f{margin-bottom:16px;}
+.f:last-child{margin-bottom:0;}
+.f .lab{display:flex;justify-content:space-between;align-items:baseline;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:6px;}
+.f .cc{font-size:10px;color:var(--mute);} .f .cc.over{color:var(--flag);}
+.f input,.f textarea{width:100%;background:var(--panel);border:1px solid var(--line2);border-radius:8px;
+  color:var(--ink);font-family:var(--serif);font-size:15px;padding:9px 11px;resize:vertical;line-height:1.5;}
+.f input:focus,.f textarea:focus{outline:none;border-color:var(--life);}
+.f.mono input,.f.mono textarea{font-family:var(--mono);font-size:13px;}
+.f textarea{min-height:62px;}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
+.note{margin-top:12px;}
+.note textarea{min-height:40px;background:rgba(255,206,122,.04);border-color:rgba(255,206,122,.25);font-family:var(--mono);font-size:12px;color:var(--amber);}
+.note .lab{color:#b78d4a;}
+.subhead{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--life);margin:18px 0 10px;border-top:1px dashed var(--line2);padding-top:14px;}
+
+/* preview cards — match the game */
+.pv{width:100%;max-width:440px;}
+.pv-splash{text-align:center;}
+.pv-splash .deco{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);}
+.pv-splash h1{font-family:var(--pirata);font-weight:400;font-size:46px;line-height:.96;margin:14px 0 0;}
+.pv-splash h1 .em{color:var(--life);font-style:italic;}
+.pv-splash .lede{font-family:var(--serif);font-size:14px;color:var(--ink2);line-height:1.55;margin:16px auto 0;max-width:38ch;}
+.pv-splash .lede b{color:var(--ink);}
+.pv-splash .avh{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-top:20px;}
+.pv-avatars{display:flex;gap:7px;justify-content:center;margin-top:10px;flex-wrap:wrap;}
+.pv-av{width:52px;height:62px;border:1px solid var(--line2);border-radius:9px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:5px;padding-bottom:6px;background:rgba(8,20,30,.5);}
+.pv-av .b{width:20px;height:26px;border-radius:4px;}
+.pv-av span{font-family:var(--mono);font-size:8px;color:var(--ink2);}
+.pv-splash .btn{margin-top:18px;display:inline-block;font-family:var(--mono);font-size:13px;font-weight:600;color:#0b1219;background:var(--life);padding:11px 22px;border-radius:999px;}
+.pv-splash .help{font-family:var(--mono);font-size:10px;color:var(--mute);margin-top:14px;line-height:1.5;}
+
+.pv-card{background:rgba(8,20,30,.92);border:1px solid rgba(198,216,80,.3);border-radius:16px;padding:22px 24px;text-align:left;width:100%;max-width:440px;}
+.pv-card.bw{border-color:rgba(255,206,122,.4);}
+.pv-card .ey{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--life);}
+.pv-card.bw .ey{color:var(--amber);}
+.pv-card h2{font-family:var(--pirata);font-weight:400;font-size:32px;margin:8px 0 0;}
+.pv-card p{font-family:var(--serif);color:var(--ink2);font-size:14px;line-height:1.55;margin-top:10px;}
+.pv-card p b{color:var(--ink);}
+.pv-crafts{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px;}
+.pv-craft{font-family:var(--mono);font-size:11px;color:var(--ink);border:1px solid rgba(198,216,80,.3);border-radius:999px;padding:6px 11px;}
+.pv-shots{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:13px;}
+.pv-shot{aspect-ratio:16/10;border:1px dashed rgba(198,216,80,.35);border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:repeating-linear-gradient(135deg,rgba(198,216,80,.05) 0 7px,transparent 7px 14px);}
+.pv-shot .sn{font-family:var(--mono);font-size:9px;color:var(--ink2);}
+.pv-shot .sk{font-family:var(--mono);font-size:7px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);}
+.pv-btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
+.pv-btn{font-family:var(--mono);font-size:11px;padding:8px 13px;border-radius:999px;border:1px solid var(--line2);color:var(--ink);}
+.pv-btn.amber{background:var(--amber);color:#0b1219;border-color:var(--amber);}
+
+dialog{border:none;border-radius:16px;background:var(--board);color:var(--ink);padding:0;max-width:680px;width:92vw;box-shadow:0 40px 100px -20px #000;}
+dialog::backdrop{background:rgba(4,9,14,.7);}
+.dlg__h{padding:16px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;}
+.dlg__h b{font-family:var(--serif);font-size:16px;}
+.dlg__b{padding:18px 20px;}
+.dlg__b textarea{width:100%;height:300px;background:var(--panel2);border:1px solid var(--line2);border-radius:10px;color:var(--ink2);font-family:var(--mono);font-size:12px;padding:12px;line-height:1.5;}
+.dlg__note{font-size:12px;color:var(--ink2);line-height:1.6;margin-bottom:12px;}
+.dlg__note b{color:var(--life);}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <span class="logo">magnify<b>.dk</b></span>
+  <span class="sub">Copy Deck</span>
+  <span class="seg"><button class="segb on" id="viewList">List</button><button class="segb" id="viewMap">Map</button></span>
+  <span class="sp"></span>
+  <span class="saved" id="saved">saved locally</span>
+  <button class="btnx" id="importBtn">⇪ Import</button>
+  <button class="btnx danger" id="resetBtn">↺ Reset</button>
+  <button class="btnx" id="copyBtn">⧉ Copy JSON</button>
+  <button class="btnx primary" id="exportBtn">↓ Export for Brian</button>
+</div>
+
+<div id="board">
+  <div class="intro">
+    <b>Hi! This is the writing desk for Brian's island game.</b> Edit anything on the left; the right shows how it looks in the world.
+    Everything <b>saves automatically</b> in this browser as you go. When you're happy, hit <span class="k">Export for Brian</span> (downloads a file)
+    or <span class="k">Copy JSON</span> and paste it to him — that's all he needs to drop your words straight in. Leave him notes in the amber boxes.
+  </div>
+  <div class="deck" id="deck"></div>
+</div>
+
+<div id="map" style="position:absolute;inset:56px 0 0 0;overflow:auto;display:none;background:radial-gradient(130% 110% at 50% 0%,#0c1a26,#050e16);"></div>
+
+<dialog id="ioDlg">
+  <div class="dlg__h"><b id="dlgTitle">Export</b><button class="btnx" onclick="document.getElementById('ioDlg').close()">close</button></div>
+  <div class="dlg__b">
+    <div class="dlg__note" id="dlgNote"></div>
+    <textarea id="dlgText" spellcheck="false"></textarea>
+  </div>
+</dialog>
+
+<script>
+// ====== default copy (current game text) ======
+const DEFAULTS = {
+  splash: {
+    decoration:'a voyage · magnify.dk',
+    headline:'You wash', headlineEm:'ashore.',
+    intro:"No menu, no map — an island chain in the dark and a boat at the dock. This is **Brian's world**; you're the visitor. Sail out, let your lantern cut the fog, gather doubloons, and step ashore to meet everything he keeps out here.",
+    avatarHeadline:'choose your wanderer',
+    button:'Set sail ⛵',
+    help:'desktop · arrow keys or WASD · dock at an island, then **step ashore** · 🔊 return to your dock to upgrade the ship'
+  },
+  avatars:['Skipper','Ranger','Scholar','Drifter','Sunny','Ember'],
+  islands:{
+    landfall:{ beacon:'home · landfall', title:'Where you came ashore.', body:"This is the keeper's home dock. Brian Jensen — building things on the internet since 2000. Everything out in the dark is something he made or is making. Sail back here anytime to upgrade your ship." },
+    craft:{ beacon:'landed · craft isle', title:'Where the work is made.', body:'Not a résumé — a workshop. Twenty-five years doing the work with his own hands, and lately building faster than ever.', crafts:['Product design','UX','Code','Design systems','AI-assisted building'] },
+    menagerie:{ beacon:'landed · the menagerie', title:'The living things he keeps.', body:'He nearly became a zookeeper; instead he keeps a menagerie of projects — some alive and in daily use, some still growing, one purely for play.',
+      projects:[
+        {name:'Fugleviden',status:'live',line:''},
+        {name:'Wonders',status:'live',line:''},
+        {name:'Bear Duck',status:'play',line:''},
+        {name:'Kolony',status:'wip',line:''},
+        {name:'FoodScan',status:'poc',line:''},
+        {name:'Knitter',status:'hold',line:''}
+      ]},
+    driftwood:{ beacon:'the passage · i', title:'Driftwood.', body:'The story starts here, washed up early: he was always building — back when the web was young and you made things just to watch them exist.' },
+    crossing:{ beacon:'the passage · ii', title:'The Crossing.', body:'Front-end grew heavy. So he crossed into **design** — to stay near the part he loved: an idea becoming real. Years of UX, design systems, leading teams.' },
+    vend:{ beacon:'the passage · iii · now', title:'Vend Reach — the present.', body:"Then the weight lifted and building got fast again. Today he's **Product Design at Vend** — and going home to build, for the joy of it. The maker, back at the bench." },
+    farlight:{ beacon:'landed · far light', title:'The lighthouse.', body:"Edge of the chart. If you've something worth making — or just want to talk about building in the AI era — signal the shore.", btn1:'Connect on LinkedIn ↗', btn2:'hallo@magnify.dk' },
+    bigwhoop:{ beacon:'✕ marks the spot', title:'Big Whoop.', body:"You explored the whole chain. The treasure isn't gold — it's that after 25 years he's still doing this, and just getting started. (And yes: he really almost became a zookeeper. The exotic animals at home are real — that's where Kolony comes from.)" }
+  },
+  system:{ coinToast:'+{n} doubloons', treasureToast:'You picked up the treasure! +100 ✦', stepAshore:'⌖ step ashore — Enter', visit:'⌖ visit — Enter', shopTitle:"The Boatwright" }
+};
+const AV_COLORS=[['#d8b48a','#3f7a8c'],['#caa074','#5d7d2a'],['#e0c0a0','#9a5a2c'],['#c8a888','#7a4f86'],['#e6c79a','#f2c531'],['#d8a878','#e07a2c']];
+const SK={live:'#e8412e',play:'#ffce7a',wip:'#aebcc4',poc:'#aebcc4',hold:'#5f7480'};
+
+// ====== state ======
+let COPY = load();
+function load(){ try{ const s=localStorage.getItem('magnify_copy'); if(s) return deepMerge(structuredClone(DEFAULTS), JSON.parse(s)); }catch(e){} return structuredClone(DEFAULTS); }
+function deepMerge(base,ov){ for(const k in ov){ if(ov[k]&&typeof ov[k]==='object'&&!Array.isArray(ov[k])) deepMerge(base[k]||(base[k]={}),ov[k]); else base[k]=ov[k]; } return base; }
+let saveT; function save(){ try{ localStorage.setItem('magnify_copy',JSON.stringify(COPY)); }catch(e){}
+  const s=document.getElementById('saved'); s.textContent='saved ✓'; s.classList.add('flash'); clearTimeout(saveT); saveT=setTimeout(()=>{s.textContent='saved locally';s.classList.remove('flash');},1200); }
+
+const md=t=>(t||'').replace(/\*\*(.+?)\*\*/g,'<b>$1</b>');
+const esc=t=>(t||'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+
+// ====== field helpers ======
+function field(label,val,oninput,opts={}){
+  const f=document.createElement('div'); f.className='f'+(opts.mono?' mono':'');
+  const max=opts.max;
+  f.innerHTML=`<div class="lab"><span>${label}</span>${max?`<span class="cc"></span>`:''}</div>`;
+  const el=document.createElement(opts.area?'textarea':'input'); el.value=val||'';
+  if(opts.area) el.rows=opts.rows||3;
+  const cc=f.querySelector('.cc');
+  const upd=()=>{ if(cc){ const n=el.value.length; cc.textContent=n+(max?'/'+max:''); cc.classList.toggle('over',max&&n>max);} };
+  el.addEventListener('input',()=>{ oninput(el.value); upd(); save(); renderPreviews(); });
+  f.appendChild(el); upd();
+  return f;
+}
+function noteField(getset){
+  const f=document.createElement('div'); f.className='f note';
+  f.innerHTML=`<div class="lab"><span>✎ note for Brian</span></div>`;
+  const el=document.createElement('textarea'); el.rows=2; el.value=getset();
+  el.addEventListener('input',()=>{ getset(el.value); save(); });
+  f.appendChild(el); return f;
+}
+COPY.notes=COPY.notes||{};
+
+// ====== panels ======
+const deck=document.getElementById('deck');
+const PV={}; // preview render fns
+
+function panel(n,title,buildFields,buildPreview){
+  const p=document.createElement('div'); p.className='panel';
+  p.innerHTML=`<div class="panel__head"><span class="panel__n">${n}</span><span class="panel__t">${title}</span></div>`;
+  const body=document.createElement('div'); body.className='panel__body';
+  const fields=document.createElement('div'); fields.className='fields';
+  const preview=document.createElement('div'); preview.className='preview';
+  buildFields(fields);
+  const key=n;
+  fields.appendChild(noteField(v=>{ if(v===undefined)return COPY.notes[key]||''; COPY.notes[key]=v; }));
+  body.appendChild(fields); body.appendChild(preview);
+  p.appendChild(body); deck.appendChild(p);
+  PV[key]=()=>{ preview.innerHTML=''; preview.appendChild(buildPreview()); };
+  PV[key]();
+}
+function renderPreviews(){ for(const k in PV) PV[k](); }
+
+// ---- SPLASH ----
+panel('00','Splash \u2014 first screen',(F)=>{
+  const s=COPY.splash;
+  F.appendChild(field('Decoration',s.decoration,v=>s.decoration=v,{mono:true,max:40}));
+  F.appendChild((()=>{ const w=document.createElement('div'); w.className='row2';
+    w.appendChild(field('Headline',s.headline,v=>s.headline=v,{max:16}));
+    w.appendChild(field('Headline accent',s.headlineEm,v=>s.headlineEm=v,{max:16})); return w; })());
+  F.appendChild(field('Intro',s.intro,v=>s.intro=v,{area:true,rows:4,max:240}));
+  F.appendChild(field('Avatar headline',s.avatarHeadline,v=>s.avatarHeadline=v,{mono:true,max:30}));
+  F.appendChild(field('Button',s.button,v=>s.button=v,{mono:true,max:24}));
+  F.appendChild(field('Help text',s.help,v=>s.help=v,{area:true,mono:true,rows:2,max:160}));
+  const sh=document.createElement('div'); sh.className='subhead'; sh.textContent='avatar names'; F.appendChild(sh);
+  const g=document.createElement('div'); g.className='row3';
+  COPY.avatars.forEach((a,i)=> g.appendChild(field('#'+(i+1),a,v=>COPY.avatars[i]=v,{mono:true,max:10})));
+  F.appendChild(g);
+},()=>{
+  const s=COPY.splash, d=document.createElement('div'); d.className='pv pv-splash';
+  d.innerHTML=`<div class="deco">${esc(s.decoration)}</div>
+    <h1>${esc(s.headline)} <span class="em">${esc(s.headlineEm)}</span></h1>
+    <div class="lede">${md(esc(s.intro))}</div>
+    <div class="avh">${esc(s.avatarHeadline)}</div>
+    <div class="pv-avatars">${COPY.avatars.map((a,i)=>`<div class="pv-av"><span class="b" style="background:${AV_COLORS[i][1]}"></span><span>${esc(a)}</span></div>`).join('')}</div>
+    <div class="btn">${esc(s.button)}</div>
+    <div class="help">${md(esc(s.help))}</div>`;
+  return d;
+});
+
+// ---- island panel factory ----
+function islandPanel(n,key,title){
+  panel(n,title,(F)=>{
+    const c=COPY.islands[key];
+    F.appendChild(field('Beacon (the small label)',c.beacon,v=>c.beacon=v,{mono:true,max:34}));
+    F.appendChild(field('Title',c.title,v=>c.title=v,{max:38}));
+    F.appendChild(field('Body',c.body,v=>c.body=v,{area:true,rows:5,max:360}));
+    if(key==='craft'){ const sh=document.createElement('div'); sh.className='subhead'; sh.textContent='craft tags'; F.appendChild(sh);
+      c.crafts.forEach((t,i)=>F.appendChild(field('#'+(i+1),t,v=>c.crafts[i]=v,{mono:true,max:30}))); }
+    if(key==='menagerie'){ const sh=document.createElement('div'); sh.className='subhead'; sh.textContent='the six projects — one line each'; F.appendChild(sh);
+      c.projects.forEach((p,i)=>{ const w=document.createElement('div'); w.className='row2';
+        w.appendChild(field('name',p.name,v=>p.name=v,{mono:true,max:16}));
+        w.appendChild(field('status',p.status,v=>p.status=v,{mono:true,max:8})); F.appendChild(w);
+        F.appendChild(field('↳ line for '+(p.name||'#'+(i+1)),p.line,v=>p.line=v,{area:true,rows:2,max:90})); }); }
+    if(key==='farlight'){ const sh=document.createElement('div'); sh.className='subhead'; sh.textContent='buttons'; F.appendChild(sh);
+      F.appendChild(field('Button 1',c.btn1,v=>c.btn1=v,{mono:true,max:30}));
+      F.appendChild(field('Button 2',c.btn2,v=>c.btn2=v,{mono:true,max:30})); }
+  },()=>{
+    const c=COPY.islands[key], d=document.createElement('div'); d.className='pv-card'+(key==='bigwhoop'?' bw':'');
+    let h=`<div class="ey">${esc(c.beacon)}</div><h2>${esc(c.title)}</h2><p>${md(esc(c.body))}</p>`;
+    if(c.crafts) h+=`<div class="pv-crafts">${c.crafts.map(t=>`<span class="pv-craft">· ${esc(t)}</span>`).join('')}</div>`;
+    if(c.projects){ h+=`<div class="pv-shots">${c.projects.map(p=>`<div class="pv-shot"><span class="sn">${esc(p.name)}</span><span class="sk" style="color:${SK[p.status]||'#5f7480'}">${esc(p.status)}</span></div>`).join('')}</div>`;
+      const lines=c.projects.filter(p=>p.line); if(lines.length) h+=`<div style="margin-top:12px">${lines.map(p=>`<p style="margin-top:5px;font-size:12.5px"><b>${esc(p.name)}</b> — ${esc(p.line)}</p>`).join('')}</div>`; }
+    if(key==='farlight') h+=`<div class="pv-btns"><span class="pv-btn">${esc(c.btn1)}</span><span class="pv-btn amber">${esc(c.btn2)}</span></div>`;
+    d.innerHTML=h; return d;
+  });
+}
+islandPanel('01','craft','Craft Isle');
+islandPanel('02','menagerie','The Menagerie');
+islandPanel('03','driftwood','Driftwood \u2014 the passage I');
+islandPanel('04','crossing','The Crossing \u2014 the passage II');
+islandPanel('05','vend','Vend Reach \u2014 the passage III (now)');
+islandPanel('06','farlight','Far Light \u2014 contact');
+islandPanel('07','bigwhoop','Big Whoop \u2014 the secret');
+islandPanel('08','landfall','Landfall \u2014 home dock');
+
+// ---- SYSTEM ----
+panel('09','System \u2014 little messages',(F)=>{
+  const s=COPY.system;
+  F.appendChild(field('Coin pickup (use {n})',s.coinToast,v=>s.coinToast=v,{mono:true,max:30}));
+  F.appendChild(field('Treasure pickup',s.treasureToast,v=>s.treasureToast=v,{mono:true,max:44}));
+  F.appendChild(field('Dock prompt',s.stepAshore,v=>s.stepAshore=v,{mono:true,max:30}));
+  F.appendChild(field('House prompt',s.visit,v=>s.visit=v,{mono:true,max:30}));
+  F.appendChild(field('Boat shop name',s.shopTitle,v=>s.shopTitle=v,{mono:true,max:24}));
+},()=>{
+  const s=COPY.system, d=document.createElement('div'); d.className='pv';
+  d.innerHTML=`<div style="display:flex;flex-direction:column;gap:10px;align-items:center">
+    <span style="font-family:var(--mono);font-size:12px;color:#0b1219;background:var(--life);padding:7px 14px;border-radius:999px">${esc(s.coinToast).replace('{n}','5')}</span>
+    <span style="font-family:var(--mono);font-size:12px;color:#0b1219;background:var(--amber);padding:7px 14px;border-radius:999px">${esc(s.treasureToast)}</span>
+    <span style="font-family:var(--mono);font-size:12px;color:#0b1219;background:var(--life);padding:7px 14px;border-radius:999px">${esc(s.stepAshore)}</span>
+    <span style="font-family:var(--mono);font-size:13px;color:var(--amber);font-family:var(--pirata)">${esc(s.shopTitle)}</span></div>`;
+  return d;
+});
+
+// ====== IO ======
+const dlg=document.getElementById('ioDlg'), dlgText=document.getElementById('dlgText'), dlgTitle=document.getElementById('dlgTitle'), dlgNote=document.getElementById('dlgNote');
+function exportJSON(){ const out={...COPY}; return JSON.stringify(out,null,2); }
+document.getElementById('exportBtn').onclick=()=>{
+  const blob=new Blob([exportJSON()],{type:'application/json'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='magnify-copy.json'; a.click();
+};
+document.getElementById('copyBtn').onclick=async()=>{
+  dlgTitle.textContent='Copy this to Brian'; dlgNote.innerHTML='Select all & copy, then paste it to him in chat. He drops it straight into the game.';
+  dlgText.value=exportJSON(); dlgText.readOnly=true; dlg.showModal(); dlgText.select();
+  try{ await navigator.clipboard.writeText(dlgText.value); dlgTitle.textContent='Copied ✓ (also shown below)'; }catch(e){}
+};
+document.getElementById('importBtn').onclick=()=>{
+  dlgTitle.textContent='Import / paste JSON'; dlgNote.innerHTML='Paste a <b>magnify-copy.json</b> here to load it, then close.'; dlgText.value=''; dlgText.readOnly=false; dlg.showModal();
+  dlgText.oninput=()=>{ try{ const o=JSON.parse(dlgText.value); COPY=deepMerge(structuredClone(DEFAULTS),o); save(); location.reload(); }catch(e){} };
+};
+document.getElementById('resetBtn').onclick=()=>{ if(confirm('Reset all copy to the original text? Your edits will be lost.')){ localStorage.removeItem('magnify_copy'); location.reload(); } };
+
+// ====== MAP VIEW ======
+// real island world coords (from the game) → laid out so you read the story across the archipelago
+const MAP_W=3400, MAP_H=2100;
+const NODES=[
+  {key:'landfall', x:620, y:1560, label:'Landfall'},
+  {key:'craft',    x:640, y:640,  label:'Craft Isle'},
+  {key:'menagerie',x:1760,y:1180, label:'The Menagerie'},
+  {key:'driftwood',x:1640,y:430,  label:'Driftwood'},
+  {key:'crossing', x:2120,y:360,  label:'The Crossing'},
+  {key:'vend',     x:2620,y:600,  label:'Vend Reach'},
+  {key:'farlight', x:3020,y:1380, label:'Far Light'},
+  {key:'bigwhoop', x:3160,y:1860, label:'Big Whoop', secret:true},
+];
+const ROUTE=['landfall','craft','menagerie','driftwood','crossing','vend','farlight'];
+const mapEl=document.getElementById('map');
+function renderMap(){
+  const SCALE=0.46, PAD=120, W=MAP_W*SCALE+PAD*2, H=MAP_H*SCALE+PAD*2;
+  const pos=n=>({x:PAD+n.x*SCALE, y:PAD+n.y*SCALE});
+  let svg=`<svg width="${W}" height="${H}" style="position:absolute;left:0;top:0;pointer-events:none">`;
+  // route line
+  let d=''; ROUTE.forEach((k,i)=>{ const n=NODES.find(x=>x.key===k), p=pos(n); d+=(i?'L':'M')+p.x+' '+p.y+' '; });
+  svg+=`<path d="${d}" fill="none" stroke="#ffce7a" stroke-width="2.5" stroke-dasharray="3 10" opacity=".55"/>`;
+  const fl=pos(NODES.find(n=>n.key==='farlight')), bw=pos(NODES.find(n=>n.key==='bigwhoop'));
+  svg+=`<path d="M${fl.x} ${fl.y} L${bw.x} ${bw.y}" fill="none" stroke="#e8412e" stroke-width="2" stroke-dasharray="2 9" opacity=".5"/></svg>`;
+  let cards='';
+  NODES.forEach((n,i)=>{ const p=pos(n), c=COPY.islands[n.key];
+    cards+=`<div class="mcard${n.secret?' bw':''}" data-key="${n.key}" style="left:${p.x}px;top:${p.y}px">
+      <div class="mnum">${n.key==='bigwhoop'?'✕':String(ROUTE.indexOf(n.key)+1).padStart(2,'0')}</div>
+      <div class="mey">${esc(c.beacon)}</div>
+      <div class="mt">${esc(c.title)}</div>
+      <div class="mb">${md(esc(c.body)).slice(0,180)}${c.body.length>180?'…':''}</div>
+    </div>`;
+  });
+  mapEl.innerHTML=`<div style="position:relative;width:${W}px;height:${H}px;margin:0 auto">${svg}${cards}</div>`;
+  mapEl.querySelectorAll('.mcard').forEach(el=>el.onclick=()=>{ setView('list'); const idx=NODES.findIndex(n=>n.key===el.dataset.key);
+    const order=['craft','menagerie','driftwood','crossing','vend','farlight','bigwhoop','landfall'];
+    const pn=document.querySelectorAll('.panel')[order.indexOf(el.dataset.key)+1]; if(pn) pn.scrollIntoView({behavior:'smooth',block:'center'}); });
+}
+function setView(v){
+  const list=v==='list';
+  document.getElementById('board').style.display=list?'block':'none';
+  mapEl.style.display=list?'none':'block';
+  document.getElementById('viewList').classList.toggle('on',list);
+  document.getElementById('viewMap').classList.toggle('on',!list);
+  if(!list) renderMap();
+}
+document.getElementById('viewList').onclick=()=>setView('list');
+document.getElementById('viewMap').onclick=()=>setView('map');
+</script>
+</body>
+</html>
