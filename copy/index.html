@@ -143,7 +143,7 @@ dialog::backdrop{background:rgba(4,9,14,.7);}
   <div class="deck" id="deck"></div>
 </div>
 
-<div id="map" style="position:absolute;inset:56px 0 0 0;overflow:auto;display:none;background:radial-gradient(130% 110% at 50% 0%,#0c1a26,#050e16);"></div>
+<div id="map" style="position:absolute;inset:56px 0 0 0;overflow:hidden;display:none;background:radial-gradient(130% 110% at 50% 0%,#0c1a26,#050e16);"></div>
 
 <dialog id="ioDlg">
   <div class="dlg__h"><b id="dlgTitle">Export</b><button class="btnx" onclick="document.getElementById('ioDlg').close()">close</button></div>
@@ -466,14 +466,27 @@ function renderMap(){
       <div class="mnum">${n.key==='bigwhoop'?'✕':String(ROUTE.indexOf(n.key)+1).padStart(2,'0')}</div>
       <div class="mey">${esc(c.beacon)}</div>
       <div class="mt">${esc(c.title)}</div>
-      <div class="mb">${md(esc(c.body)).slice(0,180)}${c.body.length>180?'…':''}</div>
+      <div class="mb">${md(esc(c.body.slice(0,180)))}${c.body.length>180?'…':''}</div>
     </div>`;
   });
-  mapEl.innerHTML=`<div style="position:relative;width:${W}px;height:${H}px;margin:0 auto">${svg}${cards}</div>`;
+  mapEl.innerHTML=`<div class="mapinner" style="position:absolute;width:${W}px;height:${H}px;transform-origin:top left">${svg}${cards}</div>`;
+  fitMap();
   mapEl.querySelectorAll('.mcard').forEach(el=>el.onclick=()=>{ setView('list'); const idx=NODES.findIndex(n=>n.key===el.dataset.key);
     const order=['craft','menagerie','driftwood','forge','lookout','homecoming','vend','longtack','farlight','bigwhoop','landfall'];
     const pn=document.querySelectorAll('.panel')[order.indexOf(el.dataset.key)+1]; if(pn) pn.scrollIntoView({behavior:'smooth',block:'center'}); });
 }
+// zoom the whole archipelago to fit the canvas so every island is viewable at once
+function fitMap(){
+  const inner=mapEl.querySelector('.mapinner'); if(!inner) return;
+  const W=inner.offsetWidth, H=inner.offsetHeight;
+  const availW=mapEl.clientWidth, availH=mapEl.clientHeight;
+  if(!W||!H||!availW||!availH) return;
+  const s=Math.min(availW/W, availH/H, 1);
+  inner.style.transform=`scale(${s})`;
+  inner.style.left=Math.max(0,(availW-W*s)/2)+'px';
+  inner.style.top=Math.max(0,(availH-H*s)/2)+'px';
+}
+window.addEventListener('resize',()=>{ if(mapEl.style.display!=='none') fitMap(); });
 function setView(v){
   const list=v==='list';
   document.getElementById('board').style.display=list?'block':'none';
