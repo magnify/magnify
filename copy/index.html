@@ -178,12 +178,103 @@ const DEFAULTS = {
         {name:'Knitter',status:'hold',line:''}
       ]},
     driftwood:{ beacon:'the passage · i', title:'Driftwood.', body:'The story starts here, washed up early: he was always building — back when the web was young and you made things just to watch them exist.' },
-    crossing:{ beacon:'the passage · ii', title:'The Crossing.', body:'Front-end grew heavy. So he crossed into **design** — to stay near the part he loved: an idea becoming real. Years of UX, design systems, leading teams.' },
-    vend:{ beacon:'the passage · iii · now', title:'Vend Reach — the present.', body:"Then the weight lifted and building got fast again. Today he's **Product Design at Vend** — and going home to build, for the joy of it. The maker, back at the bench." },
-    farlight:{ beacon:'landed · far light', title:'The lighthouse.', body:"Edge of the chart. If you've something worth making — or just want to talk about building in the AI era — signal the shore.", btn1:'Connect on LinkedIn ↗', btn2:'hallo@magnify.dk' },
+    forge:{ beacon:'the passage · ii', title:'The Forge.', body:'This is where the system clicked. Years at the Kommune — Drupal builds, wayfinding for Dokk1, an app for refugees. He met **Atomic Design** here, and it put words to how he already worked. Grew into a team lead. The systems thinking started here.' },
+    lookout:{ beacon:'the passage · iii', title:'The Lookout.', body:'He zoomed out. Web architect, QA manager, UX architect — pitching projects, working close with sales. Then Head of Design at No Zebra — leadership, processes, design systems at scale. He learned a lot. He also **missed the hands-on work**.' },
+    homecoming:{ beacon:'the passage · iv', title:'The Return.', body:'Back to the bench. Startup space at Frigg — hands-on Product Designer, co-creating the design system with the dev team. Storybook, modern stack, brand guide, company website. **Lots of learnings.**' },
+    vend:{ beacon:'the passage · v · now', title:'Vend Reach — the present.', body:"Big corp. He joined Vend to grow the research muscle — then AI arrived and reshuffled the deck. The role is moving toward **Design Systems Architect**: systems at the front, AI as the accelerant." },
+    longtack:{ beacon:'the bigger story', title:'The Long Tack.', body:"He was kinda a fullstack designer in 2003. Called it again at Novicell with a Vue prototype. The label kept fitting — what changed isn't him. **AI brought designers back to code**, and the same work happens now at the speed it was always meant to." },
+    farlight:{ beacon:'landed · far light', title:'The lighthouse.', body:"Edge of the chart. Direction: **AI · design engineering · design systems architecture**. The lantern's lit for a chat — and open for minor fun freelance.", btn1:'Connect on LinkedIn ↗', btn2:'hallo@magnify.dk' },
     bigwhoop:{ beacon:'✕ marks the spot', title:'Big Whoop.', body:"You explored the whole chain. The treasure isn't gold — it's that after 25 years he's still doing this, and just getting started. (And yes: he really almost became a zookeeper. The exotic animals at home are real — that's where Kolony comes from.)" }
   },
-  system:{ coinToast:'+{n} doubloons', treasureToast:'You picked up the treasure! +100 ✦', stepAshore:'⌖ step ashore — Enter', visit:'⌖ visit — Enter', shopTitle:"The Boatwright" }
+  system:{ coinToast:'+{n} doubloons', treasureToast:'You picked up the treasure! +100 ✦', stepAshore:'⌖ step ashore — Enter', visit:'⌖ visit — Enter', shopTitle:"The Boatwright" },
+  notes:{
+    '00': `Voice cues from the Framer About + pitch deck: warm, direct, a little self-deprecating. No buzzwords. Maritime tone lives in the Pirata One headlines; the body voice stays plain.`,
+    '01': `Two craft framings to choose between (or merge):
+
+Domain-based (current in the deck): Product design · UX · Code · Design systems · AI-assisted building.
+
+Verb-based (from Brian's pitch deck): Understand & Explore — clarify problems, sketch ideas, align early · Design UI with structure — hierarchy, flows, real use · Build design systems — reusable tokens, components, docs · Lead the process — discovery to delivery, naming, direction · Refine and improve — iterate on feedback, fix bugs.
+
+"25 years" = 2000–2025, accurate.`,
+    '02': `Five of six project lines are still empty. Brian needs to fill them in — what each is, what stage, why it's in the menagerie. What we know: Kolony (wip) is a specimen-tracking app for beetles, reptiles, isopods — hosted at kolony.magnify.dk. Ties directly to the "almost zookeeper" backstory.`,
+    '03': `Origin in Brian's own words from the pitch deck: started ≈ 2000 — "I found out I could design things in Photoshop." Then formal education as Multimedia Integrator at Intern1: "I was kinda a fullstack designer — did PHP, MySQL, and of course a lot of pixel-perfect designs."
+
+From the Framer About: "When I was 19 I picked up a new hobby and ditched my plan of becoming an animal keeper. I could take the ideas in my head, put them on a screen, and show them to my friends. And I wasn't half bad at it." / "Back then we called ourselves web designers. It was a different time — but not with fewer problems."
+
+Note: "making things just to watch them exist" in the current body isn't in the pitch or the Framer site — may be earlier LLM polish. Confirm before keeping.`,
+    '04': `Period: 2010–2017 at ITK / Aarhus Kommune (Frontend Designer → Team Lead).
+
+Key beats from the pitch deck:
+• Met Atomic Design here — "put words and methods to how I already approached design"
+• Built Drupal and open-source things — Dokk1 wayfinding, Be My Guide app for refugees, the Google Glass project
+• Held workshops, including at Drupal Camp Aarhus
+• Grew into a Team Lead role — recruitment, client meetings, bringing new projects to the team
+• "Had fun with nice people"
+
+This is where the systems thinking started — the design systems through-line begins here.`,
+    '05': `Period: 2017–2022. Novicell + No Zebra — the "zoomed out" chapter.
+
+Novicell (2017–2019) — three sub-roles: Web Architect → QA Manager → UX Architect.
+• "First real manager position — pitching and shaping projects and processes"
+• Set up the QA team from scratch
+• Vue.js prototyping on a complex client form — "fullstack designer" called here again (key moment for The Long Tack)
+• Close with sales, scoping, estimating
+
+No Zebra (2019–2022) — Head of Design.
+• Now part of management with new challenges
+• Continued sales-close work
+• Held a Danish-language Design Systems webinar
+• Atomic Design as the central way of working
+• Project Lead on the Dyrehavsbakken app; Design Lead on a commerce site
+• OKR · "Dialogisk ledelse" · weekly walk-and-talks
+
+Pitch line: "Zoomed out, but missed the hands-on work."`,
+    '06': `Period: 2022–2025. Frigg Tech — "back to the roots."
+
+After short tries (Enterspeed contract; briefly Head of Product Design at Frigg), he landed as Product Designer.
+
+What he did at Frigg:
+• Co-created the design system in Figma with Storybook as the bridge to dev
+• Modern stack (Shadcn, Radix, Tailwind)
+• Built core components, blocks, brand guide, the company website
+• Recruitment for the startup
+• Worked close with the founder
+
+Pitch line: "Tried all three — and now I'm here, doing what I do best." Startup space, lots of learnings.`,
+    '07': `Now: Vend, on Bilinfo (B2B automotive marketplace). Big corp. Joined as Product Designer with research as the next muscle to grow.
+
+Then AI arrived and the role is pivoting — Brian is changing roles inside Vend to Design Systems Architect (title still in flight). Research goes into the backseat again; the systems work moves forward.
+
+Daily Claude Code use. Brain (durable processes) + Marbles (GitHub-tracked tasks with full context log) — so decisions and context are recoverable months later. Spearheading internal AI adoption — talks, plugins, onboarding.
+
+Caveat: "production-ready code" framing belongs to his hobby work, not the Vend system (which is design-truth + prototyping, not yet production).
+
+Don't fix the new job title in copy until Brian confirms it.`,
+    '08': `The bigger story — the fullstack-designer through-line + the AI moment.
+
+He was "kinda a fullstack designer" at Intern1 in 2003 (PHP, MySQL, pixel-perfect designs). The label got called again at Novicell ~2019 with a Vue prototype. Then he zoomed into leadership — but the identity kept fitting.
+
+Now AI brings designers back to code, and the loop closes. He's at the forefront of building AI-driven design process and design systems.
+
+Voice phrases to lift: "kinda fullstack designer" · "called it again" · "AI is bringing designers back to code" · "at the forefront."
+
+(General framing — Brian wants the punchline kept open while his wife writes the actual copy.)`,
+    '09': `Important context shift: the Framer site framing ("I'm looking for Senior / Lead Product Designer") was for landing the Vend job — which has now happened. Brian is NOT actively looking for a new role.
+
+What the lighthouse should signal now:
+• Direction — AI · design engineering · design systems architecture
+• Open for minor fun freelance projects
+• Open to conversations about building in the AI era
+
+Avoid copy that reads as "hire me full-time" / "available for next role."`,
+    '10': `The literal animals reveal. Animal-keeper plan ditched at 19 in favour of web design. Pitch deck confirms "Beyond: Wildlife, animal keeper, boardgames, basketball" — his own framing.
+
+Keeps geckos at home; Kolony tracks his real menagerie (beetles, reptiles, isopods). Personal: Chief Panini Officer 🥪 · dad · boardgamer · basketball player.
+
+Current body reads accurate — closes the menagerie metaphor by tying it to the literal animals → Kolony.`,
+    '11': `Home dock — entry beat. "Building things on the internet since 2000" is accurate (first freelance work around age 16). Self-taught at the start; later formal education as Multimedia Integrator at Intern1. Tight is good here.`,
+    '12': ``
+  }
 };
 const AV_COLORS=[['#d8b48a','#3f7a8c'],['#caa074','#5d7d2a'],['#e0c0a0','#9a5a2c'],['#c8a888','#7a4f86'],['#e6c79a','#f2c531'],['#d8a878','#e07a2c']];
 const SK={live:'#e8412e',play:'#ffce7a',wip:'#aebcc4',poc:'#aebcc4',hold:'#5f7480'};
@@ -297,14 +388,17 @@ function islandPanel(n,key,title){
 islandPanel('01','craft','Craft Isle');
 islandPanel('02','menagerie','The Menagerie');
 islandPanel('03','driftwood','Driftwood \u2014 the passage I');
-islandPanel('04','crossing','The Crossing \u2014 the passage II');
-islandPanel('05','vend','Vend Reach \u2014 the passage III (now)');
-islandPanel('06','farlight','Far Light \u2014 contact');
-islandPanel('07','bigwhoop','Big Whoop \u2014 the secret');
-islandPanel('08','landfall','Landfall \u2014 home dock');
+islandPanel('04','forge','The Forge \u2014 the passage II');
+islandPanel('05','lookout','The Lookout \u2014 the passage III');
+islandPanel('06','homecoming','The Return \u2014 the passage IV');
+islandPanel('07','vend','Vend Reach \u2014 the passage V (now)');
+islandPanel('08','longtack','The Long Tack \u2014 the bigger story');
+islandPanel('09','farlight','Far Light \u2014 contact');
+islandPanel('10','bigwhoop','Big Whoop \u2014 the secret');
+islandPanel('11','landfall','Landfall \u2014 home dock');
 
 // ---- SYSTEM ----
-panel('09','System \u2014 little messages',(F)=>{
+panel('12','System \u2014 little messages',(F)=>{
   const s=COPY.system;
   F.appendChild(field('Coin pickup (use {n})',s.coinToast,v=>s.coinToast=v,{mono:true,max:30}));
   F.appendChild(field('Treasure pickup',s.treasureToast,v=>s.treasureToast=v,{mono:true,max:44}));
@@ -343,16 +437,19 @@ document.getElementById('resetBtn').onclick=()=>{ if(confirm('Reset all copy to 
 // real island world coords (from the game) → laid out so you read the story across the archipelago
 const MAP_W=3400, MAP_H=2100;
 const NODES=[
-  {key:'landfall', x:620, y:1560, label:'Landfall'},
-  {key:'craft',    x:640, y:640,  label:'Craft Isle'},
-  {key:'menagerie',x:1760,y:1180, label:'The Menagerie'},
-  {key:'driftwood',x:1640,y:430,  label:'Driftwood'},
-  {key:'crossing', x:2120,y:360,  label:'The Crossing'},
-  {key:'vend',     x:2620,y:600,  label:'Vend Reach'},
-  {key:'farlight', x:3020,y:1380, label:'Far Light'},
-  {key:'bigwhoop', x:3160,y:1860, label:'Big Whoop', secret:true},
+  {key:'landfall',  x:400,  y:1800, label:'Landfall'},
+  {key:'craft',     x:400,  y:500,  label:'Craft Isle'},
+  {key:'menagerie', x:1000, y:1200, label:'The Menagerie'},
+  {key:'driftwood', x:1100, y:200,  label:'Driftwood'},
+  {key:'forge',     x:1700, y:200,  label:'The Forge'},
+  {key:'lookout',   x:2300, y:200,  label:'The Lookout'},
+  {key:'homecoming',x:2900, y:200,  label:'The Return'},
+  {key:'vend',      x:2900, y:800,  label:'Vend Reach'},
+  {key:'longtack',  x:2900, y:1400, label:'The Long Tack'},
+  {key:'farlight',  x:2300, y:1800, label:'Far Light'},
+  {key:'bigwhoop',  x:3300, y:1900, label:'Big Whoop', secret:true},
 ];
-const ROUTE=['landfall','craft','menagerie','driftwood','crossing','vend','farlight'];
+const ROUTE=['landfall','craft','menagerie','driftwood','forge','lookout','homecoming','vend','longtack','farlight'];
 const mapEl=document.getElementById('map');
 function renderMap(){
   const SCALE=0.46, PAD=120, W=MAP_W*SCALE+PAD*2, H=MAP_H*SCALE+PAD*2;
@@ -374,7 +471,7 @@ function renderMap(){
   });
   mapEl.innerHTML=`<div style="position:relative;width:${W}px;height:${H}px;margin:0 auto">${svg}${cards}</div>`;
   mapEl.querySelectorAll('.mcard').forEach(el=>el.onclick=()=>{ setView('list'); const idx=NODES.findIndex(n=>n.key===el.dataset.key);
-    const order=['craft','menagerie','driftwood','crossing','vend','farlight','bigwhoop','landfall'];
+    const order=['craft','menagerie','driftwood','forge','lookout','homecoming','vend','longtack','farlight','bigwhoop','landfall'];
     const pn=document.querySelectorAll('.panel')[order.indexOf(el.dataset.key)+1]; if(pn) pn.scrollIntoView({behavior:'smooth',block:'center'}); });
 }
 function setView(v){
