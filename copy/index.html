@@ -157,18 +157,18 @@ dialog::backdrop{background:rgba(4,9,14,.7);}
 // ====== default copy (current game text) ======
 const DEFAULTS = {
   splash: {
-    decoration:'a voyage · magnify.dk',
+    decoration:'a way through · magnify.dk',
     headline:'You wash', headlineEm:'ashore.',
-    intro:"No menu, no map — an island chain in the dark and a boat at the dock. This is **Brian's world**; you're the visitor. Sail out, let your lantern cut the fog, gather doubloons, and step ashore to meet everything he keeps out here.",
+    intro:"No map, no menu — just an island chain in the dark and a light blinking at the far edge. You've washed up somewhere inside **Brian's** memory; every island out here is part of the journey that got him this far. There's a way through, and the light marks it. Follow it to the mainland — and notice that finding your way is, itself, the thing he does for a living.",
     avatarHeadline:'choose your wanderer',
-    button:'Set sail ⛵',
+    button:'Follow the light →',
     help:'desktop · arrow keys or WASD · dock at an island, then **step ashore** · 🔊 return to your dock to upgrade the ship'
   },
   avatars:['Skipper','Ranger','Scholar','Drifter','Sunny','Ember'],
   islands:{
-    landfall:{ beacon:'home · landfall', title:'Where you came ashore.', body:"This is the keeper's home dock. Brian Jensen — building things on the internet since 2000. Everything out in the dark is something he made or is making. Sail back here anytime to upgrade your ship." },
-    craft:{ beacon:'landed · craft isle', title:'Where the work is made.', body:'Not a résumé — a workshop. Twenty-five years doing the work with his own hands, and lately building faster than ever.', crafts:['Product design','UX','Code','Design systems','AI-assisted building'] },
-    menagerie:{ beacon:'landed · the menagerie', title:'The living things he keeps.', body:'He nearly became a zookeeper; instead he keeps a menagerie of projects — some alive and in daily use, some still growing, one purely for play.',
+    landfall:{ beacon:'home · landfall', title:'Where you get your bearings.', body:"Start here. Brian Jensen — building on the web since 2000. Every island out in the dark is a place that shaped how he works, and the light at the far edge is the way through them to the mainland. No tour, no pitch — just follow it. → this way" },
+    craft:{ beacon:'landed · craft isle', title:'What he actually makes.', body:'Not a résumé — a workshop. A design engineer: he takes a fuzzy product problem and turns it into a real, shipped thing — the design, the system underneath it, and the code that makes it run. Twenty-five years of it, and lately faster than ever. → this way', crafts:['Find the problem','Design the structure','Build the system','Make it real in code','Now, faster with AI'] },
+    menagerie:{ beacon:'landed · the menagerie', title:'The living things he keeps.', body:"He nearly became a zookeeper. Instead he keeps a menagerie of things he's built — some live and in daily use, some still growing, one just for play. Not a portfolio; proof he doesn't only talk about building. → this way",
       projects:[
         {name:'Fugleviden',status:'live',line:''},
         {name:'Wonders',status:'live',line:''},
@@ -177,14 +177,14 @@ const DEFAULTS = {
         {name:'FoodScan',status:'poc',line:''},
         {name:'Knitter',status:'hold',line:''}
       ]},
-    driftwood:{ beacon:'the passage · i', title:'Driftwood.', body:'The story starts here, washed up early: he was always building — back when the web was young and you made things just to watch them exist.' },
-    forge:{ beacon:'the passage · ii', title:'The Forge.', body:'This is where the system clicked. Years at the Kommune — Drupal builds, wayfinding for Dokk1, an app for refugees. He met **Atomic Design** here, and it put words to how he already worked. Grew into a team lead. The systems thinking started here.' },
-    lookout:{ beacon:'the passage · iii', title:'The Lookout.', body:'He zoomed out. Web architect, QA manager, UX architect — pitching projects, working close with sales. Then Head of Design at No Zebra — leadership, processes, design systems at scale. He learned a lot. He also **missed the hands-on work**.' },
-    homecoming:{ beacon:'the passage · iv', title:'The Return.', body:'Back to the bench. Startup space at Frigg — hands-on Product Designer, co-creating the design system with the dev team. Storybook, modern stack, brand guide, company website. **Lots of learnings.**' },
-    vend:{ beacon:'the passage · v · now', title:'Vend Reach — the present.', body:"Big corp. He joined Vend to grow the research muscle — then AI arrived and reshuffled the deck. The role is moving toward **Design Systems Architect**: systems at the front, AI as the accelerant." },
-    longtack:{ beacon:'the bigger story', title:'The Long Tack.', body:"He was kinda a fullstack designer in 2003. Called it again at Novicell with a Vue prototype. The label kept fitting — what changed isn't him. **AI brought designers back to code**, and the same work happens now at the speed it was always meant to." },
-    farlight:{ beacon:'landed · far light', title:'The lighthouse.', body:"Edge of the chart. Direction: **AI · design engineering · design systems architecture**. The lantern's lit for a chat — and open for minor fun freelance.", btn1:'Connect on LinkedIn ↗', btn2:'hallo@magnify.dk' },
-    bigwhoop:{ beacon:'✕ marks the spot', title:'Big Whoop.', body:"You explored the whole chain. The treasure isn't gold — it's that after 25 years he's still doing this, and just getting started. (And yes: he really almost became a zookeeper. The exotic animals at home are real — that's where Kolony comes from.)" }
+    driftwood:{ beacon:'the passage · i', title:'Driftwood.', body:"Where it started. He was nineteen, headed for a life as an animal keeper, when he found he could take the idea in his head, put it on a screen, and show his friends — and he wasn't half bad at it. Back then they called it web design. He's been building ever since. → this way" },
+    forge:{ beacon:'the passage · ii', title:'The Forge.', body:"Where the systems clicked. Years at the Kommune turning civic problems into things people could actually use — wayfinding for Dokk1, an app for refugees. **Atomic Design** gave a name to how he already worked. He learned to make complex things easy to move through — the skill you're using right now. → this way" },
+    lookout:{ beacon:'the passage · iii', title:'The Lookout.', body:"He climbed up to see the whole map. Architect, then Head of Design — leading teams, shaping process, design systems at scale. He got good at the big picture, and learned where he's actually most useful: **hands on the work**, not above it. → this way" },
+    homecoming:{ beacon:'the passage · iv', title:'The Return.', body:'So he came back to the bench. At a startup, hands-on again — building the design system together with the developers, not throwing it over a wall. Figma to Storybook to shipped components. This is the **design-engineer** shape, in practice. → this way' },
+    vend:{ beacon:'the passage · v · now', title:'Vend Reach — the present.', body:"Where he is now. He joined a big company to grow the research side — then AI arrived and reshuffled the deck. So the work is shifting back to where he's always been strongest: the design system out front, AI as the accelerant. → this way" },
+    longtack:{ beacon:'the bigger story', title:'The Long Tack.', body:"Here's the thread under all of it. He was already a fullstack designer in 2003 — design and code, same hands. The title kept drifting in and out of fashion; the work never changed. **AI just brought designers back to the code**, and now the thing he always did happens at the speed it was meant to. → this way" },
+    farlight:{ beacon:'landed · far light', title:'The light.', body:"You found your way. The lamp that brought you here isn't magic — it's wayfinding, design systems, the work of making lost people un-lost. That's what Brian builds, now with AI to do it faster. Building something and feeling a bit lost in it? The lamp's lit.", btn1:'Connect on LinkedIn ↗', btn2:'hallo@magnify.dk' },
+    bigwhoop:{ beacon:'✕ marks the spot', title:'Big Whoop.', body:"You found the whole chain — so here's the real treasure, and it isn't gold: after 25 years he's still doing this, and still just getting started. (And yes — he really almost became a zookeeper. The animals at home are real. That's where **Kolony** comes from.)" }
   },
   system:{ coinToast:'+{n} doubloons', treasureToast:'You picked up the treasure! +100 ✦', stepAshore:'⌖ step ashore — Enter', visit:'⌖ visit — Enter', shopTitle:"The Boatwright" },
   notes:{
@@ -437,17 +437,17 @@ document.getElementById('resetBtn').onclick=()=>{ if(confirm('Reset all copy to 
 // real island world coords (from the game) → laid out so you read the story across the archipelago
 const MAP_W=3400, MAP_H=2100;
 const NODES=[
-  {key:'landfall',  x:400,  y:1800, label:'Landfall'},
-  {key:'craft',     x:400,  y:500,  label:'Craft Isle'},
-  {key:'menagerie', x:1000, y:1200, label:'The Menagerie'},
-  {key:'driftwood', x:1100, y:200,  label:'Driftwood'},
-  {key:'forge',     x:1700, y:200,  label:'The Forge'},
-  {key:'lookout',   x:2300, y:200,  label:'The Lookout'},
-  {key:'homecoming',x:2900, y:200,  label:'The Return'},
-  {key:'vend',      x:2900, y:800,  label:'Vend Reach'},
-  {key:'longtack',  x:2900, y:1400, label:'The Long Tack'},
-  {key:'farlight',  x:2300, y:1800, label:'Far Light'},
-  {key:'bigwhoop',  x:3300, y:1900, label:'Big Whoop', secret:true},
+  {key:'landfall',  x:500,  y:1700, label:'Landfall'},
+  {key:'craft',     x:500,  y:600,  label:'Craft Isle'},
+  {key:'menagerie', x:1100, y:1100, label:'The Menagerie'},
+  {key:'driftwood', x:1100, y:280,  label:'Driftwood'},
+  {key:'forge',     x:1650, y:280,  label:'The Forge'},
+  {key:'lookout',   x:2200, y:280,  label:'The Lookout'},
+  {key:'homecoming',x:2750, y:500,  label:'The Return'},
+  {key:'vend',      x:2900, y:1050, label:'Vend Reach'},
+  {key:'longtack',  x:2400, y:1400, label:'The Long Tack'},
+  {key:'farlight',  x:1700, y:1700, label:'Far Light'},
+  {key:'bigwhoop',  x:3200, y:1850, label:'Big Whoop', secret:true},
 ];
 const ROUTE=['landfall','craft','menagerie','driftwood','forge','lookout','homecoming','vend','longtack','farlight'];
 const mapEl=document.getElementById('map');
